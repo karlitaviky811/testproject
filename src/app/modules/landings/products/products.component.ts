@@ -4,7 +4,7 @@ import { AlertMessageComponent } from '../../../shared/components/alert-message/
 import { CommonModule } from '@angular/common';
 import { TranslateModule } from '@ngx-translate/core';
 import { BannerComponent } from './banner/banner.component';
-
+import { RouterModule } from '@angular/router';
 @Component({
   selector: 'app-products',
   standalone: true,
@@ -14,6 +14,7 @@ import { BannerComponent } from './banner/banner.component';
     CommonModule,
     TranslateModule,
     BannerComponent,
+    RouterModule
   ],
   templateUrl: './products.component.html',
   styleUrl: './products.component.scss',
