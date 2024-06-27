@@ -1,0 +1,111 @@
+<fwa-banner></fwa-banner>
+<div class="w-full flex flex-col">
+  <section class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-10 sm:gap-20 mb-20">
+    <div class="col-span-2 sm:col-span-3 lg:col-span-2 content-end bg-[#072443] pb-[10%]">
+      <div class="flex flex-col m-4 ml-[30%]">
+        <div>
+          <button
+            class="bg-primary border border-primary rounded-full text-white p-2"
+          >
+            Forex
+          </button>
+        </div>
+        <h1 class="font-medium text-[32px] text-left font-title-ligth">
+          Robot de Trading
+        </h1>
+        <p class="text-left font-p-ligth pt-2">
+          Nuestro EA de Forex es un sistema 100 % automático, el cual ejecuta
+          operaciones de manera algorítmica basandose en 3 distintas estrategias
+          para sacar beneficio del mercado haciendo Scalping, Su operativa se
+          basa en ir a favor de la tendencia del mercado y cuando esta falla,
+          simplemente cubre las operaciones aplicando una segunda estrategia
+          basada en intraday y coberturas.
+        </p>
+        <div class="flex items-end h-[10%]">
+          <a class="font-a-dark mt-4 flex items-center">Quiero un robot
+            <img src="img/arrow-up.png" alt=""class="h-[10px] ml-2" />
+
+          </a>
+       
+        </div>
+      
+      </div>
+    </div>
+    <div class="col-span-3">
+      <div>
+        <img src="img/forex_large.png" alt="" />
+      </div>
+    </div>
+  </section>
+
+  <div class="grid grid-cols-1 sm:grid-cols-1 gap-10 sm:gap-20 md:py-4 md:px-4 sm:py-0 sm:px-0">
+    <div class="col-span-12 content-center sm:w-full">
+      <h1 class="font-bold text-[32px] text-center text-[#0C2B4B]">
+        {{ "PRODUCTS.title" | translate }}
+      </h1>
+    </div>
+  </div>
+
+  <section class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-10 sm:gap-20 md:py-20 md:px-40 sm:py-0 sm:px-0">
+    <div class="col-span-1 content-evenly mx-4">
+          @for( item of pDetail; track item.title) {
+          <app-alert-message
+            [customTitle]="item.title"
+            [customIcon]="item.icon"
+            [customColor]="item.color"
+          ></app-alert-message>
+          }
+    </div>
+
+    <div class="col-span-1 content-center mx-4">
+      <p class="font-p-dark">
+        Si estas dos primeras estrategias fallan, amplia su rango agregando una
+        tercera estrategia de swing en coberturas. Su Gestión de riesgo se basa
+        en un Martin Gala al 1.618 el cual garantiza que siempre que tengamos
+        margen disponible en la cuenta este cerrará operaciones en beneficio.
+      </p>
+      <br />
+      <p class="font-p-dark">
+        No importa cual sea la dirección del mercado el sistema analizará,
+        ejecutará y gestionará la operativa por usted. Su único trabajo será
+        mantener la cuenta con suficiente margen para que el robot pueda operar
+        comodamente. Se debe instalar en un servidor VPS para que este
+        trabajando continuamente 24 hrs sin interrupciones.
+      </p>
+    </div>
+  </section>
+  <section class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-10 sm:gap-20 md:py-20 md:px-40 sm:py-0 sm:px-0">
+    <div class="col-span-1 content-center">
+      <div class="flex flex-col items-end justify-around">
+        <div class="m-4">
+          <p class="text-right m-4 font-p-dark">
+            Las señales de trading son muy atractivas para aquellas personas que
+            están iniciando en el trading y requieren de práctica para análisis
+            técnico. Nuestras señales de trading son realizadas de manera swing
+            trading y también operamos en scalping en la sesión de New York.
+          </p>
+        </div>
+        <div class="m-4">
+          
+          <fwa-button (onClick)="handleClick()"
+            >
+            <img src="img/message-fly.png"/>
+            Nuestras señales gratuitas</fwa-button
+          >
+        </div>
+      </div>
+    </div>
+    <div class="col-span-1 content-evenly mx-4">
+          @for( item of pDetail2; track item.title) {
+          <app-alert-message
+            [customTitle]="item.title"
+            [customIcon]="item.icon"
+            [customColor]="item.color"
+          ></app-alert-message>
+          }
+    </div>
+</section>
+
+</div>
+   
+

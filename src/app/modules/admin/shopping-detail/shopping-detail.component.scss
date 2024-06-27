@@ -1,0 +1,24 @@
+:host {
+    width: 100%;
+}
+
+td, th {
+    font-size: 22px;
+    color: #0C2B4B;
+    padding: 20px 28px;
+}
+
+th {
+    font-weight: 600;
+    background-color: #F2F8FF;
+}
+
+table, tr {
+    border: 1px solid #F2F2F2;
+    border-collapse: collapse;
+    padding: 20px 28px;
+}
+
+.text-paragraph {
+   font-size: 22px;
+}
