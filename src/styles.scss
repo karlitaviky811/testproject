@@ -1,1 +1,41 @@
 /* You can add global styles to this file, and also import other style files */
+// styles.scss
+@layer tailwind-base, primeng, tailwind-utilities;
+
+@layer tailwind-base {
+  @tailwind base;
+}
+
+@layer primeng; //not necessary I think
+
+@layer tailwind-utilities {
+  @tailwind components;
+  @tailwind utilities;
+}
+
+@layer components {
+  .footer-social-media {
+    @apply flex justify-center items-center sm:px-3 sm:py-4 border border-blueDark rounded-[10px]  w-8 h-8 sm:w-11 sm:h-11;
+  } 
+}
+
+@font-face {
+  font-family: "Work Sans";
+  src: url("assets/fonts/WorkSans-VariableFont_wght.ttf");
+}
+
+@font-face {
+  font-family: "Montserrat";
+  src: url("assets/fonts/Montserrat-VariableFont_wght.ttf");
+}
+
+@font-face {
+  font-family: "Poppins-Regular";
+  src: url("assets/fonts/Poppins-Regular.ttf");
+}
+
+@font-face {
+  font-family: "Aldrich-Regular";
+  src: url("assets/fonts/Aldrich-Regular.ttf");
+}
+

@@ -1,0 +1,27 @@
+<div class="w-full h-[89px] flex bg-secondary px-20">
+    <div class="flex items-center">
+        <img [routerLink]="['']" src="img/logo.png" alt="">
+    </div>
+    <div class="flex justify-end items-center gap-x-12 w-full">
+        <div class="flex gap-4">
+            @for(route of routeOptions; track route.name) {
+                <a [routerLink]="[route.path]">{{ route.name }}</a>
+            }
+        </div>
+        <div class="flex items-center gap-4">
+            <div class="flex gap-4">
+                <img class="w-[24px] h-[24px]" src="img/language.png" alt="">
+                <span class="text-blueDark">ES</span>
+            </div>
+         
+            <fwa-button (onClick)="handleClick()">CONTACTO</fwa-button>
+            
+            <img class="w-[24px] h-[24px]" src="img/cart.png" alt="">
+
+            <div class="flex gap-4">
+                <a [routerLink]="['../sign-in']" class="text-blueDark">LOGIN</a>
+            </div>
+        </div>
+    </div>
+
+</div>
