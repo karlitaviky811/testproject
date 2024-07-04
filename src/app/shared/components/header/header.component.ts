@@ -24,11 +24,7 @@ export class HeaderComponent {
     },
     {
       name: 'TIENDA',
-      path: '',
-    },
-    {
-      name: 'BLOG',
-      path: '',
+      path: 'robots',
     },
     
   ]

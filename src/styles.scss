@@ -13,10 +13,53 @@
   @tailwind utilities;
 }
 
+
+@layer base {
+  h1 {
+    @apply text-2xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-workSans;
+  }
+
+  h2 {
+    @apply text-[2.75rem] font-workSans;
+  }
+
+  h3 {
+    @apply text-[2.5rem] font-workSans;
+  }
+  
+  h4 {
+    @apply text-3xl sm:text-4xl font-workSans;
+  }
+
+  h5 {
+    @apply text-[2rem] font-workSans;
+  }
+}
+
 @layer components {
+  .paragraph-1 {
+    @apply text-[1.5rem] font-workSans text-blueDark;
+  }
+
+  .paragraph-2 {
+    @apply text-sm sm:text-[1.25rem] font-workSans text-blueDark;
+  }
+
+  .paragraph-3 {
+    @apply text-[1.125rem] font-workSans text-blueDark;
+  }
+
+  .paragraph-4 {
+    @apply font-workSans text-blueDark;
+  }
+
   .footer-social-media {
-    @apply flex justify-center items-center sm:px-3 sm:py-4 border border-blueDark rounded-[10px]  w-8 h-8 sm:w-11 sm:h-11;
-  } 
+    @apply flex justify-center items-center sm:px-3 sm:py-4 border border-blueDark rounded-[10px] w-8 h-8 sm:w-11 sm:h-11 cursor-pointer;
+  }
+
+  .font-medium-18 {
+    @apply text-sm sm:text-[18px] font-medium;
+  }
 }
 
 @font-face {

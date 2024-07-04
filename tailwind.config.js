@@ -10,6 +10,15 @@ module.exports = {
         blueDark: '#0C2B4B',
       }
     },
+    backgroundImage: {
+      'brantt': "url('img/brantt.png')"
+  },
+    fontFamily: {
+      workSans: ["Work Sans"],
+      poppins: ["Poppins-Regular"],
+      aldrich: ["Aldrich-Regular"],
+    },
   },
   plugins: [],
+  
 }

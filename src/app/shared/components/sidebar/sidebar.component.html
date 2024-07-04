@@ -1,7 +1,7 @@
 <div class="flex flex-col gap-5 sm:gap-10 md:w-[300px] lg:w-[410px] h-full bg-[#F2F8FF] pt-8 px-4 sm:pt-16 sm:pl-10 2xl:pt-36 2xl:pl-20">
-    <a class="navbar-link">Perfil</a>
-    <a class="navbar-link">Mis compras</a>
-    <a class="navbar-link">Robots y licencias</a>
-    <a class="navbar-link">Descargas</a>
+    <a class="navbar-link" [routerLink]="['/admin/profile']">Perfil</a>
+    <a class="navbar-link" [routerLink]="['/admin/shopping']">Mis compras</a>
+    <a class="navbar-link"  [routerLink]="['/admin/robots-license']">Robots y licencias</a>
+    <!--a class="navbar-link">Descargas</a-->
     <a class="navbar-link">Cerrar sesión</a>
 </div>
