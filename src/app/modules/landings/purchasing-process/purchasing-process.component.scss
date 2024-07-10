@@ -1,0 +1,25 @@
+
+
+::ng-deep .p-stepper .p-stepper-header:has(~ .p-highlight) .p-stepper-separator {
+    background-color: #3B82F6 !important;
+    height: 10px !important;
+    border-radius: 10px;
+}
+
+::ng-deep .p-stepper .p-stepper-header.p-highlight .p-stepper-number {
+    color: #EFF6FF;
+    background: #1D4ED8;
+}
+
+::ng-deep .p-stepper .p-stepper-header .p-stepper-action .p-stepper-number{
+    height: 50px;
+    width: 50px;
+}
+
+::ng-deep .p-stepper .p-stepper-nav {
+    padding: 30px;
+}
+
+::ng-deep .p-stepper .p-stepper-panels {
+    padding: 30px; 
+}

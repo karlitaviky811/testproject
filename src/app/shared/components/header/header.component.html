@@ -1,5 +1,5 @@
 <div class="w-full h-[89px] flex bg-secondary px-20">
-    <div class="flex items-center">
+    <div class="flex items-center grow">
         <img [routerLink]="['']" src="img/logo.png" alt="" class="cursor-pointer">
     </div>
     <div class="flex justify-end items-center gap-x-12 w-full">
@@ -15,15 +15,12 @@
                 <span class="text-blueDark">ES</span>
             </div>
          
-            <fwa-button (onClick)="handleClick()">CONTACTO</fwa-button>
+            <fwa-button (onClick)="handleClick('site/contact')">CONTACTO</fwa-button>
             
             <img class="w-[24px] h-[24px]" src="img/cart.png" alt="">
 
             <div class="flex gap-4">
                 <a [routerLink]="['../sign-in']" class="text-blueDark">LOGIN</a>
-            </div>
-            <div class="flex gap-4">
-                <a [routerLink]="['../admin']" class="text-blueDark">MI CUENTA</a>
             </div>
         </div>
     </div>

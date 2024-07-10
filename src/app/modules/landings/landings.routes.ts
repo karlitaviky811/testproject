@@ -31,4 +31,8 @@ export const ROUTE_LANDING: Routes = [
         path: 'robot-detail',
         loadComponent: () => import('./robot-detail/robot-detail.component'),
     },
+    {
+        path: 'purchasing-process',
+        loadComponent: () => import('./purchasing-process/purchasing-process.component'),
+    },
 ];

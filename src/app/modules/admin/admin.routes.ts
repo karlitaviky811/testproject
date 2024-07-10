@@ -27,4 +27,5 @@ export const ROUTE_ADMIN: Routes = [
         path: 'downloads',
         loadComponent: () => import('./downloads/downloads.component'),
     },
+    
 ];

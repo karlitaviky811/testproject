@@ -29,7 +29,9 @@ export class HeaderComponent {
     
   ]
 
-  handleClick() {
-    this.routerService.navigate(['site/contact']);
+  handleClick(route: string) {
+    //this.routerService.navigate(['site/contact']);
+    console.log('route')
+    this.routerService.navigate([route]);
   }
 }
