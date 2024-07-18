@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { StepperModule } from 'primeng/stepper';
 import { ButtonModule } from 'primeng/button';
+
 @Component({
   selector: 'app-purchasing-process',
   standalone: true,
@@ -11,5 +12,7 @@ import { ButtonModule } from 'primeng/button';
 export default class PurchasingProcessComponent {
   active: number | undefined = 0;
   
-
+  onActiveIndexChange(e: any){
+    console.log('hey')
+  }
 }
