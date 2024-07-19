@@ -38,7 +38,7 @@ export class HeaderComponent {
     },
     {
       name: 'LOGIN',
-      path: 'site/sign-in',
+      path: '/sign-in',
     },
     
   ]
