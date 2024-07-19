@@ -1,0 +1,29 @@
+table, tr {
+    border: 1px solid #F2F2F2;
+    border-collapse: collapse;
+    // padding: 30px 30px;
+}
+
+td, th {
+    padding: 23px 10px;
+    text-align: left
+}
+
+th {
+    @apply text-[22px] font-semibold text-[#606060];
+}
+
+.pi-sort-up-fill:before {
+    content: "\ea30";
+    color: #C8C6C6;
+}
+
+.pi-sort-down-fill:before {
+    content: "\ea33";
+    color: #C8C6C6;
+}
+
+.pi-times:before {
+    content: "\e90b";
+    color: #FF0021;
+}

@@ -1,0 +1,60 @@
+<p-table [value]="products" [tableStyle]="{ 'min-width': '200px' }">
+    <ng-template pTemplate="header">
+        <tr>
+            <th></th>
+                <th>Productooo</th>
+                <th>Precio</th>
+                <th>Cantidad</th>
+                <th class="text-center">Subtotal</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-product>
+        <tr>
+            <td>
+                <div class="flex justify-center items-center gap-10">
+                    <i class="pi pi-times cursor-pointer" style="font-size: 1.0rem"></i>
+                    <div class="w-10 h-10">
+                        <img style="width: 60px; height: 40px;" [src]="product.image" alt="">
+                    </div>
+                </div>
+            </td>
+            <td>
+                <div class="flex flex-col">
+                    <span class="text-[22px] text-blueDark">{{ product.name }}</span>
+                    <span class="text-[#0574F7]">+ {{ product.strategiesAmount }} estrategias añadidas</span>
+                </div>
+            </td>
+            <td>
+                <span class="text-[22px] text-[#706666]">Bs.{{ product.price }}</span>
+            </td>
+            <td>
+                <div class="relative flex justify-center items-center w-[92px] h-[72px] rounded-[14px] bg-blueDark">
+                    <span class="text-[22px] text-[#FFFFFF]">{{ counter() }}</span>
+                    <div class="absolute right-3 top-0 flex flex-col justify-center gap-2 h-full">
+                        <i class="pi pi-sort-up-fill cursor-pointer" (click)="increaseCounter(1)" style="font-size: 1.0rem"></i>
+                        <i class="pi pi-sort-down-fill cursor-pointer" (click)="increaseCounter(-1)" style="font-size: 1.0rem"></i>
+                    </div>
+                </div>
+            </td>
+            <td class="text-[22px] text-[#706666]">
+                Bs.240,00
+            </td>
+        </tr>
+    </ng-template>
+
+    <ng-template pTemplate="footer">
+        <tr>
+            <td colspan="5">
+                <div class="flex gap-10">
+                    <div class="flex gap-4 w-[60%]">
+                        <button class="btn btn-secondary py-3">Código de cupón</button>
+                        <button class="btn btn-primary py-3">Aplicar cupón</button>
+                    </div>
+                    <div class="flex w-[40%]">
+                        <button disabled="true" class="w-full rounded-xl py-3 px-10 bg-[#0574F7] text-[22px] text-[#FFFFFF] font-medium disabled:opacity-30">Actualizar carrito</button>
+                    </div>
+                </div>
+            </td>
+        </tr>
+    </ng-template>
+</p-table>

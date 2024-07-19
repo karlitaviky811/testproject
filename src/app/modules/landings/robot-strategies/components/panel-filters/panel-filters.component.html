@@ -1,0 +1,42 @@
+<div class="w-full flex flex-col">
+    <h4 class="font-poppins text-grayLight-400 font-medium mb-3">Filtro de búsqueda</h4>
+    <div class="flex w-full gap-4 items-center mb-8">
+        <input class="w-full" pInputText id="username" [(ngModel)]="value" placeholder="Describe tu búsqueda" />
+        <i class="pi pi-search" style="font-size: 1.5rem"></i>
+    </div>
+    <p-panel [toggleable]="true" #toggleablePanel>
+        <ng-template pTemplate="header">
+            <div class="flex align-items-center gap-2">
+                <span class="paragraph-3">
+                    Filtrar por categoria:
+                </span>
+            </div>
+        </ng-template>
+        <ng-template pTemplate="icons">
+            <!-- <p-menu #menu id="config_menu" [model]="items" [popup]="true" /> -->
+       
+        </ng-template>
+        <section class="flex flex-col gap-7">
+            <div class="flex flex-col gap-3">
+                <p class="font-medium text-[22px] font-workSans text-blueDark">Categorias</p>
+                <div class="flex flex-col gap-2">
+                    <span class="paragraph-3 text-grayLight-500">Activo</span>
+                    <span class="paragraph-3 text-grayLight-500">Capital mínimo</span>
+                    <span class="paragraph-3 text-grayLight-500">Nivel de riesgo</span>
+                    <span class="paragraph-3 text-grayLight-500">Nivel de riesgo</span>
+                </div>
+          
+            </div>
+            <div class="flex flex-col gap-3">
+                <p class="font-medium text-[22px] font-workSans text-blueDark">Ordenar por</p>
+                <div class="flex flex-col gap-2">
+                    <span class="paragraph-3 text-grayLight-500">Más popular</span>
+                    <span class="paragraph-3 text-grayLight-500">Más rentable</span>
+                    <span class="paragraph-3 text-grayLight-500">Menor riesgo</span>
+                    <span class="paragraph-3 text-grayLight-500">Estrategias más nuevas</span>
+                </div>
+           
+            </div>
+        </section>
+    </p-panel>
+</div>

@@ -35,4 +35,16 @@ export const ROUTE_LANDING: Routes = [
         path: 'purchasing-process',
         loadComponent: () => import('./purchasing-process/purchasing-process.component'),
     },
+    {
+        path: 'shopping-cart',
+        loadComponent: () => import('./shopping-cart/shopping-cart.component'),
+    },
+    {
+        path: 'robot-strategies',
+        loadComponent: () => import('./robot-strategies/robot-strategies.component'),
+    },
+    {
+        path: 'payment-methods',
+        loadComponent: () => import('./payment-methods/payment-methods.component'),
+    },
 ];
