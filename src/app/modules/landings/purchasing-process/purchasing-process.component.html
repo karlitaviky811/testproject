@@ -1,11 +1,8 @@
-<section class="bg-[#EFF0F6] w-full py-[30px]">
-  <div class="h-[120px] py-4 flex items-center justify-center">
-    <span class="font-semibold text-[30px]">Proceso guiado de compra</span>
-  </div>
-
-  <div class="bg-white border rounded-lg mt-[10px] mx-[100px] px[30px]">
+<section class="bg-[#EFF0F6] w-full pt-4 sm:pt-10 md:pt-28 lg:pt-[133px] px-4 sm:px-10 md:px-18 lg:px-32 pb-10 sm:pb-20 md:pb-40 lg:pb-60">
+  <h3 class="font-semibold text-center mb-4 sm:mb-10 md:mb-14 lg:mb-[70px]">Proceso guiado de compra</h3>
+  <div class="bg-white border rounded-lg mt-[10px]">
     <p-stepper
-      class="p-[10px] w-[100%]"
+      class="w-full"
       (activeIndexChange)="onActiveIndexChange($event)"
     >
       <p-stepperPanel>
@@ -14,122 +11,46 @@
           let-nextCallback="nextCallback"
           let-index="index"
         >
-          <div class="flex flex-column h-12rem gap">
-            <div
-              class="mx-[10px] surface-border surface-ground flex-auto flex justify-content-center align-items-center font-medium"
-            >
-              <section class="grid grid-cols-4 gap-3">
+          <div class="flex flex-column">
+            <div class="w-full flex font-medium">
+              <section class="grid grid-cols-4 gap-x-20 w-full">
                 <div class="col-span-4 content-center">
-                  <span class="w-full">
-                    <span class="font-semibold text-[25px]">Paso 1:</span>
-                    <span class="text-[25px] font-light">
-                      Conoce todas las Características del Robot</span
-                    >
-                  </span>
-                  <hr
-                    class="my-8 h-[1px] border-t-0 bg-[#DDDDDDDD] dark:bg-[#DDDDDDDD]"
-                  />
-                </div>
-
-                <div
-                  class="col-span-4 md:col-span-4 sm:col-span-4 lg:col-span-2"
-                >
-                  <div>
-                    <img src="img/step_1.png" alt="" />
+                  <div class="flex gap-2">
+                    <h4 class="font-semibold">Paso 1:</h4>
+                    <h4 class="font-light">Conoce todas las Características del Robot</h4>
                   </div>
+                  <hr class="mt-2 mb-8 md:mt-4 md:mb-16 lg:mt-10 lg:mb-[110px] h-[1px] border-t-0 bg-[#DDDDDDDD] dark:bg-[#DDDDDDDD]"/>
+                </div>
+                <div class="col-span-4 md:col-span-4 sm:col-span-4 lg:col-span-2">
+                  <img class="w-full" src="img/step_1.png" alt="" />
                 </div>
 
-                <div
-                  class="col-span-4 m-[30px] md:col-span-4 sm:col-span-4 lg:col-span-2"
-                >
-                  <div class="flex flex-col py-[20px]">
-                    <span class="font-semibold text-[40.6px] text-[#0C2B4B]"
-                      >Robots de Forex</span
-                    >
+                <div class="col-span-4 md:col-span-4 sm:col-span-4 lg:col-span-2">
+                  <div class="flex flex-col flex-wrap">
+                    <h2 class="font-semibold">Robots de Forex</h2>
+                    <h6 class="font-semibold mt-4 mb-1 md:mb-2 md:mt-8 lg:mb-4 lg:mt-[42px]">Licencias disponibles</h6>
                     <div>
-                      <span
-                        class="py-[10px] text-[18.8px] font-bold text-[#0C2B4B]"
-                        >Escoge la licencia bajo la cual quieres que opere tu
-                        Robot
-                      </span>
-                      <span></span>
+                      <h4 class="py-[10px] p3-ws">Escoge la licencia bajo la cual quieres que opere tu Robot</h4>
                     </div>
                   </div>
 
-                  <div
-                    class="flex flex-col w-full p-[15px] my-4 rounded-md border-2 border-[#D9D9D9] rounded-md border-2 border-[#D9D9D9]"
-                  >
-                    <span class="font-semibold text-[39.6px] text-[#0C2B4B]"
-                      >Bronce</span
-                    >
-                    <span class="text-[#848D97] text-[22px]"
-                      >1 mes de duración</span
-                    >
-                    <div class="flex justify-between">
-                      <div>
-                        <span>$ 950 usd</span>
-                      </div>
-                      <div>
-                        <span>+ 1 Estrategias gratuitas</span>
-                      </div>
-                    </div>
-                  </div>
-                  <div
-                    class="flex flex-col w-full p-[15px] my-4 rounded-md border-2 border-[#D9D9D9] rounded-md border-2 border-[#D9D9D9]"
-                  >
-                    <span class="font-semibold text-[39.6px] text-[#0C2B4B]"
-                      >Plata</span
-                    >
-                    <span class="text-[#848D97] text-[22px]"
-                      >1 mes de duración</span
-                    >
-                    <div class="flex justify-between">
-                      <div>
-                        <span>$ 950 usd</span>
-                      </div>
-                      <div>
-                        <span>+ 1 Estrategias gratuitas</span>
-                      </div>
-                    </div>
-                  </div>
-                  <div
-                    class="flex flex-col w-full p-[15px] my-4 rounded-md border-2 border-[#D9D9D9] rounded-md border-2 border-[#D9D9D9]"
-                  >
-                    <span class="font-semibold text-[39.6px] text-[#0C2B4B]"
-                      >Oro</span
-                    >
-                    <span class="text-[#848D97] text-[22px]"
-                      >1 mes de duración</span
-                    >
-                    <div class="flex justify-between">
-                      <div>
-                        <span>$ 950 usd</span>
-                      </div>
-                      <div>
-                        <span>+ 1 Estrategias gratuitas</span>
-                      </div>
-                    </div>
-                  </div>
+                  @for(license of licenses(); track license.id) {
+                    <card-license [license]="license"></card-license>
+                  }
                 </div>
               </section>
             </div>
           </div>
           <div class="flex pt-4 items-center justify-between">
-            <div class="flex items-center">
+            <div class="flex items-center gap-4">
               <img src="img/back-ligth.png" class="w-[17px] h-[17px]" alt="" />
-              <a href="#" class="text-[#0574F7]" (onClick)="nextCallback.emit()"
+              <a href="#" class="p2-ws text-primary" (onClick)="nextCallback.emit()"
                 >Volver atrás / todos los robots</a
               >
             </div>
-
-            <p-button
-              (onClick)="nextCallback.emit()"
-              class="border rounded-md border-2 border-[#0574F7] text-[#0574F7] flex items-center bg-primary"
-              label="Siguiente"
-              icon="pi pi-arrow-right"
-              iconPos="right"
-            />
+            <button class="btn btn-primary gap-2 lg:w-[308px]" (click)="nextCallback.emit()">Siguiente<i class="pi pi-arrow-right"></i></button>
           </div>
+          
         </ng-template>
       </p-stepperPanel>
       <p-stepperPanel>
@@ -141,210 +62,62 @@
         >
           <div class="flex flex-column h-12rem w-full">
             <div
-              class="mx-[10px] surface-border border-round surface-ground flex-auto flex justify-content-center align-items-center font-medium"
+              class="flex-auto flex justify-content-center align-items-center font-medium"
             >
-              <section class="grid grid-cols-6 gap-3">
-                <div class="col-span-6 content-center my-[15px]">
-                  <span class="w-full">
-                    <span class="font-semibold text-[25px]">Paso 2:</span>
-                    <span class="text-[25px] font-light">
+              <section class="grid grid-cols-1 md:grid-cols-8 lg:grid-cols-6 gap-3">
+                <div class="col-span-6 content-center">
+                  <span class="flex gap-2 w-full">
+                    <h4 class="font-semibold">Paso 2:</h4>
+                    <h4 class="font-light">
                       Selecciona la cantidad de estrategias de acuerdo a la
-                      licencia</span
-                    >
+                      licencia</h4>
                   </span>
-                  <hr
-                    class="my-8 h-[1px] border-t-0 bg-[#DDDDDDDD] dark:bg-[#DDDDDDDD]"
-                  />
 
-                  <div class="flex justify-between">
-                    <span class="font-semibold text-[25px]">
+                  <hr class="mt-2 md:mb-5 lg:my-10 h-[1px] border-t-0 bg-[#DDDDDDDD] dark:bg-[#DDDDDDDD]"/>
+
+                  <div class="flex justify-between flex-wrap mb-2 sm:mb-5 md:mb-10 lg:mb-[60px]">
+                    <span class="p2-ws font-semibold">
                       Licencia Oro: 3 estrategias
                     </span>
-                    <span class="font-semibold text-[20px] text-[#0574F7]">
+                    <span class="font-semibold p2-ws text-[#0574F7]">
                       3/3 estrategias seleccionadas
                     </span>
                   </div>
                 </div>
-
-                <div
-                  class="sm:col-span-6 md:col-span-6 lg:col-span-2 border border-round rounded-md border-2 border-[#D9D9D9] p-[15px]"
-                >
-                  <div class="flex items-center mb-[20px] gap-3">
-                    <img src="img/stadistics.png" alt="" />
-                    <span class="text-xl">Estrategia 1</span>
-                  </div>
-                  <div class="mb-[10px]">
-                    <span class="text-[#53585E] font-poppins leading-5"
-                      >Get to know your guest and optimize their experience in
-                      your hotel</span
-                    >
-                  </div>
-                  <div class="flex justify-between py-[10px]">
-                    <button
-                      class="border border-round rounded-md px-[17px] py-[5px] border-2 border-[#E2E5EA]"
-                    >
-                      Ver información
-                    </button>
-                    <button
-                      class="border border-round rounded-md border-2 border-[#0574F7] text-[#0574F7] px-[17px] py-[5x] px-[17px] flex items-center"
-                    >
-                      <img src="img/cart-ligth.png" alt="" />
-                      Añadir
-                    </button>
-                  </div>
+                @for (color of colors; track color) {
+                  <div class="col-span-6 sm:col-span-6 md:col-span-4 lg:col-span-2 rounded-[16px] border-2 border-[#E2E5EA] p-[15px]">
+                    <div class="flex items-center flex-wrap mb-[20px] gap-3">
+                      <img src="img/stadistics.png" alt="" />
+                      <span class="p5-ps">Estrategia 1</span>
+                    </div>
+                    <div class="mb-[10px]">
+                      <span class="text-[#53585E] p7-ps font-poppins leading-5"
+                        >Get to know your guest and optimize their experience in
+                        your hotel</span
+                      >
+                    </div>
+                    <div class="flex justify-between flex-wrap py-[10px]">
+                      <button class="btn btn-outlet-secondary sm:text-sm  w-auto px-4">
+                        Ver información
+                      </button>
+                      <button class="btn btn-outlet-primary py-3 sm:text-sm w-auto gap-2">
+                        <img src="img/cart-ligth.png" alt="" />
+                        Añadir
+                      </button>
+                    </div>
                 </div>
-                <div
-                  class="sm:col-span-6 md:col-span-6 lg:col-span-2 border border-round rounded-md border-2 border-[#D9D9D9] p-[15px]"
-                >
-                  <div class="flex items-center mb-[20px] gap-3">
-                    <img src="img/stadistics.png" alt="" />
-                    <span class="text-xl">Estrategia 1</span>
-                  </div>
-                  <div class="mb-[10px]">
-                    <span class="text-[#53585E] font-poppins leading-5"
-                      >Get to know your guest and optimize their experience in
-                      your hotel</span
-                    >
-                  </div>
-                  <div class="flex justify-between py-[10px]">
-                    <button
-                      class="border border-round rounded-md px-[17px] py-[5px] border-2 border-[#E2E5EA]"
-                    >
-                      Ver información
-                    </button>
-                    <button
-                      class="border border-round rounded-md border-2 border-[#0574F7] text-[#0574F7] px-[17px] py-[5x] px-[17px] flex items-center"
-                    >
-                      <img src="img/cart-ligth.png" alt="" />
-                      Añadir
-                    </button>
-                  </div>
-                </div>
-                <div
-                  class="sm:col-span-6 md:col-span-6 lg:col-span-2 border border-round rounded-md border-2 border-[#D9D9D9] p-[15px]"
-                >
-                  <div class="flex items-center mb-[20px] gap-3">
-                    <img src="img/stadistics.png" alt="" />
-                    <span class="text-xl">Estrategia 1</span>
-                  </div>
-                  <div class="mb-[10px]">
-                    <span class="text-[#53585E] font-poppins leading-5"
-                      >Get to know your guest and optimize their experience in
-                      your hotel</span
-                    >
-                  </div>
-                  <div class="flex justify-between py-[10px]">
-                    <button
-                      class="border border-round rounded-md px-[17px] py-[5px] border-2 border-[#E2E5EA]"
-                    >
-                      Ver información
-                    </button>
-                    <button
-                      class="border border-round rounded-md border-2 border-[#0574F7] text-[#0574F7] px-[17px] py-[5x] px-[17px] flex items-center"
-                    >
-                      <img src="img/cart-ligth.png" alt="" />
-                      Añadir
-                    </button>
-                  </div>
-                </div>
-                <div
-                  class="sm:col-span-6 md:col-span-6 lg:col-span-2 border border-round rounded-md border-2 border-[#D9D9D9] p-[15px]"
-                >
-                  <div class="flex items-center mb-[20px] gap-3">
-                    <img src="img/stadistics.png" alt="" />
-                    <span class="text-xl">Estrategia 1</span>
-                  </div>
-                  <div class="mb-[10px]">
-                    <span class="text-[#53585E] font-poppins leading-5"
-                      >Get to know your guest and optimize their experience in
-                      your hotel</span
-                    >
-                  </div>
-                  <div class="flex justify-between py-[10px]">
-                    <button
-                      class="border border-round rounded-md px-[17px] py-[5px] border-2 border-[#E2E5EA]"
-                    >
-                      Ver información
-                    </button>
-                    <button
-                      class="border border-round rounded-md border-2 border-[#0574F7] text-[#0574F7] px-[17px] py-[5x] px-[17px] flex items-center"
-                    >
-                      <img src="img/cart-ligth.png" alt="" />
-                      Añadir
-                    </button>
-                  </div>
-                </div>
-                <div
-                  class="sm:col-span-6 md:col-span-6 lg:col-span-2 border border-round rounded-md border-2 border-[#D9D9D9] p-[15px]"
-                >
-                  <div class="flex items-center mb-[20px] gap-3">
-                    <img src="img/stadistics.png" alt="" />
-                    <span class="text-xl">Estrategia 1</span>
-                  </div>
-                  <div class="mb-[10px]">
-                    <span class="text-[#53585E] font-poppins leading-5"
-                      >Get to know your guest and optimize their experience in
-                      your hotel</span
-                    >
-                  </div>
-                  <div class="flex justify-between py-[10px]">
-                    <button
-                      class="border border-round rounded-md px-[17px] py-[5px] border-2 border-[#E2E5EA]"
-                    >
-                      Ver información
-                    </button>
-                    <button
-                      class="border border-round rounded-md border-2 border-[#0574F7] text-[#0574F7] px-[17px] py-[5x] px-[17px] flex items-center"
-                    >
-                      <img src="img/cart-ligth.png" alt="" />
-                      Añadir
-                    </button>
-                  </div>
-                </div>
-                <div
-                  class="sm:col-span-6 md:col-span-6 lg:col-span-2 border border-round rounded-md border-2 border-[#D9D9D9] p-[15px]"
-                >
-                  <div class="flex items-center mb-[20px] gap-3">
-                    <img src="img/stadistics.png" alt="" />
-                    <span class="text-xl">Estrategia 1</span>
-                  </div>
-                  <div class="mb-[10px]">
-                    <span class="text-[#53585E] font-poppins leading-5"
-                      >Get to know your guest and optimize their experience in
-                      your hotel</span
-                    >
-                  </div>
-                  <div class="flex justify-between py-[10px]">
-                    <button
-                      class="border border-round rounded-md px-[17px] py-[5px] border-2 border-[#E2E5EA]"
-                    >
-                      Ver información
-                    </button>
-                    <button
-                      class="border border-round rounded-md border-2 border-[#0574F7] text-[#0574F7] px-[17px] py-[5x] px-[17px] flex items-center"
-                    >
-                      <img src="img/cart-ligth.png" alt="" />
-                      Añadir
-                    </button>
-                  </div>
-                </div>
+                } 
               </section>
             </div>
           </div>
-          <div class="flex pt-4 justify-between">
-            <div class="flex items-center">
+          <div class="flex pt-4 items-center justify-between">
+            <div class="flex items-center gap-4">
               <img src="img/back-ligth.png" class="w-[17px] h-[17px]" alt="" />
-              <a href="#" class="text-[#0574F7]" (onClick)="prevCallback.emit()"
+              <a href="#" class="p2-ws text-primary" (onClick)="nextCallback.emit()"
                 >Volver atrás / todos los robots</a
               >
             </div>
-            <p-button
-              (onClick)="nextCallback.emit()"
-              class="border rounded-md border-2 border-[#0574F7] text-[#0574F7] flex items-center bg-primary"
-              label="Siguiente"
-              icon="pi pi-arrow-right"
-              iconPos="right"
-            />
+            <button class="btn btn-primary gap-2 lg:w-[308px]" (click)="nextCallback.emit()">Siguiente<i class="pi pi-arrow-right"></i></button>
           </div>
         </ng-template>
       </p-stepperPanel>
@@ -355,37 +128,26 @@
           let-index="index"
         >
           <div class="flex flex-column h-12rem">
-            <div
-              class="mx-[10px] surface-border border-round surface-ground flex-auto flex justify-content-center align-items-center font-medium"
-            >
+            <div class="flex-auto flex justify-content-center align-items-center font-medium">
               <section class="grid grid-cols-4 gap-3">
                 <div class="col-span-4 content-center">
                   <span class="w-full">
-                    <span class="font-semibold text-[25px]">Paso 3:</span>
-                    <span class="text-[25px] font-light">
-                      Conoce todas las Características del Robot</span
-                    >
+                    <h4 class="font-semibold">Paso 3:</h4>
+                    <h4 class="font-light">
+                      Verifica el resumen de tu compra</h4>
                   </span>
-                  <hr
-                    class="my-8 h-[1px] border-t-0 bg-[#DDDDDDDD] dark:bg-[#DDDDDDDD]"
-                  />
+                  <hr class="my-8 h-[1px] border-t-0 bg-[#DDDDDDDD] dark:bg-[#DDDDDDDD]"/>
                 </div>
 
-                <div
-                  class="col-span-4 sm:col-span-4 md:col-span-4 lg:col-span-2"
-                >
-                  <img src="img/step_1.png" alt="" />
+                <div class="col-span-4 sm:col-span-4 md:col-span-4 lg:col-span-2">
+                  <img class="rounded-2xl" src="img/step_1.png" alt="" />
                 </div>
 
-                <div
-                  class="col-span-4 sm:col-span-4 md:col-span-4 lg:col-span-2 m-[30px]"
-                >
-                  <div class="flex flex-col py-[20px]">
-                    <span class="font-semibold text-[40.6px] text-[#0C2B4B]"
-                      >Robots de Forex</span
-                    >
+                <div class="col-span-4 sm:col-span-4 md:col-span-4 lg:col-span-2">
+                  <div class="flex flex-col">
+                    <h2 class="font-semibold text-blueDark">Robots de Forex</h2>
                     <div class="py-[15px]">
-                      <span class="text-[18.8px] font-light text-[#0C2B4B]"
+                      <span class="p3-ws font-light text-blueDark"
                         >Nuestro EA de Forex es un sistema 100 % automático, el
                         cual ejecuta operaciones de manera algorítmica basandose
                         en 3 distintas estrategias para sacar beneficio del
@@ -396,24 +158,20 @@
                       class="my-6 h-0.5 border-t-0 bg-[#DDDDDDDD] dark:bg-[#DDDDDDDD]"
                     />
                     <div class="flex flex-col my-[10px]">
-                      <span class="font-bold text-[23px] text-[#0C2B4B]"
+                      <span class="font-bold text-[23px] text-blueDark"
                         >Licencia seleccionada</span
                       >
-                      <span class="font-normal text-[#0C2B4B]"
+                      <span class="font-normal text-blueDark"
                         >Esta licencia es la única asociada a este Robot, podrás
                         ver todas su información antes de adquirirla</span
                       >
                     </div>
                   </div>
 
-                  <div
-                    class="flex flex-col w-full p-[15px] my-[38px] rounded-md border-2 border-[#0574F7] rounded-md border-2"
-                  >
-                    <span class="font-semibold text-[39.6px] text-[#0C2B4B]"
-                      >Oro</span
-                    >
+                  <div class="flex flex-col flex-wrap w-full p-[15px] my-[38px] rounded-md border-2 border-[#0574F7] rounded-md border-2">
+                    <h3 class="font-semibold text-blueDark">Oro</h3>
 
-                    <div class="flex justify-between">
+                    <div class="flex flex-col sm:flex-row md:flex-row lg:flex-row md:justify-between lg:justify-between">
                       <div>
                         <span>$ 1200 usd</span>
                       </div>
@@ -426,64 +184,55 @@
                   </div>
                   <div class="flex flex-col my-[38px]">
                     <div class="flex flex-col">
-                      <span class="text-[22px] text-[#0C2B4B] font-bold"
-                        >(4) Estrategias seleccionadas</span
-                      >
-                      <span class="my-[10px]"
+                      <h6 class="text-blueDark font-bold"
+                        >(4) Estrategias seleccionadas</h6>
+                      <span class="my-[10px] p3-ws"
                         >Estrategias seleccionadas de acuerdo a la
                         licencia</span
                       >
                     </div>
                     <div class="flex flex-wrap justify-between pt-[45px]">
-                      <span class="text-[33px] text-[#0C2B4B] font-bold"
+                      <h5 class="text-blueDark font-bold"
                         >Subtotal de la compra:
-                      </span>
-                      <span class="text-[33px]"> $1,200 usd</span>
+                    </h5>
+                      <h5> $1,200 usd</h5>
                     </div>
                     <hr
                       class="my-8 h-[1px] border-t-0 bg-[#DDDDDDDD] dark:bg-[#DDDDDDDD]"
                     />
                   </div>
                   <div
-                    class="flex flex-col w-full p-[15px] my-[38px] rounded-md border-2 border-[#F3F8FF] rounded-md border-2 bg-[#F3F8FF]"
+                    class="flex flex-col w-full p-[15px] my-[38px] rounded-md border-2 border-[#F3F8FF] bg-[#F3F8FF] rounded-md border-2 bg-[#F3F8FF]"
                   >
                     <span
-                      class="font-bold text-[20.6px] text-[#0C2B4B] pt-[10px]"
+                      class="font-bold p5-ws text-blueDark pt-[10px]"
                       >Añade más potencia a tu Robot</span
                     >
-                    <span class="font-light pt-[10px]"
+                    <span class="pt-[10px] p5-ws"
                       >Compra tantas estrategias quieras para la operación de tu
                       Robot en el mercado</span
                     >
                     <div class="flex gap-3 pt-[10px]">
-                      <img src="img/store-ligth.png" alt="" />
-                      <a class="text-[#0574F7]">Ver tienda de estrategias</a>
+                      <img src="img/store-ligth.png" class="w-[24px] h-[24px]" alt="" />
+                      <a class="p2-ws text-primary">Ver tienda de estrategias</a>
                     </div>
                   </div>
                 </div>
               </section>
             </div>
           </div>
-          <div class="flex pt-4 justify-between">
-            <div class="flex items-center w-1/2">
+          <div class="flex pt-4 items-center justify-between">
+            <div class="flex items-center gap-4">
               <img src="img/back-ligth.png" class="w-[17px] h-[17px]" alt="" />
-              <a
-                href="#"
-                class="text-[#0574F7] w-full"
-                (onClick)="prevCallback.emit()"
+              <a href="#" class="text-[#0574F7]" (click)="goCart()"
                 >Volver atrás / todos los robots</a
               >
             </div>
-            <div class="flex">
-              <button
-                class="bg-[#0574F7] text-white px-[15px] py-[8px] border rounded-lg flex gap-3" (click)="goCart()"
-              >
-                <img src="img/cart-white.png" alt="" /> Continuar al carrito
-              </button>
-            </div>
+            <button class="btn btn-primary gap-2 lg:w-[308px]" (click)="goCart()"><img src="img/cart-white.png" alt="" /> Continuar al carrito</button>
           </div>
         </ng-template>
       </p-stepperPanel>
     </p-stepper>
+    
   </div>
 </section>

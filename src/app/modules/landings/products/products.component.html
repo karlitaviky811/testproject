@@ -1,20 +1,13 @@
 <fwa-banner></fwa-banner>
 <div class="w-full flex flex-col">
-  <section class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-10 sm:gap-20 mb-20">
-    <div class="col-span-2 sm:col-span-3 lg:col-span-2 content-end bg-[#072443] pb-[10%]">
-      <div class="flex flex-col m-4 ml-[30%]">
-        <div>
-          <button
-            class="bg-primary border border-primary rounded-full text-white p-2"
-            [routerLink]="['/site/products-detail']"
-          >
+  <section class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-12 mb-20 lg:h-[1000px]">
+    <div class="col-span-2 sm:col-span-3 lg:col-span-4 content-end bg-[#072443]">
+      <div class="flex flex-col m-[20px] sm:m-4 md:m-16 lg:ml-32 lg:mr-16 lg:mb-20">
+          <span [routerLink]="['/site/products-detail']" class="flex justify-center items-center font-bold p6-ws text-white bg-primary rounded-[50px] py-2 px-5 w-[94px]">
             Forex
-          </button>
-        </div>
-        <h1 class="font-medium text-[32px] text-left font-title-ligth">
-          Robot de Trading
-        </h1>
-        <p class="text-left font-p-ligth pt-2">
+        </span>
+        <h4 class="font-bold text-white sm:mt-2 sm:mb-3 md:mt-4 md:mb-5 lg:mt-6 lg:mb-7">Robot de Trading</h4>
+        <p class="p4-ws text-left pt-2 text-white sm:mb-3 md:mb-5 lg:mb-7">
           Nuestro EA de Forex es un sistema 100 % automático, el cual ejecuta
           operaciones de manera algorítmica basandose en 3 distintas estrategias
           para sacar beneficio del mercado haciendo Scalping, Su operativa se
@@ -23,50 +16,45 @@
           basada en intraday y coberturas.
         </p>
         <div class="flex items-end h-[10%]">
-          <a class="font-a-dark mt-4 flex items-center">Quiero un robot
+          <a class="p3-ws text-primary flex items-center">Quiero un robot
             <img src="img/arrow-up.png" alt=""class="h-[10px] ml-2" />
-
           </a>
-       
         </div>
-      
       </div>
     </div>
-    <div class="col-span-3">
-      <div>
-        <img src="img/forex_large.png" alt="" />
-      </div>
+    <div class="col-span-8">
+        <img class="w-[100%] h-[100%]" src="img/forex_large.png" alt="" />
     </div>
   </section>
 
-  <div class="grid grid-cols-1 sm:grid-cols-1 gap-10 sm:gap-20 md:py-4 md:px-4 sm:py-0 sm:px-0">
+  <div class="grid grid-cols-1 sm:grid-cols-1 md:py-4 md:px-4 sm:py-0 sm:px-0">
     <div class="col-span-12 content-center sm:w-full">
-      <h1 class="font-bold text-[32px] text-center text-[#0C2B4B]">
-        {{ "PRODUCTS.title" | translate }}
-      </h1>
+      <h4 class="font-bold text-blueDark text-center">{{ "PRODUCTS.title" | translate }}</h4>
     </div>
   </div>
 
   <section class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-10 sm:gap-20 md:py-20 md:px-40 sm:py-0 sm:px-0">
     <div class="col-span-1 content-evenly mx-4">
-          @for( item of pDetail; track item.title) {
+      @for( item of pDetail; track item.title) {
+        <div class="mb-2 sm:mb-6">
           <app-alert-message
             [customTitle]="item.title"
             [customIcon]="item.icon"
             [customColor]="item.color"
           ></app-alert-message>
-          }
+        </div>
+      }
     </div>
 
     <div class="col-span-1 content-center mx-4">
-      <p class="font-p-dark">
+      <p class="p4-ws text-[#080808]">
         Si estas dos primeras estrategias fallan, amplia su rango agregando una
         tercera estrategia de swing en coberturas. Su Gestión de riesgo se basa
         en un Martin Gala al 1.618 el cual garantiza que siempre que tengamos
         margen disponible en la cuenta este cerrará operaciones en beneficio.
       </p>
       <br />
-      <p class="font-p-dark">
+      <p class="p4-ws text-[#080808]">
         No importa cual sea la dirección del mercado el sistema analizará,
         ejecutará y gestionará la operativa por usted. Su único trabajo será
         mantener la cuenta con suficiente margen para que el robot pueda operar
@@ -79,7 +67,7 @@
     <div class="col-span-1 content-center">
       <div class="flex flex-col items-end justify-around">
         <div class="m-4">
-          <p class="text-right m-4 font-p-dark">
+          <p class="text-right m-4 p4-ws text-[#080808]">
             Las señales de trading son muy atractivas para aquellas personas que
             están iniciando en el trading y requieren de práctica para análisis
             técnico. Nuestras señales de trading son realizadas de manera swing
@@ -97,13 +85,15 @@
       </div>
     </div>
     <div class="col-span-1 content-evenly mx-4">
-          @for( item of pDetail2; track item.title) {
+      @for( item of pDetail; track item.title) {
+        <div class="mb-2 sm:mb-6">
           <app-alert-message
             [customTitle]="item.title"
             [customIcon]="item.icon"
             [customColor]="item.color"
           ></app-alert-message>
-          }
+        </div>
+      }
     </div>
 </section>
 

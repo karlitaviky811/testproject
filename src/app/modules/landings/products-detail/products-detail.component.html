@@ -1,18 +1,15 @@
 <fwa-banner></fwa-banner>
-<div class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-5 sm:gap-20 mb-20 sm:py-0 sm:px-0">
-  <section class="lg:col-span-3 md:col-span-6 sm:col-span-6 py-20 pl-20 md:pl-0 md:pr-0 sm:pl-10 sm:pr-10">
-    <div class="flex flex-col items-end ml-[15%] mr-[15%] md:mr-[15%] lg:mr-0 lg:ml-[15%] md:ml-[15%] sm:mr-[10px] sm:mx-10">
-      <h2 class="font-medium font-title-ligth mb-[8%]">
-        Forex Básico
-      </h2>
-      <p class="text-right font-p-ligth ml-[10%]">
+<div class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-2 sm:gap-16 mb-[12%] px-4 sm:px-10 md:px-18 lg:px-32 pt-4 sm:pt-10 md:pt-28 lg:pt-40">
+  <section class="sm:col-span-6 md:col-span-6 lg:col-span-3">
+    <div class="flex flex-col items-end">
+      <h4 class="font-medium text-blueDark">Forex Básico</h4>
+      <p class="p1-ws font-light text-right my-[2%]">
         El mercado FOREX, o el mercado de divisas es el mercado donde se
         negocian las divisas. En su forma más simple, una transacción de divisas
         puede ser, por ejemplo, cuando cambias tu moneda local a una nueva para
         unas próximas vacaciones.
       </p>
-      <br />
-      <p class="text-right font-p-ligth ml-[10%]">
+      <p class="p1-ws font-light text-right">
         Este curso está diseñado para personas con poco o nada de conocimiento
         sobre trading. En el aprenderás de manera sencilla, practica como
         realizar inversiones en mercados de divisas de la forma correcta
@@ -21,55 +18,42 @@
       <!--fwa-button>Conocer más</fwa-button-->
     </div>
   </section>
-  <section class="lg:col-span-3 md:col-span-6 sm:col-span-6 py-20 px-20 md:pl-0 sm:pl-10 lg:ml-0 md:ml-[10%]">
-    <div>
-      <img src="img/product-forex.png" alt="" />
-    </div>
+  <section class="lg:col-span-3 md:col-span-6 sm:col-span-6">
+    <img class="w-full h-full" src="img/product-forex.png" alt="" />
   </section>
-
-  <section class="md:col-span-6 sm:col-span-6 px-20 md:pl-0 sm:pl-10 lg:ml-0 md:ml-[10%]">
-      <h1 class="font-bold text-[32px] text-center text-[#0C2B4B]">
-        {{ "PRODUCTS-DETAIL.title" | translate }}
-      </h1>
-  </section>
-
-  <section class="lg:col-span-3 md:col-span-6 sm:col-span-6 lg:ml-[15%] mb-0 sm:px-5 sm:py-5 pl-20  sm:pl-10 sm:pr-10">
-     
-    <div class="md:ml-[10%] md:mr-[10%]">
-      @for( item of pDetail; track item.title) {
-        <app-alert-message
-          [customTitle]="item.title"
-          [customIcon]="item.icon"
-          [customColor]="item.color"
-        ></app-alert-message>
-        }
-    </div>
-        <div class="md:ml-[12%] lg:ml-[12%] md:mr-[10%]  w-[50%]">
-          <fwa-button (onClick)="onClick.emit()"  class="px-4">
-            <img src="img/cart-light.png" alt=""  />
-            Agregar al carrito
-        </fwa-button>
-        </div>
-    
-      <!--fwa-button>Conocer más</fwa-button-->
-  </section>
-  <section class="lg:col-span-3 md:col-span-6 sm:col-span-6 lg:mr-[15%] mb-0 sm:px-5 sm:py-5 pl-20  sm:pl-10 sm:pr-10">
-    <div class="md:mr-[10%] md:ml-[10%]">
-      @for( item of pDetail2; track item.title) {
-        <app-alert-message
-          [customTitle]="item.title"
-          [customIcon]="item.icon"
-          [customColor]="item.color"
-        ></app-alert-message>
-        }
-    </div>
-   
-      <div class="md:ml-[12%] lg:ml-[12%] md:mr-[10%] mt-4 w-[50%]">
-        <fwa-button type="outlet" size="large" class="px-4" (onClick)="onClick.emit()">
-          Volver al carrito
-      </fwa-button>
-      </div>
-  </section>
-
-  
 </div>
+
+<div class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-2 sm:gap-16 mb-20 mx-4 px-0 sm:px-10 md:px-18 lg:px-36">
+  <section class="md:col-span-6 sm:col-span-6 mb-[4%]">
+    <h4 class="font-bold text-blueDark text-center">{{ "PRODUCTS-DETAIL.title" | translate }}</h4>
+  </section>
+  <section class="lg:col-span-3 md:col-span-6 sm:col-span-6">
+    @for( item of pDetail; track item.title) {
+      <div class="mb-4">
+        <app-alert-message
+          [customTitle]="item.title"
+          [customIcon]="item.icon"
+          [customColor]="item.color"
+        ></app-alert-message>
+      </div>
+    }
+    <button class="btn btn-primary gap-4 mt-10 lg:max-w-[459px]" (click)="onClick.emit()"><img src="img/cart-light.png" alt=""  /> Agregar al carrito</button>
+  </section>
+  <section class="lg:col-span-3 md:col-span-6 sm:col-span-6">
+    @for( item of pDetail2; track item.title) {
+      <div class="mb-4">
+        <app-alert-message
+          [customTitle]="item.title"
+          [customIcon]="item.icon"
+          [customColor]="item.color"
+        ></app-alert-message>
+      </div>
+    }
+    <div class="flex justify-end">
+      <button class="btn btn-outlet-primary mt-10 lg:max-w-[459px]" (click)="onClick.emit()">Volver al carrito</button>
+    </div>
+  </section>
+</div>
+
+
+

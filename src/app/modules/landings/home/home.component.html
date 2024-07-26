@@ -1,7 +1,7 @@
 <fwa-banner/>
-<div class="w-full flex flex-col px-10 sm:px-20 pb-20">
+<div class="w-full flex flex-col px-4 sm:px-20 pb-20">
     <!-- start benifits section -->
-    <section class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 sm:gap-20 pt-10 mb-20">
+    <section class="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-3 gap-4 sm:gap-10 md:gap-16 lg:gap-20 pt-10 mb-8 sm:mb-10 md:mb-16 lg:mb-20">
         @for(benifit of benifits; track benifit.title) {
             <fwa-benifit
                 [icon]="benifit.icon"
@@ -14,54 +14,54 @@
     <!-- end benifits section -->
 
     <!-- start about us section -->
-    <section class="grid grid-cols-12 sm:grid-cols-2 gap-10">
-        <div class="flex flex-col items-end">
-            <h1 class="font-medium text-[32px] text-center font-workSans">¿Quiénes somos?</h1>
-            <p class="text-[20px] text-right py-8">
+    <section class="grid grid-cols-4 gap-10">
+        <div class="flex flex-col items-end col-span-4 md:col-span-4 sm:col-span-4 lg:col-span-2">
+            <h5 class="font-medium text-blueDark text-center">¿Quiénes somos?</h5>
+            <p class="p4-ws text-right text-blueDark py-2 sm:py-4 md:py-6 lg:py-8">
                 Somos una Academia de trading con mas de 6 años de experiencia en los Mercados financieros.
                 Donde nos hemos especializado en la educación, creación de sistemas automáticos de trading y gestión de capitales.
                 A través de Metodologías probadas y testeadas que generan una rentabilidad sostenible si se cumplen cada uno de los parámetros enseñados por nuestros profesores.
             </p>
             <fwa-button>Conocer más</fwa-button>
         </div>
-        <div class="w-full">
+        <div class="w-full col-span-4  md:col-span-4 sm:col-span-4 lg:col-span-2">
             <img class="w-full h-full" src="img/tranding.png" alt="">
         </div>
     </section>
     <!-- end about us section -->
 
     <!-- start courses section -->
-    <section class="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-10">
+    <section class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-10">
         <div class="flex justify-end gap-0 sm:gap-10 border-primary border-2 rounded-[30px] overflow-hidden mt-12">
             <div class="flex flex-col w-[389px] py-4 pl-4 pr-4 sm:py-20 sm:pl-20 sm:pr-0">
-                <span class="flex justify-center items-center font-bold text-white bg-primary rounded-[50px] py-4 sm:py-8 px-10 sm:px-20 w-[94px] h-[45px]">
+                <span class="flex justify-center items-center font-bold p6-ws text-white bg-primary rounded-[50px] py-2 px-5 w-[94px]">
                     Broker
                 </span>
-                <h1 class="text-3xl sm:text-4xl font-bold mt-3 sm:mt-6">Nuestros cursos</h1>
-                <p class="text-[20px] text-blueDark my-4 sm:my-8">
+                <h4 class="font-bold text-blueDark mt-3 sm:mt-6">Nuestros cursos</h4>
+                <p class="p4-ws text-blueDark my-4 sm:my-8">
                     Nuestros cursos y clases están enfocadas en hacer llegar la información a nuestros estudiantes de la manera más sencilla, directa y práctica de aprender.
                 </p>
-                <a class="text-sm sm:text-[20px] text-primary">Ver todos los cursos</a>
+                <a class="p4-ws text-primary cursor-pointer">Ver todos los cursos</a>
             </div>
             <div class="hidden sm:flex pt-24 w-[243px]">
                 <img class="w-full h-full" src="img/broker.png" alt="">
             </div>
         </div>
         <div class="flex flex-col justify-start border-primary border-2 rounded-[30px] overflow-hidden bg-[#F4F4F4]">
-            <div class="flex justify-center items-center w-full h-[57px] bg-primary text-center text-white text-[20px]">
-                Obtén un robot y comienza a operar
+            <div class="flex justify-center items-center w-full h-[57px] bg-primary text-center">
+                <p class="p4-ws text-white">Obtén un robot y comienza a operar</p>
             </div>
             <div class="flex gap-10 justify-end">
                 <div class="flex flex-col w-[389px] py-4 pl-4 pr-4 sm:py-20 sm:pl-20 sm:pr-0">
-                    <span class="flex justify-center items-center font-bold text-white bg-primary rounded-[50px] py-4 sm:py-8 px-10 sm:px-20 w-[94px] h-[45px]">
+                    <span class="flex justify-center text-blueDark items-center font-bold p6-ws text-white bg-primary rounded-[50px] py-2 px-5 w-[94px]">
                         Forex
                     </span>
-                    <h1 class="text-3xl sm:text-4xl font-bold mt-6">Robot de trading</h1>
-                    <p class="text-[20px] text-blueDark my-4 sm:my-8">
+                    <h4 class="font-bold mt-6 text-blueDark">Robot de trading</h4>
+                    <p class="p4-ws my-4 sm:my-8 text-blueDark">
                         Nuestro EA de Forex es un sistema 100 % automático, el cual ejecuta operaciones de manera 
                         algorítmica basandose en 3 distintas estrategias para sacar beneficio del mercado haciendo Scalping.
                     </p>
-                    <a class="text-sm sm:text-[20px] text-primary">Quiero un robot</a>
+                    <a class="p4-ws  text-primary cursor-pointer">Quiero un robot</a>
                 </div>
                 <div class="hidden sm:flex pt-24 w-[243px]">
                     <img class="w-full h-full" src="img/forex.png" alt="">

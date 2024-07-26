@@ -15,7 +15,10 @@ export class HeaderComponent {
   private readonly routerService = inject(Router);
 
   routeOptions = [
-   
+    {
+      name: 'HOME',
+      path: '',
+    },
     {
       name: 'SERVICIOS Y PRODUCTOS',
       path: 'products',

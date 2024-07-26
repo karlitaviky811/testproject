@@ -1,30 +1,34 @@
 <section class="px-[10%] py-[10%]">
   <div>
-    <h1 class="tile-font-dark m-2 mb-[5%]">Robots y Licencias</h1>
+    <div class="py-6">
+      <span class="text-blueDark p2-ws font-semibold m-2 mb-[5%]">Robots y Licencias</span>
+    
+    </div>
+ 
     <p-accordion [activeIndex]="0">
         <p-accordionTab [header]="tab.title" *ngFor="let tab of tabs">
-          <p class="m-0">
+          <p class="m-0 text-blueDark p3-ws font-semibold">
             {{ tab.content }}
           </p>
       
-          <div class="flex flex-col sm:flex-col md:flex-col m-10">
+          <div class="flex flex-col sm:flex-col md:flex-col">
             @for(detail of tab.data; track detail.title) {
             <div class="flex justify-between pt-2 ">
-              <span class="tile-font-dark m-2"> {{ detail.title }}</span>
+              <span class="p3-ws font-semibold"> {{ detail.title }}</span>
               <div class="pt-2">
                 @if(detail.title !== 'Estado' && detail.title !== 'Estrategias' &&
                 detail.title !== 'Descargar' && detail.title !== 'Certificado' ){
-                <span>{{ detail.content }}</span>
+                <span class="p3-ws">{{ detail.content }}</span>
                 } @if (detail.title == 'Estado') {
-                <span class="text-[#0574F7]">{{ detail.content }}</span>
+                <span class="text-[#0574F7] p3-ws">{{ detail.content }}</span>
                 } @if (detail.title == 'Estrategias') {
                 <div class="flex items-center">
                   <span class="mr-2">{{ detail.content }}</span>
-                  <button class="border border-primary rounded p-2 text-primary">Mejorar</button>
+                  <button class="border border-primary p3-ws rounded p-2 text-primary">Mejorar</button>
                 </div>
       
                 } @if (detail.title == 'Certificado') {
-                <button class="border border-primary rounded p-2 text-primary">Descargar</button>
+                <button class="border border-primary p3-ws rounded p-2 text-primary">Descargar</button>
                 }
               </div>
             </div>

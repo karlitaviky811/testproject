@@ -1,89 +1,8 @@
-<!--div class="w-full h-[89px] flex bg-secondary px-20">
-    <div class="flex items-center grow">
-        <img [routerLink]="['']" src="img/logo.png" alt="" class="cursor-pointer">
-    </div>
-    <div class="flex justify-end items-center gap-x-12 w-full">
-        <div class="flex gap-4">
-            <img class="w-[24px] h-[24px] cursor-pointer" src="img/home.png" [routerLink]="['']" alt="">
-            @for(route of routeOptions; track route.name) {
-                <a [routerLink]="[route.path]">{{ route.name }}</a>
-            }
-        </div>
-        <div class="flex items-center gap-4">
-            <div class="flex gap-4">
-                <img class="w-[24px] h-[24px]" src="img/language.png" alt="">
-                <span class="text-blueDark">ES</span>
-            </div>
-         
-            <fwa-button (onClick)="handleClick('site/contact')">CONTACTO</fwa-button>
-            
-            <img class="w-[24px] h-[24px]" src="img/cart.png" alt="">
-
-            <div class="flex gap-4">
-                <a [routerLink]="['../sign-in']" class="text-blueDark">LOGIN</a>
-            </div>
-        </div>
-    </div>
-
-</div-->
-
-<!--nav class="bg-secondary px-20 border-gray-200 py-2.5 dark:bg-gray-900">
-    <div class="flex flex-wrap items-center justify-between max-w-screen-xl px-4 mx-auto">
-        <a href="#" class="flex items-center">
-            <img [routerLink]="['']" src="img/logo.png" alt="" class="cursor-pointer">
-        </a>
-        <div class="flex items-center lg:order-2">
-            <div class="hidden mt-2 mr-4 sm:inline-block">
-                <span></span>
-            </div>
-            <div class="flex items-center gap-4">
-                <img class="w-[24px] h-[24px]" src="img/language.png" alt="">
-                <span class="text-blueDark">ES</span>
-
-                <fwa-button (onClick)="handleClick('site/contact')">CONTACTO</fwa-button>
-                <a [routerLink]="['../sign-in']" class="text-blueDark">LOGIN</a>
-            </div>
-           
-                <button data-collapse-toggle="mobile-menu-2" type="button"
-				class="inline-flex items-center p-2 ml-1 text-sm text-gray-500 rounded-lg lg:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
-				aria-controls="mobile-menu-2" aria-expanded="true">
-				<span class="sr-only">Open main menu</span>
-				<svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-					<path fill-rule="evenodd"
-						d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
-						clip-rule="evenodd"></path>
-				</svg>
-				<svg class="hidden w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-					<path fill-rule="evenodd"
-						d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-						clip-rule="evenodd"></path>
-				</svg>
-			</button>
-        </div>
-        <div class="items-center justify-between w-full lg:flex lg:w-auto lg:order-1" id="mobile-menu-2">
-            <ul class="flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0">
-                <li>
-                    <img class="w-[24px] h-[24px] cursor-pointer 
-                    " src="img/home.png" [routerLink]="['']" alt="">
-                </li>
-                @for(route of routeOptions; track route.name) {
-                <li>
-                    <a href="#" [routerLink]="[route.path]"
-                        class="block py-2 pl-3 pr-4 text-white rounded lg:bg-transparent lg:text-purple-700 lg:p-0 dark:text-white"
-                        aria-current="page">{{ route.name }}</a>
-                </li>
-            }
-               
-            </ul>
-        </div>
-    </div>
-</nav-->
-
-<nav class="bg-secondary border-gray-200 dark:bg-gray-900 dark:border-gray-700">
+<nav class="bg-secondary border-gray-200 dark:bg-[#F6F6F6] dark:border-gray-700">
   <div
     class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4"
   >
-    <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse">
+    <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse w-auto">
       <img [routerLink]="['']" src="img/logo.png" alt="" class="cursor-pointer">
     </a>
     <button
@@ -113,22 +32,15 @@
     <!--button (click)="openMenu()">Hi</button-->
     <div class="hidden w-full md:block md:w-auto"   id="navbar-dropdown">
       <ul
-        class="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-secondary dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700"
+        class="flex flex-col font-medium p-4 md:p-0 mt-4 rounded-lg rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-secondary dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700"
       >
-        <li class="flex items-center">
-          <a
-            href="#"
-            class="block py-2 px-3 text-gray-900"
-            > <img class="w-[24px] h-[24px] cursor-pointer" src="img/home.png" [routerLink]="['']" alt=""></a
-          >
-        </li>
         @for(route of routeOptions; track route.name) {
-        <li class="flex items-center">
+        <li class="flex items-center justify-center">
           <a
             [ngClass]="{'blue-button': route.name === 'CONTACTO', 'my_class2' :  route.name === 'ES' }"
             href="#"
             [routerLink]="[route.path]"
-            class="block py-2 pl-3 pr-4 text-blueDark"
+            class="block py-2 pl-3 pr-4 p6-ws text-center text-blueDark"
             aria-current="page"
             >   
             @if(route.name == 'ES'){
@@ -141,45 +53,35 @@
       </ul>
     </div>
     @if(show){
-      <!--div class="w-full md:w-auto">
+      <div class="w-full md:w-auto md:hidden">
         <ul
-        class="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-secondary dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700"
+        class="flex flex-col font-medium p-4 md:p-0 mt-4 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-secondary dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700"
       >
-        <li>
+        <!--li>
           <a
             href="#"
             class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
             > <img class="w-[24px] h-[24px] cursor-pointer" src="img/home.png" [routerLink]="['']" alt=""></a
           >
-        </li>
+        </li-->
         @for(route of routeOptions; track route.name) {
-        <li>
-          <a
-            href="#"
-            [routerLink]="[route.path]"
-            class="block py-2 pl-3 pr-4 text-white rounded lg:bg-transparent lg:text-purple-700 lg:p-0 dark:text-white"
-            aria-current="page"
-            >{{ route.name }}</a
-          >
-        </li>
+          <li class="flex items-center">
+            <a
+              [ngClass]="{ 'my_class2' :  route.name === 'ES' }"
+              href="#"
+              [routerLink]="[route.path]"
+              class="block py-2 pl-3 pr-4 p6-ws text-center text-blueDark"
+              aria-current="page"
+              >   
+              @if(route.name == 'ES'){
+                <img class="w-[24px] h-[24px]" src="img/language.png" alt=""> 
+              }
+              {{ route.name }}</a
+            >
+          </li>
         }
-    
-        <li>
-          <a id="contact" [routerLink]="['../site/contact']" (onClick)="handleClick('site/contact')" class="bg-blue-600 border border-primary rounded-md	py-2 px-2">CONTACTO</a>
-        </li>
-        <li class="flex gap-4">
-    
-            <img class="w-[24px] h-[24px]" src="img/language.png" alt="">
-            <span class="text-blueDark">ES</span>
-        </li>
-        <li>
-     
-          <div class="flex gap-4">
-              <a [routerLink]="['../sign-in']" class="text-blueDark">LOGIN</a>
-          </div>
-        </li>
       </ul>
-      </div-->
+      </div>
     }
     
   </div>

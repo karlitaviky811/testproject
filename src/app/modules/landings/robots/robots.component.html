@@ -1,6 +1,6 @@
 <fwa-banner/>
-<div class="flex flex-col px-4 sm:px-20 pt-20 ">
-    <h1 class="text-center text-[40px] font-semibold text-blueDark mb-16">Todos los Robots</h1>
+<main class="flex flex-col pt-4 sm:pt-10 md:pt-28 lg:pt-[133px] px-4 sm:px-10 md:px-18 lg:px-32 pb-10 sm:pb-20 md:pb-40 lg:pb-60">
+    <h1 class="text-center font-semibold text-blueDark mb-4 sm:mb-12 md:mb-20 lg:mb-[102px]">Todos los Robots</h1>
 
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-10 mb-24">
         @for(robot of robots(); track robot.id) {
@@ -11,4 +11,4 @@
             </fwa-card-robot>
         }
     </div>
-</div>
+</main>

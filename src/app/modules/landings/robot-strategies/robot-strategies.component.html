@@ -1,44 +1,22 @@
 <fwa-banner/>
 
 <div class="grid sm:grid-cols-12 mt-14 mx-10 mb-48">
-    <section class="col-span-12 sm:col-span-4 md:col-span-4 lg:col-span-3 pr-[80px]">
-        <div class="w-full border-r-2 border-secondary pr-6">
+    <section class="col-span-12 sm:col-span-4 md:col-span-3 lg:col-span-3 sm:pr-[80px] min-w-[250px]">
+        <div class="w-full sm:border-r-2 border-secondary pr-6">
             <fwa-panel-filters></fwa-panel-filters>
         </div>
     </section>
-    <section class="col-span-12 sm:col-span-8 md:col-span-8 lg:col-span-9">
+    <section class="col-span-12 sm:col-span-8 md:col-span-9 lg:col-span-9">
         <div class="w-full flex flex-col">
             <h4 class="font-poppins text-grayLight-400 font-medium mb-3">Todas las estrategias</h4>
             <p class="paragraph-3 font-poppins text-grayLight-300 mb-7">Elige tantas estrategias quieras añadir a tu Robot</p>
             
             <div class="grid sm:grid-cols-12 gap-4 mb-8">
-                <div class="sm:col-span-4 mb-2">
-                    <fwa-card-strategy></fwa-card-strategy>
-                </div>
-                <div class="sm:col-span-4 mb-2">
-                    <fwa-card-strategy></fwa-card-strategy>
-                </div>
-                <div class="sm:col-span-4 mb-2">
-                    <fwa-card-strategy></fwa-card-strategy>
-                </div>
-                <div class="sm:col-span-4 mb-2">
-                    <fwa-card-strategy></fwa-card-strategy>
-                </div>
-                <div class="sm:col-span-4 mb-2">
-                    <fwa-card-strategy></fwa-card-strategy>
-                </div>
-                <div class="sm:col-span-4 mb-2">
-                    <fwa-card-strategy></fwa-card-strategy>
-                </div>
-                <div class="sm:col-span-4 mb-2">
-                    <fwa-card-strategy></fwa-card-strategy>
-                </div>
-                <div class="sm:col-span-4 mb-2">
-                    <fwa-card-strategy></fwa-card-strategy>
-                </div>
-                <div class="sm:col-span-4 mb-2">
-                    <fwa-card-strategy></fwa-card-strategy>
-                </div>
+                @for(item of [1,2,3,4,5,6]; track item) {
+                    <div class="sm:col-span-12 md:col-span-6 lg:col-span-4 mb-2">
+                        <fwa-card-strategy></fwa-card-strategy>
+                    </div>
+                }
             </div>
             
             <div class="self-end">

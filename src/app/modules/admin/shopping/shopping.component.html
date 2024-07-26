@@ -1,22 +1,26 @@
 <section class="px-[10%] py-[10%]">
-    <p-table [value]="shoppings()" [tableStyle]="{ 'min-width': '50rem' }">
+    <div class="py-6">
+        <span class="p2-ws font-semibold px-2">Compras</span>
+    </div>
+
+    <p-table [value]="shoppings()" [tableStyle]="{ 'min-width': '40rem' }" >
         <ng-template pTemplate="header">
             <tr>
-                <th>Pedido</th>
-                <th>Fecha</th>
-                <th>Estado</th>
-                <th>Total</th>
-                <th>Acciones</th>
+                <th class="p3-ws">Pedido</th>
+                <th class="p3-ws">Fecha</th>
+                <th class="p3-ws">Estado</th>
+                <th class="p3-ws">Total</th>
+                <th class="p3-ws">Acciones</th>
             </tr>
         </ng-template>
         <ng-template pTemplate="body" let-shopping>
             <tr>
-                <td>{{ shopping.code }}</td>
-                <td>{{ shopping.date }}</td>
-                <td>{{ shopping.status }}</td>
-                <td>{{ shopping.total }}</td>
+                <td class="p3-ws">{{ shopping.code }}</td>
+                <td class="p3-ws">{{ shopping.date }}</td>
+                <td class="p3-ws">{{ shopping.status }}</td>
+                <td class="p3-ws">{{ shopping.total }}</td>
                 <td>
-                    <fwa-button type="outlet" (onClick)="navigateToDetail(shopping)">Ver</fwa-button>
+                    <button class="btn btn-outlet-primary w-full py-3 gap-4" (click)="navigateToDetail(shopping)">Ver</button>
                 </td>
             </tr>
         </ng-template>

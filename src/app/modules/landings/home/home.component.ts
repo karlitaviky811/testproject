@@ -19,7 +19,7 @@ export default class HomeComponent {
       description: 'Nuestros cursos y clases están enfocadas en hacer llegar la información a nuestros estudiantes de la manera más sencilla, directa y práctica de aprender.',
     }, 
     {
-      title: 'traders capacitados',
+      title: 'Traders capacitados',
       icon: 'img/laptop_icon.png',
       description: 'Todos nuestros traders tienen años de experiencia demostable.',
     },
