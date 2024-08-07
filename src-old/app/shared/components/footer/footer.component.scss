@@ -1,0 +1,17 @@
+.text-custom {
+    @apply sm:text-[18px] font-medium;
+}
+
+.main-content {
+    width: 100%;
+    height: 100%;
+    padding-top: 100px;
+    padding-right: 128px;
+    padding-bottom: 120px;
+    padding-left: 128px;
+    ::ng-deep {
+      router-outlet + * {
+        width: 100%;
+      }
+    }
+  }

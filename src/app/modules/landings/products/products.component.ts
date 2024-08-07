@@ -3,8 +3,8 @@ import { ButtonComponent } from '../../../shared/components/button/button.compon
 import { AlertMessageComponent } from '../../../shared/components/alert-message/alert-message.component';
 import { CommonModule } from '@angular/common';
 import { TranslateModule } from '@ngx-translate/core';
-import { BannerComponent } from './banner/banner.component';
 import { RouterModule } from '@angular/router';
+import { BannerComponent } from '../../../shared/components/banner/banner.component';
 @Component({
   selector: 'app-products',
   standalone: true,
@@ -13,13 +13,15 @@ import { RouterModule } from '@angular/router';
     AlertMessageComponent,
     CommonModule,
     TranslateModule,
+    RouterModule,
     BannerComponent,
-    RouterModule
   ],
   templateUrl: './products.component.html',
   styleUrl: './products.component.scss',
 })
 export default class ProductsComponent {
+  title = '¿NO TIENES TIEMPO PARA ANALIZAR TUS ACTIVOS?';
+
   pDetail = [
     {
       title: 'Asesor Experto',

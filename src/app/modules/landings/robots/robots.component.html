@@ -1,5 +1,11 @@
-<fwa-banner/>
-<main class="flex flex-col pt-4 sm:pt-10 md:pt-28 lg:pt-[133px] px-4 sm:px-10 md:px-18 lg:px-32 pb-10 sm:pb-20 md:pb-40 lg:pb-60">
+<fwa-banner
+  [title]="title"
+  messageLink="Nuestro EA de Forex es un sistema 100 % automático"
+  backgroundImage="banner_robots.png"
+  height="597"
+/>
+
+<main class="pt-4 sm:pt-10 md:pt-28 lg:pt-[133px] pb-10 sm:pb-20 md:pb-40 lg:pb-60">
     <h1 class="text-center font-semibold text-blueDark mb-4 sm:mb-12 md:mb-20 lg:mb-[102px]">Todos los Robots</h1>
 
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-10 mb-24">
@@ -7,7 +13,7 @@
             <fwa-card-robot
                 [robot]="robot"
                 (onClick)="handleEventRobot()"
-            >
+            >.
             </fwa-card-robot>
         }
     </div>

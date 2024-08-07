@@ -1,18 +1,13 @@
 <div class="w-full flex flex-col h-auto">
-    <div class="w-full bg-[#EDF1F5] flex items-center h-full py-4 px-[20px] sm:px-[80px] md:px-[80px] lg:px-[100px] sm:py-16">
+    <div class="flex justify-center items-center w-full bg-[#EDF1F5] h-full py-4 px-[20px] sm:px-[80px] md:px-[80px] lg:px-[100px] sm:py-16">
         <div class="flex flex-col w-full sm:flex-col sm:justify-between gap-y-4 sm:gap-x-12 md:flex-col lg:flex-row ">
-            <div class="flex flex-col items-center sm:items-start gap-8 shrink">
-                <img src="img/logo.png" alt="">
-                
-                <fwa-button class="w-full" (onClick)="handleClick()">
-                    <div  class="flex justify-center items-center px-[16px] gap-2 grow">
-                        <img src="img/message.png" class="h-[18px] w-[18px]" alt="">
-                        <span class="p3-ws text-white">Contacta con nosotros</span>
-                    </div>
-                 
-                </fwa-button>
+            <div class="flex flex-col items-center sm:items-start gap-8 shrink lg:min-w-[374px]">
+                <img class="lg:w-full" src="img/logo.png" alt="">
+                <button class="btn btn-primary gap-4">
+                    <img src="img/message.png" class="h-[18px] w-[18px]" alt="">
+                    Contacto con nosotros
+                </button>
             </div>
-            
             <div class="flex flex-col gap-2 sm:gap-8 shrink">
                 <div class="flex gap-4 sm:gap-8">
                     <div class="flex items-center gap-2">

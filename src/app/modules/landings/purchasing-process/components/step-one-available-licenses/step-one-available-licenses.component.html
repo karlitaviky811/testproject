@@ -1,0 +1,43 @@
+<div class="flex flex-column">
+    <div class="w-full flex font-medium">
+      <section class="grid grid-cols-4 gap-x-20 w-full">
+        <div class="col-span-4 content-center">
+          <div class="flex flex-wrap gap-2">
+            <h4 class="font-semibold">Paso 1:</h4>
+            <h4 class="font-light">Conoce todas las Características del Robot</h4>
+          </div>
+          <hr class="mt-2 mb-8 md:mt-4 md:mb-16 lg:mt-10 lg:mb-[110px] h-[1px] border-t-0 bg-[#DDDDDDDD] dark:bg-[#DDDDDDDD]"/>
+        </div>
+        <div class="col-span-4 md:col-span-4 sm:col-span-4 lg:col-span-2">
+          <img class="w-full" src="img/step_1.png" alt="" />
+        </div>
+
+        <div class="col-span-4 md:col-span-4 sm:col-span-4 lg:col-span-2">
+          <div class="flex flex-col flex-wrap">
+            <h2 class="font-semibold">Robots de Forex</h2>
+            <h6 class="font-semibold mt-4 mb-1 md:mb-2 md:mt-8 lg:mb-4 lg:mt-[42px]">Licencias disponibles</h6>
+            <div>
+              <h4 class="py-[10px] p3-ws">Escoge la licencia bajo la cual quieres que opere tu Robot</h4>
+            </div>
+          </div>
+
+          @for(license of licenses(); track license.name) {
+            <card-license
+              [license]="license"
+              (onClick)="handleSelectedItem($event)"
+              [selected]="purchaseService.selectedLicense() != undefined && license.name == purchaseService.selectedLicense()?.name"
+            ></card-license>
+          }
+        </div>
+      </section>
+    </div>
+  </div>
+  <div class="flex pt-4 items-center justify-between">
+    <div class="flex items-center gap-4">
+      <img src="img/back-ligth.png" class="w-[17px] h-[17px]" alt="" />
+      <a href="#" class="p2-ws text-primary" (onClick)="nextCallback.emit()"
+        >Volver atrás / todos los robots</a
+      >
+    </div>
+    <button class="btn btn-primary gap-2 lg:w-[308px]" (click)="nextCallback.emit()" [disabled]="!purchaseService.selectedLicense()">Siguiente<i class="pi pi-arrow-right"></i></button>
+  </div>

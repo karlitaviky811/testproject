@@ -1,7 +1,7 @@
-export interface Lincense {
+export interface License {
     id: number;
-    type: String;
+    name: String;
     duration: String;
     price: String;
-    strategies: String;
+    qtyStrategies: number;
 }

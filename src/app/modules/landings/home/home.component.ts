@@ -1,17 +1,17 @@
 import { Component } from '@angular/core';
 import { HomeModule } from './home.module';
-import { ButtonComponent } from '../../../shared/components/button/button.component';
 import { CommonModule } from '@angular/common';
-import { ButtonModule } from 'primeng/button';
+import { BannerComponent } from '../../../shared/components/banner/banner.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [HomeModule, ButtonComponent, CommonModule, ButtonModule],
+  imports: [HomeModule, CommonModule, BannerComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
 export default class HomeComponent {
+  title = 'EDÚCATE Y CONVIÉRTETE EN UN TRADER PROFESIONAL DESDE CERO';
   benifits: any[] = [
     {
       title: 'Fácil de aprender',

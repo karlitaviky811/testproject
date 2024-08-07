@@ -1,7 +1,11 @@
-<fwa-banner/>
-<div class="w-full flex flex-col px-4 sm:px-20 pb-20">
+<fwa-banner
+    [title]="title"
+    messageLink="Conocer todos los paquetes"
+    backgroundImage="banner_home.png"
+/>
+<main class="pb-20 pt-4 sm:pt-12 md:pt-32 lg:pt-[212px]">
     <!-- start benifits section -->
-    <section class="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-3 gap-4 sm:gap-10 md:gap-16 lg:gap-20 pt-10 mb-8 sm:mb-10 md:mb-16 lg:mb-20">
+    <section class="grid sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-[repeat(minmax(3, 200px, 488px))] gap-4 sm:gap-10 md:gap-16 lg:gap-[100px] mb-8 sm:mb-10 md:mb-16 lg:mb-20">
         @for(benifit of benifits; track benifit.title) {
             <fwa-benifit
                 [icon]="benifit.icon"
@@ -14,25 +18,25 @@
     <!-- end benifits section -->
 
     <!-- start about us section -->
-    <section class="grid grid-cols-4 gap-10">
-        <div class="flex flex-col items-end col-span-4 md:col-span-4 sm:col-span-4 lg:col-span-2">
+    <section class="grid justify-center md:grid-cols-1 lg:grid-cols-[minmax(400px,703px)_minmax(400px,882px)] w-full gap-10 sm:mb-32 md:mb-60 lg:mb-[307px]">
+        <div class="flex flex-col items-end lg:pt-[159px] min-w-[200px] xl:pl-[188px]">
             <h5 class="font-medium text-blueDark text-center">¿Quiénes somos?</h5>
             <p class="p4-ws text-right text-blueDark py-2 sm:py-4 md:py-6 lg:py-8">
                 Somos una Academia de trading con mas de 6 años de experiencia en los Mercados financieros.
                 Donde nos hemos especializado en la educación, creación de sistemas automáticos de trading y gestión de capitales.
                 A través de Metodologías probadas y testeadas que generan una rentabilidad sostenible si se cumplen cada uno de los parámetros enseñados por nuestros profesores.
             </p>
-            <fwa-button>Conocer más</fwa-button>
+            <button class="btn btn-primary lg:w-[359px]">Conocer más</button>
         </div>
-        <div class="w-full col-span-4  md:col-span-4 sm:col-span-4 lg:col-span-2">
+        <div class="lg:min-w-[400px]">
             <img class="w-full h-full" src="img/tranding.png" alt="">
         </div>
     </section>
     <!-- end about us section -->
 
     <!-- start courses section -->
-    <section class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-10">
-        <div class="flex justify-end gap-0 sm:gap-10 border-primary border-2 rounded-[30px] overflow-hidden mt-12">
+    <section class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-10 lg:px-[76px] mb-10 sm:mb-16 md:mb-40 lg:mb-[261px]">
+        <div class="flex justify-end gap-0 sm:gap-10 border-primary border-2 rounded-[30px] overflow-hidden mt-12 lg:max-w-[710px]">
             <div class="flex flex-col w-[389px] py-4 pl-4 pr-4 sm:py-20 sm:pl-20 sm:pr-0">
                 <span class="flex justify-center items-center font-bold p6-ws text-white bg-primary rounded-[50px] py-2 px-5 w-[94px]">
                     Broker
@@ -47,13 +51,13 @@
                 <img class="w-full h-full" src="img/broker.png" alt="">
             </div>
         </div>
-        <div class="flex flex-col justify-start border-primary border-2 rounded-[30px] overflow-hidden bg-[#F4F4F4]">
+        <div class="flex flex-col justify-start border-primary border-2 rounded-[30px] overflow-hidden bg-[#F4F4F4] lg:max-w-[725px]">
             <div class="flex justify-center items-center w-full h-[57px] bg-primary text-center">
                 <p class="p4-ws text-white">Obtén un robot y comienza a operar</p>
             </div>
             <div class="flex gap-10 justify-end">
                 <div class="flex flex-col w-[389px] py-4 pl-4 pr-4 sm:py-20 sm:pl-20 sm:pr-0">
-                    <span class="flex justify-center text-blueDark items-center font-bold p6-ws text-white bg-primary rounded-[50px] py-2 px-5 w-[94px]">
+                    <span class="flex justify-center  items-center font-bold p6-ws text-white bg-primary rounded-[50px] py-2 px-5 w-[94px]">
                         Forex
                     </span>
                     <h4 class="font-bold mt-6 text-blueDark">Robot de trading</h4>
@@ -71,4 +75,4 @@
     </section>
     <!-- end courses section -->
 
-</div>
+</main>

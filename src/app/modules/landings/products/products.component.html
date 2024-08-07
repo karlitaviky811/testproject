@@ -1,4 +1,9 @@
-<fwa-banner></fwa-banner>
+<fwa-banner
+  [title]="title"
+  messageLink="Conocer todos los paquetes"
+  backgroundImage="product_banner.png"
+/>
+
 <div class="w-full flex flex-col">
   <section class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-12 mb-20 lg:h-[1000px]">
     <div class="col-span-2 sm:col-span-3 lg:col-span-4 content-end bg-[#072443]">
@@ -75,12 +80,7 @@
           </p>
         </div>
         <div class="m-4">
-          
-          <fwa-button (onClick)="handleClick()"
-            >
-            <img src="img/message-fly.png"/>
-            Nuestras señales gratuitas</fwa-button
-          >
+          <button class="btn btn-primary gap-4" (click)="handleClick()"><img src="img/message-fly.png"/>Nuestras señales gratuitas</button>
         </div>
       </div>
     </div>

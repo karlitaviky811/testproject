@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { BannerComponent } from './banner/banner.component';
-
+import { BannerComponent } from '../../../shared/components/banner/banner.component';
 @Component({
   selector: 'app-contact',
   standalone: true,
@@ -9,7 +8,8 @@ import { BannerComponent } from './banner/banner.component';
   styleUrl: './contact.component.scss'
 })
 export default class ContactComponent {
-  title = 'My first AGM project';
+  title = '¿NO TIENES TIEMPO PARA ANALIZAR TUS ACTIVOS?';
+
   lat = 51.678418;
   lng = 7.809007;
 }

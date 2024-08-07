@@ -1,6 +1,9 @@
 export interface Robot {
-    id: String;
-    title: String;
+    id: number;
+    name: String;
     description: String;
-    img: String;
+    shortDescription: String;
+    imagePrincipal: String;
+    imageSecondary: String;
+    characteristics: String[];
 }

@@ -1,5 +1,5 @@
-import { Component, Input, Signal, input } from '@angular/core';
-import { Lincense } from '../../../../../core/interfaces/license';
+import { Component, EventEmitter, Input, Output, Signal, input } from '@angular/core';
+import { License } from '../../../../../core/interfaces/license';
 
 @Component({
   selector: 'card-license',
@@ -7,6 +7,7 @@ import { Lincense } from '../../../../../core/interfaces/license';
   styleUrl: './card-license.component.scss'
 })
 export class CardLicenseComponent {
-  @Input() license!: Lincense;
-
+  @Input() license!: License;
+  @Input() selected: boolean = false;
+  @Output() onClick: EventEmitter<any> = new EventEmitter();
 }

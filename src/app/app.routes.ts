@@ -4,6 +4,7 @@ import { ROUTE_LANDING } from './modules/landings/landings.routes';
 import { ROUTE_SIGN_IN } from './modules/auth/auth.routes';
 import { ROUTE_ADMIN } from './modules/admin/admin.routes';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
+import { authGuardGuard } from './core/guards/auth-guard.guard';
 
 export const routes: Routes = [
     {
@@ -24,7 +25,8 @@ export const routes: Routes = [
         component: AdminLayoutComponent,
         children: [
             ...ROUTE_ADMIN,
-        ]
+        ] ,
+        canActivate: [authGuardGuard]
     },
     ...ROUTE_SIGN_IN,
 ];

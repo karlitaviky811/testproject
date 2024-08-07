@@ -4,6 +4,7 @@ import { AlertMessageComponent } from '../../../shared/components/alert-message/
 import { CommonModule } from '@angular/common';
 import { TranslateModule } from '@ngx-translate/core';
 import { ProductsDetailModule } from './products-detail.module';
+import { BannerComponent } from '../../../shared/components/banner/banner.component';
 @Component({
   selector: 'app-products-detail',
   standalone: true,
@@ -13,11 +14,14 @@ import { ProductsDetailModule } from './products-detail.module';
     CommonModule,
     TranslateModule,
     ProductsDetailModule,
+    BannerComponent
   ],
   templateUrl: './products-detail.component.html',
   styleUrl: './products-detail.component.scss',
 })
 export default class ProductsDetailComponent {
+  title = '¿NO TIENES TIEMPO PARA ANALIZAR TUS ACTIVOS?';
+
   onClick = output();
   pDetail = [
     {

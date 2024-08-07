@@ -1,0 +1,26 @@
+@layer base {
+
+    h1 {
+      @apply text-2xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-workSans;
+    }
+  
+    h2 {
+      @apply text-2xl sm:text-3xl md:text-4xl lg:text-[2.75rem] font-workSans;
+    }
+  
+    h3 {
+      @apply text-xl sm:text-2xl md:text-3xl lg:text-[2.5rem] font-workSans;
+    }
+    
+    h4 {
+      @apply text-base sm:text-xl md:text-2xl lg:text-4xl font-workSans;
+    }
+  
+    h5 {
+      @apply text-sm sm:text-base md:text-xl lg:text-[2rem] font-workSans;
+    }
+  
+    h6 {
+      @apply text-xs sm:text-sm md:text-base lg:text-3xl font-workSans;
+    }
+  }

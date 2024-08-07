@@ -1,59 +1,38 @@
-import { Component, inject, signal } from '@angular/core';
+import { Component, OnInit, WritableSignal, inject, signal } from '@angular/core';
 import { RobotsModule } from './robots.module';
 import { Robot } from '../../../core/interfaces/robot';
 import { Router } from '@angular/router';
+import { BannerComponent } from '../../../shared/components/banner/banner.component';
+import { RobotService } from '../../../core/services/robot_service';
 
 @Component({
   selector: 'app-robots',
   standalone: true,
-  imports: [RobotsModule],
+  imports: [RobotsModule, BannerComponent],
+  providers: [RobotService],
   templateUrl: './robots.component.html',
   styleUrl: './robots.component.scss'
 })
-export default class RobotsComponent {
-  robots = signal<Robot[]>([]);
+export default class RobotsComponent implements OnInit {
+  title = 'ROBOT DE TRADING';
+  robots: WritableSignal<Robot[]> = signal<Robot[]>([]);
   routerService = inject(Router);
+  private readonly robotService = inject(RobotService);
   
   constructor() {
     this.robots.set([
-      {
-        id: '1',
-        title: 'Robot de Forex',
-        description: 'Apertura y cierre de operaciones',
-        img: 'img/robot_forex.png',
-      },
-      {
-        id: '2',
-        title: 'Robot de Trading',
-        description: 'Apertura y cierre de operaciones',
-        img: 'img/robot_trading.png',
-      },
-      {
-        id: '3',
-        title: 'Robot de Forex',
-        description: 'Apertura y cierre de operaciones',
-        img: 'img/robot_forex.png',
-      },
-      {
-        id: '4',
-        title: 'Robot de Trading',
-        description: 'Apertura y cierre de operaciones',
-        img: 'img/robot_trading.png',
-      },
-      {
-        id: '5',
-        title: 'Robot de Forex',
-        description: 'Apertura y cierre de operaciones',
-        img: 'img/robot_forex.png',
-      },
-      {
-        id: '6',
-        title: 'Robot de Forex',
-        description: 'Apertura y cierre de operaciones',
-        img: 'img/robot_forex.png',
-      },
     ]);
   }
+
+  ngOnInit(): void {
+    this.robotService.getRobots().subscribe({
+      next: (res) => {
+          this.robots.set(res);
+      }
+    });
+  }
+
+  
 
   handleEventRobot() {
     this.routerService.navigate(['site/robot-detail']);

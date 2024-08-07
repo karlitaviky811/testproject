@@ -1,17 +1,61 @@
-import { Component } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { Component, inject } from "@angular/core";
+import { Router, RouterModule } from "@angular/router";
+import { AuthService } from "../../../core/services/auth_service";
+import {  FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { CommonModule } from "@angular/common";
 
 @Component({
-  selector: 'app-sign-in',
+  selector: "app-sign-in",
   standalone: true,
-  imports: [RouterModule],
-  templateUrl: './sign-in.component.html',
-  styleUrl: './sign-in.component.scss'
+  imports: [RouterModule, FormsModule, ReactiveFormsModule,
+    CommonModule ],
+  providers: [AuthService],
+  templateUrl: "./sign-in.component.html",
+  styleUrl: "./sign-in.component.scss",
 })
 export default class SignInComponent {
+  authSrv = inject(AuthService);
+  router = inject(Router);
 
-  sigIn(){
-    console.log('go to home')
+  formgroup = new FormBuilder().group({
+    email: new FormControl('', [Validators.minLength(2),Validators.required,Validators.email]),
+    password: new FormControl('', [Validators.required])}
+  );
+  
+  sigIn(credentials: any): void {
+    console.log('e', this.formgroup)
+    var credential = {
+      password: credentials.password,
+      email: credentials.email,
+    };
+    this.authSrv.login(credential).subscribe({
+      next: () => this.router.navigate(['/admin']),
+      error: (err)=> console.error('Login failed', err)
+    });
   }
 
+  match(controlName: string, matchingControlName: string) {
+    return (formGroup: FormGroup) => {
+      const control = formGroup.controls[controlName];
+      const matchingControl = formGroup.controls[matchingControlName];
+      if (matchingControl.errors && !matchingControl.errors['confirmed']) {
+        return;
+      }
+      if (control.value !== matchingControl.value) {
+        matchingControl.setErrors({ confirmed: true });
+      } else {
+        matchingControl.setErrors(null);
+      }
+    };
+  }
+
+  hasError(InputName: string, error?:'maxlength'|'minlength'|'required'|'email'|'confirmed'|'max'|'min'|'pattern'):boolean {
+    if(error){
+      return this.formgroup.get(InputName)?.hasError(error) &&
+      (this.formgroup.get(InputName)?.dirty || this.formgroup.get(InputName)?.touched)?true:false
+    }else{
+      return this.formgroup.get(InputName)?.invalid &&
+      (this.formgroup.get(InputName)?.dirty || this.formgroup.get(InputName)?.touched)?true:false
+    }
+      }
 }

@@ -1,0 +1,128 @@
+/* You can add global styles to this file, and also import other style files */
+// styles.scss
+@import "primeicons/primeicons.css";
+
+@layer tailwind-base, primeng, tailwind-utilities;
+
+@layer tailwind-base {
+  @tailwind base;
+}
+
+@layer primeng; //not necessary I think
+
+@layer tailwind-utilities {
+  @tailwind components;
+  @tailwind utilities;
+}
+
+
+@layer base {
+
+  h1 {
+    @apply text-2xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-workSans;
+  }
+
+  h2 {
+    @apply text-2xl sm:text-3xl md:text-4xl lg:text-[2.75rem] font-workSans;
+  }
+
+  h3 {
+    @apply text-xl sm:text-2xl md:text-3xl lg:text-[2.5rem] font-workSans;
+  }
+  
+  h4 {
+    @apply text-base sm:text-xl md:text-2xl lg:text-4xl font-workSans;
+  }
+
+  h5 {
+    @apply text-sm sm:text-base md:text-xl lg:text-[2rem] font-workSans;
+  }
+
+  h6 {
+    @apply text-xs sm:text-sm md:text-base lg:text-3xl font-workSans;
+  }
+}
+
+@layer components {
+
+  .p1-ws {
+    @apply text-lg sm:text-xl md:text-2xl lg:text-[28px]  font-workSans text-blueDark;
+  }
+
+  .p2-ws {
+    @apply text-sm sm:text-lg md:text-xl lg:text-2xl font-workSans text-blueDark;
+  }
+
+  .p3-ws {
+    @apply text-xs sm:text-base md:text-lg lg:text-[22px] font-workSans text-blueDark;
+  }
+
+  .p4-ws {
+    @apply text-xs sm:text-sm md:text-base lg:text-xl font-workSans text-blueDark;
+  }
+
+  .p5-ws {
+    @apply text-xs md:text-sm lg:text-lg font-workSans text-blueDark;
+  }
+
+  .p6-ws {
+    @apply text-xs md:text-sm lg:text-base font-workSans text-blueDark;
+  }
+
+  .p1-ps {
+    @apply text-lg sm:text-xl md:text-2xl lg:text-3xl font-poppins text-blueDark;
+  }
+
+  .p2-ps {
+    @apply text-lg sm:text-xl md:text-2xl lg:text-[28px] font-poppins text-blueDark;
+  }
+
+  .p3-ps {
+    @apply text-sm sm:text-lg md:text-xl lg:text-2xl font-poppins text-blueDark;
+  }
+
+  .p4-ps {
+    @apply text-xs sm:text-base md:text-lg lg:text-[22px] font-poppins text-blueDark;
+  }
+
+  .p5-ps {
+    @apply text-xs sm:text-sm md:text-base lg:text-[20px] font-poppins text-blueDark;
+  }
+
+  .p6-ps {
+    @apply text-xs md:text-sm lg:text-lg font-poppins text-blueDark;
+  }
+
+  .p7-ps {
+    @apply text-xs md:text-sm lg:text-base font-poppins text-blueDark;
+  }
+
+  .footer-social-media {
+    @apply flex justify-center items-center sm:px-3 sm:py-4 border border-blueDark rounded-[10px] w-8 h-8 sm:w-11 sm:h-11 cursor-pointer;
+  }
+
+  .font-medium-18 {
+    @apply text-sm sm:text-[18px] font-medium;
+  }
+}
+
+@font-face {
+  font-family: "Work Sans";
+  src: url("assets/fonts/WorkSans-VariableFont_wght.ttf");
+}
+
+@font-face {
+  font-family: "Montserrat";
+  src: url("assets/fonts/Montserrat-VariableFont_wght.ttf");
+}
+
+@font-face {
+  font-family: "Poppins-Regular";
+  src: url("assets/fonts/Poppins-Regular.ttf");
+}
+
+@font-face {
+  font-family: "Aldrich-Regular";
+  src: url("assets/fonts/Aldrich-Regular.ttf");
+}
+

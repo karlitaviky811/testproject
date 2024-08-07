@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { BannerComponent } from './components/banner/banner.component';
 import { CartComponent } from './components/cart/cart.component';
 import { ShoppingDetailComponent } from './components/shopping-detail/shopping-detail.component';
 import { ButtonComponent } from '../../../shared/components/button/button.component';
@@ -11,7 +10,6 @@ import { ProductService } from '../../../core/services/product_service';
 
 @NgModule({
   declarations: [
-    BannerComponent,
     CartComponent,
     ShoppingDetailComponent,
     
@@ -22,7 +20,6 @@ import { ProductService } from '../../../core/services/product_service';
     TableModule,
   ],
    exports: [
-    BannerComponent,
     CartComponent,
     ShoppingDetailComponent
    ],
