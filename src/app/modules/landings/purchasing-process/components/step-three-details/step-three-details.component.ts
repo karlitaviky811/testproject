@@ -1,5 +1,7 @@
-import { Component, EventEmitter, Output, inject } from '@angular/core';
+import { Component, EventEmitter, Input, Output, inject } from '@angular/core';
 import { Router } from '@angular/router';
+import { Robot } from '../../../../../core/interfaces/robot';
+import { PurchaseService } from '../../../../../core/services/purchase_service';
 
 @Component({
   selector: 'app-step-three-details',
@@ -7,9 +9,11 @@ import { Router } from '@angular/router';
   styleUrl: './step-three-details.component.scss'
 })
 export class StepThreeDetailsComponent {
+  @Input() robot = {} as Robot;
   @Output() prevCallback: EventEmitter<any> = new EventEmitter();
-  router = inject(Router);
-
+  
+  private readonly router = inject(Router);
+  readonly purchaseService = inject(PurchaseService);
   
   goCart() {
     this.router.navigate(['site/shopping-cart']);

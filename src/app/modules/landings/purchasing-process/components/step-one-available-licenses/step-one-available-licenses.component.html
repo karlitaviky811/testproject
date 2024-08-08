@@ -14,7 +14,7 @@
 
         <div class="col-span-4 md:col-span-4 sm:col-span-4 lg:col-span-2">
           <div class="flex flex-col flex-wrap">
-            <h2 class="font-semibold">Robots de Forex</h2>
+            <h2 class="font-semibold">{{ robot.name }}</h2>
             <h6 class="font-semibold mt-4 mb-1 md:mb-2 md:mt-8 lg:mb-4 lg:mt-[42px]">Licencias disponibles</h6>
             <div>
               <h4 class="py-[10px] p3-ws">Escoge la licencia bajo la cual quieres que opere tu Robot</h4>
@@ -25,7 +25,7 @@
             <card-license
               [license]="license"
               (onClick)="handleSelectedItem($event)"
-              [selected]="purchaseService.selectedLicense() != undefined && license.name == purchaseService.selectedLicense()?.name"
+              [selected]="purchaseService.selectedLicense != undefined && license.name == purchaseService.selectedLicense.name"
             ></card-license>
           }
         </div>
@@ -39,5 +39,5 @@
         >Volver atrás / todos los robots</a
       >
     </div>
-    <button class="btn btn-primary gap-2 lg:w-[308px]" (click)="nextCallback.emit()" [disabled]="!purchaseService.selectedLicense()">Siguiente<i class="pi pi-arrow-right"></i></button>
+    <button class="btn btn-primary gap-2 lg:w-[308px]" (click)="nextCallback.emit()" [disabled]="!purchaseService.selectedLicense">Siguiente<i class="pi pi-arrow-right"></i></button>
   </div>

@@ -19,11 +19,12 @@ export class StepTwoStrategiesComponent {
   strategies = signal<Strategy[]>([]);
 
   ngOnInit(): void {
-    this.strategyService.getLicenses().subscribe({
-      next: (res) => {
-        this.strategies.set(res);
-      }
-    });
+    this.strategyService.getLicenses()
+      .subscribe({
+        next: (res) => {
+          this.strategies.set(res);
+        }
+      });
   }
 
   handleSelectStrategy(strategy: Strategy): void {
@@ -32,14 +33,32 @@ export class StepTwoStrategiesComponent {
     if (indexStrategy > -1) {
       this.selectedStrategies().splice(indexStrategy, 1)
     } else {
-      if (this.purchaseService.selectedLicense() != undefined && (this.purchaseService.selectedLicense()!.qtyStrategies > this.selectedStrategies().length)) {
+      if (this.purchaseService.selectedLicense != undefined && (this.purchaseService.selectedLicense!.qtyStrategies > this.selectedStrategies().length)) {
         this.selectedStrategies().push(strategy)
       }
     }
+
+    this.purchaseService.selectedStrategies = [...this.selectedStrategies()];
   }
 
   checkSelectedStrategy(strategy: Strategy): boolean {
     return this.selectedStrategies().filter(item => strategy.name == item.name).length > 0;
+  }
+
+  nextStep() {
+    this.selectedStrategies().forEach(strategy => {
+      this.purchaseService.addItemToCart({
+        itemName: strategy.name,
+        itemType: 'STRATEGY',
+        itemElementId: strategy.id,
+        itemPrice: 200.0,
+        quantity: 1,
+        totalPrice: 200.0,
+        shoppingCartId: 1,
+      });
+    });
+    
+    this.nextCallback.emit();
   }
 
 }

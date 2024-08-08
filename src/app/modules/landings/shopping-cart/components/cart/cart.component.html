@@ -1,43 +1,43 @@
-<p-table [value]="products" [tableStyle]="{ 'min-width': '200px' }">
+<p-table [value]="purchaseService.shoppingCart()" [tableStyle]="{ 'min-width': '200px' }">
     <ng-template pTemplate="header">
         <tr>
             <th></th>
-                <th>Producto</th>
-                <th>Precio</th>
-                <th>Cantidad</th>
-                <th class="text-center">Subtotal</th>
+            <th>Producto</th>
+            <th>Precio</th>
+            <th>Cantidad</th>
+            <th class="text-center">Subtotal</th>
         </tr>
     </ng-template>
     <ng-template pTemplate="body" let-product>
         <tr>
             <td>
                 <div class="flex justify-center items-center gap-10">
-                    <i class="pi pi-times cursor-pointer" style="font-size: 1.0rem"></i>
+                    <i (click)="deleteCartItem(product)" class="pi pi-times cursor-pointer" style="font-size: 1.0rem"></i>
                     <div class="w-10 h-10">
-                        <img style="width: 60px; height: 40px;" [src]="product.image" alt="">
+                        <img style="width: 60px; height: 40px;" src="img/robot_trading.png" alt="">
                     </div>
                 </div>
             </td>
             <td>
                 <div class="flex flex-col">
-                    <span class="p3-ws">{{ product.name }}</span>
-                    <span class="p6-ws text-[#0574F7]">+ {{ product.strategiesAmount }} estrategias añadidas</span>
+                    <span class="p3-ws">{{ product.itemName }}</span>
+                    <span class="p6-ws text-[#0574F7]">+ {{ 2 }} estrategias añadidas</span>
                 </div>
             </td>
             <td>
-                <span class="p3-ws text-[#706666]">Bs.{{ product.price }}</span>
+                <span class="p3-ws text-[#706666]">Bs.{{ product.itemPrice }}</span>
             </td>
             <td>
                 <div class="relative flex justify-center items-center w-[92px] h-[72px] rounded-[14px] bg-blueDark">
-                    <span class="p3-ws text-[#FFFFFF]">{{ counter() }}</span>
+                    <span class="p3-ws text-[#FFFFFF]">{{ product.quantity }}</span>
                     <div class="absolute right-3 top-0 flex flex-col justify-center gap-2 h-full">
-                        <i class="pi pi-sort-up-fill cursor-pointer" (click)="increaseCounter(1)" style="font-size: 1.0rem"></i>
-                        <i class="pi pi-sort-down-fill cursor-pointer" (click)="increaseCounter(-1)" style="font-size: 1.0rem"></i>
+                        <i class="pi pi-sort-up-fill cursor-pointer" (click)="increaseCounter(product, 1)" style="font-size: 1.0rem"></i>
+                        <i class="pi pi-sort-down-fill cursor-pointer" (click)="increaseCounter(product, -1)" style="font-size: 1.0rem"></i>
                     </div>
                 </div>
             </td>
             <td class="p3-ws text-[#706666]">
-                Bs.240,00
+                Bs. {{ product.totalPrice }}
             </td>
         </tr>
     </ng-template>

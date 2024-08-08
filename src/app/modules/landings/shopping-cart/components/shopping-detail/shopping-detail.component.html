@@ -4,11 +4,11 @@
     <div class="w-full flex flex-col gap-3">
         <div class="flex justify-between">
             <span class="p5-ws font-poppins text-[#262626]">Subtotal</span>
-            <span class="p5-ws font-poppins text-[#262626]">$998</span>
+            <span class="p5-ws font-poppins text-[#262626]">${{ purchaseService.subtotal() }}</span>
         </div>
         <div class="flex justify-between">
             <span class="p5-ws font-poppins text-[#262626]">Cantidad de productos</span>
-            <span class="p5-ws font-poppins text-[#262626]">2</span>
+            <span class="p5-ws font-poppins text-[#262626]">{{ purchaseService.shoppingCart.length }}</span>
         </div>
         <div class="flex justify-between">
             <span class="p5-ws font-poppins text-[#262626]h">Codigo de descuento</span>
@@ -18,7 +18,7 @@
 
     <div class="w-full flex justify-between">
         <h6 class="font-poppins font-medium text-[#22262A]">Total</h6>
-        <h6 class="font-poppins font-medium text-[#22262A]">$118,00 usd</h6>
+        <h6 class="font-poppins font-medium text-[#22262A]">${{ purchaseService.subtotal() }} usd</h6>
     </div>
 
     <div class="w-full">

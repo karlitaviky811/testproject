@@ -12,7 +12,7 @@
         @for(robot of robots(); track robot.id) {
             <fwa-card-robot
                 [robot]="robot"
-                (onClick)="handleEventRobot()"
+                (onClick)="handleEventRobot($event)"
             >.
             </fwa-card-robot>
         }

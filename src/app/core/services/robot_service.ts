@@ -20,4 +20,9 @@ export class RobotService {
         return this.http
             .get<any>(`${environment.apiUrl}${ENDPOINT.robots}?page=1&limit=10`).pipe(map(res => res.data));
     }
+
+    public getRobotById(id: number): Observable<Robot> {
+        return this.http
+            .get<any>(`${environment.apiUrl}${ENDPOINT.robots}/${id}`);
+    }
 }

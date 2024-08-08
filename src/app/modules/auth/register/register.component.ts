@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { AuthService } from '../../../core/services/auth_service';
 import { FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
@@ -12,20 +12,24 @@ import { CommonModule } from '@angular/common';
   templateUrl: './register.component.html',
   styleUrl: './register.component.scss'
 })
-export default class RegisterComponent {
+export default class RegisterComponent implements OnInit {
   authSrv = inject(AuthService);
   router = inject(Router);
-
   formgroup = new FormBuilder().group({
     name :  new FormControl('', [Validators.required]),
     lastname : new FormControl('', [Validators.required]),
     address : new FormControl('', [Validators.required]),
     phone : new FormControl('', [Validators.required]),
-    email: new FormControl('initial value here', [Validators.minLength(2),Validators.required,Validators.email]),
+    email: new FormControl('', [Validators.minLength(2),Validators.required,Validators.email]),
     password: new FormControl('', [Validators.required]),
     checkPassword: new FormControl('', [Validators.required]),
   },  { validator: this.match('password','checkPassword') }
   );
+
+  ngOnInit(): void {
+  console.log('hey', this.formgroup.get('name')?.touched)  
+  }
+
   
   sigIn(credentials: any): void {
     console.log('e', this.formgroup)
@@ -63,6 +67,7 @@ export default class RegisterComponent {
       return this.formgroup.get(InputName)?.hasError(error) &&
       (this.formgroup.get(InputName)?.dirty || this.formgroup.get(InputName)?.touched)?true:false
     }else{
+      
       return this.formgroup.get(InputName)?.invalid &&
       (this.formgroup.get(InputName)?.dirty || this.formgroup.get(InputName)?.touched)?true:false
     }

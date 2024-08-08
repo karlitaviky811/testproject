@@ -1,6 +1,6 @@
 export const ENDPOINT = {
     sign_in: 'auth/login',
-    register: 'register',
+    register: 'auth/register',
     licenses: 'license',
     robots: 'robot',
     strategy: 'strategy',

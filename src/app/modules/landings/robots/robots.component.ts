@@ -4,6 +4,7 @@ import { Robot } from '../../../core/interfaces/robot';
 import { Router } from '@angular/router';
 import { BannerComponent } from '../../../shared/components/banner/banner.component';
 import { RobotService } from '../../../core/services/robot_service';
+import { PurchaseService } from '../../../core/services/purchase_service';
 
 @Component({
   selector: 'app-robots',
@@ -32,9 +33,7 @@ export default class RobotsComponent implements OnInit {
     });
   }
 
-  
-
-  handleEventRobot() {
-    this.routerService.navigate(['site/robot-detail']);
+  handleEventRobot(robot: Robot) {
+    this.routerService.navigate(['site/robot-detail', robot.id]);
   }
 }

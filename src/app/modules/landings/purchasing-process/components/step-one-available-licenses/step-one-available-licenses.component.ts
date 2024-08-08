@@ -1,7 +1,8 @@
-import { Component, EventEmitter, Output, computed, inject, signal } from '@angular/core';
+import { Component, EventEmitter, Input, Output, computed, inject, signal } from '@angular/core';
 import { License } from '../../../../../core/interfaces/license';
 import { LicenseService } from '../../../../../core/services/licenses_service';
 import { PurchaseService } from '../../../../../core/services/purchase_service';
+import { Robot } from '../../../../../core/interfaces/robot';
 
 @Component({
   selector: 'app-step-one-available-licenses',
@@ -9,10 +10,11 @@ import { PurchaseService } from '../../../../../core/services/purchase_service';
   styleUrl: './step-one-available-licenses.component.scss'
 })
 export class StepOneAvailableLicensesComponent {
+  @Input() robot = {} as Robot;
   @Output() nextCallback: EventEmitter<any> = new EventEmitter();
+
   private readonly licenseService = inject(LicenseService);
   readonly purchaseService = inject(PurchaseService);
-  // choseLicense = computed(() => this.purchaseService.selectedLicense());
 
   selectedLicense!: License;
 
@@ -28,6 +30,15 @@ export class StepOneAvailableLicensesComponent {
 
   handleSelectedItem(license: License) {
     this.selectedLicense = license;
-    this.purchaseService.selectedLicense.set(license);
+    this.purchaseService.selectedLicense = license;
+    this.purchaseService.addItemToCart({
+      itemName: license.name,
+      itemType: 'LICENSE',
+      itemElementId: license.id,
+      itemPrice: Number(license.price),
+      quantity: 1,
+      totalPrice: Number(license.price),
+      shoppingCartId: 1,
+    });
   }
 }

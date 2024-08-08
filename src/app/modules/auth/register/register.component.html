@@ -14,6 +14,8 @@
 
       <div class="w-[70%] mt-4">
         <div class="mx-auto font-[sans-serif]">
+
+          
           <form  
           [formGroup]="formgroup"
           (ngSubmit)="sigIn(formgroup.value)">
@@ -23,7 +25,7 @@
                 <input
                   name="name"
                   type="text"
-                  class="bg-gray-100 w-full text-gray-800 text-sm px-4 py-2 rounded-md focus:bg-transparent outline-blue-500 transition-all"
+                  class="bg-gray-100 text-sm shadow appearance-none border border-red-500 rounded-lg w-full py-2 px-3 mb-3 leading-tight focus:outline-none focus:shadow-outline"
                   placeholder="Enter name"
                   formControlName="name"
               [ngClass]="
@@ -38,8 +40,7 @@
                 <input
                   name="lname"
                   type="text"
-                  class="bg-gray-100 w-full text-gray-800 text-sm px-4 py-2 rounded-md focus:bg-transparent outline-blue-500 transition-all"
-                  placeholder="Enter last name"
+                  class="bg-gray-100 text-sm shadow appearance-none border border-red-500 rounded-lg w-full py-2 px-3 mb-3 leading-tight focus:outline-none focus:shadow-outline"                  placeholder="Enter last name"
                   formControlName="lastname"
               [ngClass]="
               hasError('lastname')
@@ -59,8 +60,7 @@
                 <input
                   name="email"
                   type="text"
-                  class="bg-gray-100 w-full text-gray-800 text-sm px-4 py-2 rounded-md focus:bg-transparent outline-blue-500 transition-all"
-                  placeholder="Enter email"
+                  class="bg-gray-100 text-sm shadow appearance-none border border-red-500 rounded-lg w-full py-2 px-3 mb-3 leading-tight focus:outline-none focus:shadow-outline"                  placeholder="Enter email"
                   formControlName="email"
               [ngClass]="
               hasError('email')
@@ -74,8 +74,7 @@
                 <input
                   name="number"
                   type="number"
-                  class="bg-gray-100 w-full text-gray-800 text-sm px-4 py-2 rounded-md focus:bg-transparent outline-blue-500 transition-all"
-                  placeholder="Enter mobile number"
+                  class="bg-gray-100 text-sm shadow appearance-none border border-red-500 rounded-lg w-full py-2 px-3 mb-3 leading-tight focus:outline-none focus:shadow-outline"                  placeholder="Enter mobile number"
                   formControlName="phone"
               [ngClass]="
               hasError('phone')
@@ -99,8 +98,7 @@
                   <input
                     name="password"
                     type="text"
-                    class="bg-gray-100 w-full text-gray-800 text-sm px-4 py-2 rounded-lg focus:bg-transparent outline-blue-500 transition-all"
-                    placeholder="Enter password"
+                    class="bg-gray-100 text-sm shadow appearance-none border border-red-500 rounded-lg w-full py-2 px-3 mb-3 leading-tight focus:outline-none focus:shadow-outline"                    placeholder="Enter password"
                     formControlName="address"
               [ngClass]="
               hasError('address')
@@ -118,8 +116,7 @@
                   <input
                     name="password"
                     type="password"
-                    class="bg-gray-100 w-full text-gray-800 text-sm px-4 py-2 rounded-lg focus:bg-transparent outline-blue-500 transition-all"
-                    placeholder="Enter password"
+                    class="bg-gray-100 text-sm  shadow appearance-none border border-red-500 rounded-lg w-full py-2 px-3 mb-3 leading-tight focus:outline-none focus:shadow-outline"                    placeholder="Enter password"
                     formControlName="password"
               [ngClass]="
               hasError('password')
@@ -135,20 +132,20 @@
                   <input
                     name="password2"
                     type="password"
-                    class="bg-gray-100 w-full text-gray-800 text-sm px-4 py-2 rounded-lg focus:bg-transparent outline-blue-500 transition-all"
-                    placeholder="Enter password"
+                    class="bg-gray-100 text-sm shadow appearance-none border border-red-500 rounded-lg w-full py-2 px-3 mb-3 leading-tight focus:outline-none focus:shadow-outline"                    placeholder="Enter password"
                     formControlName="checkPassword"
-                    [ngClass]="
-            hasError('checkPassword')
+                    [ngClass]="hasError('checkPassword')
               ? 'border-red-300 focus:border-red-600'
-              : 'border-gray-300 focus:border-blue-600'
-          "
-          placeholder="checkPassword"
+              : 'border-gray-300 focus:border-blue-600'"
+          placeholder="Repeat password"
                   />
                 </div>
               </div>
             </div>
-           
+            <!--div class="p-[15px] h-[100px]">
+              
+              <div id="recaptcha" class="g-recaptcha" data-sitekey="6LduxSEqAAAAAFvfCDLjT1es99gXhyU0119YnChb"></div>
+            </div-->
             <div class="grid sm:grid-cols-1">
               <div class="md:w-full mt-4">
                 <label class="md:w-full block text-gray-500 font-regular">
@@ -156,8 +153,11 @@
                   <span class="text-sm text-[12px]"> Acepto los términos y condiciones </span>
                 </label>
               </div>
+
+              
               <div class="flex flex-col items-center">
                 <button
+                [disabled]="!formgroup.valid"
                 (click)="sigIn(formgroup.value)"
                   type="button"
                   class=" py-4 mt-2 px-12 text-sm font-title-ligth tracking-wider rounded-lg text-white bg-blue-600 hover:bg-blue-700 focus:outline-none"
@@ -172,6 +172,7 @@
               </div>
             </div>
           </form>
+
         </div>
       </div>
     </div>

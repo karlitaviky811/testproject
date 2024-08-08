@@ -13,6 +13,7 @@
         >
           <app-step-one-available-licenses
             (nextCallback)="nextCallback.emit()"
+            [robot]="robot"
           ></app-step-one-available-licenses>
         </ng-template>
       </p-stepperPanel>
@@ -36,6 +37,7 @@
           let-index="index"
         >
           <app-step-three-details
+            [robot]="robot"
             (prevCallback)="prevCallback.emit()"
           ></app-step-three-details>
         </ng-template>

@@ -1,14 +1,33 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { ButtonComponent } from '../../../shared/components/button/button.component';
+import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-profile',
   standalone: true,
-  imports: [RouterModule, ButtonComponent],
+  imports: [RouterModule, ButtonComponent, FormsModule, ReactiveFormsModule],
   templateUrl: './profile.component.html',
   styleUrl: './profile.component.scss'
 })
-export default class ProfileComponent {
+export default class ProfileComponent implements OnInit {
+
+  formBuilder = inject(FormBuilder);
+  userInformationForm: FormGroup;
+
+  constructor() {
+    this.userInformationForm = this.formBuilder.group({
+      name: [''],
+      lastName: [''],
+      email: [''],
+      phone: [''],
+      address: [''],
+      password: ['']
+    });
+  }
+  
+  ngOnInit(): void {
+   
+  }
 
 }

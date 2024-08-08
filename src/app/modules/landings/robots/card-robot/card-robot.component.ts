@@ -8,6 +8,6 @@ import { Robot } from '../../../../core/interfaces/robot';
 })
 export class CardRobotComponent {
   robot = input.required<Robot>();
-  onClick = output();
+  onClick = output<Robot>();
 
 }

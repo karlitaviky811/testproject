@@ -28,11 +28,11 @@ export const ROUTE_LANDING: Routes = [
         loadComponent: () => import('./robots/robots.component'),
     },
     {
-        path: 'robot-detail',
+        path: 'robot-detail/:id',
         loadComponent: () => import('./robot-detail/robot-detail.component'),
     },
     {
-        path: 'purchasing-process',
+        path: 'purchasing-process/:id',
         loadComponent: () => import('./purchasing-process/purchasing-process.component'),
     },
     {
