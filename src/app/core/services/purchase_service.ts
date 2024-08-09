@@ -11,16 +11,16 @@ import { Observable, map } from "rxjs";
 export class PurchaseService {
     private readonly http = inject(HttpClient);
 
-    private _selectedLicense: WritableSignal<License | undefined> = signal(undefined);
+    private _selectedLicense: WritableSignal<License> = signal({} as License);
     private _selectedStrategies: WritableSignal<Strategy[]> = signal([]);
     private _shoppingCart: WritableSignal<CartItem[]> = signal([]);
     subtotal: WritableSignal<number> = signal(0);
 
-    get selectedLicense(): License | undefined {
+    get selectedLicense(): License {
         return this._selectedLicense();
     }
 
-    set selectedLicense(license: License | undefined) {
+    set selectedLicense(license: License) {
         this._selectedLicense.set(license);
     }
 

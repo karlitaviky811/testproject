@@ -15,10 +15,10 @@
 
           <div class="flex justify-between flex-wrap mb-2 sm:mb-5 md:mb-10 lg:mb-[60px]">
             <span class="p2-ws font-semibold">
-              {{ purchaseService.selectedLicense?.name }}: {{purchaseService.selectedLicense?.qtyStrategies }} estrategias
+              {{ purchaseService.selectedLicense.name }}: {{purchaseService.selectedLicense.qtyStrategies }} estrategias
             </span>
             <span class="font-semibold p2-ws text-[#0574F7]">
-              {{ selectedStrategies().length }}/{{ purchaseService.selectedLicense?.qtyStrategies }} estrategias seleccionadas
+              {{ selectedStrategies().length }}/{{ purchaseService.selectedLicense.qtyStrategies }} estrategias seleccionadas
             </span>
           </div>
         </div>

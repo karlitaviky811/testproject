@@ -12,70 +12,52 @@
         </div>
 
         <div class="col-span-4 sm:col-span-4 md:col-span-4 lg:col-span-2">
-          <img class="w-full rounded-2xl" src="img/step_1.png" alt="" />
+          <img class="w-full h-[180px] sm:h-[255px] rounded-2xl" src="img/step_1.png" alt="" />
         </div>
 
         <div class="col-span-4 sm:col-span-4 md:col-span-4 lg:col-span-2">
           <div class="flex flex-col">
             <h2 class="font-semibold text-blueDark">{{ robot.name }}</h2>
-            <div class="py-[15px]">
+            <div class="pt-[15px]">
               <span class="p3-ws font-light text-blueDark">{{ robot.shortDescription }}</span>
             </div>
             <hr
-              class="my-6 h-0.5 border-t-0 bg-[#DDDDDDDD] dark:bg-[#DDDDDDDD]"
+              class="my-5 sm:my-9 h-[3.3px] bg-[#DDDDDDDD] dark:bg-[#DDDDDDDD]"
             />
-            <div class="flex flex-col my-[10px]">
-              <span class="font-bold text-[23px] text-blueDark"
-                >Licencia seleccionada</span
-              >
-              <span class="font-normal text-blueDark"
+            <div class="flex flex-col">
+              <h6 class="font-bold text-blueDark mb-[18px]">Licencia seleccionada</h6>
+              <span class="p3-ws"
                 >Esta licencia es la única asociada a este Robot, podrás
                 ver todas su información antes de adquirirla</span
               >
             </div>
           </div>
-
-          <div class="flex flex-col flex-wrap w-full p-[15px] my-[38px] border-primary rounded-md border-2">
-            <h3 class="font-semibold text-blueDark">{{ purchaseService.selectedLicense?.name }}</h3>
-
-            <div class="flex flex-col sm:flex-row md:flex-row lg:flex-row md:justify-between lg:justify-between">
-              <div>
-                <span>$ {{ purchaseService.selectedLicense?.price }} usd</span>
-              </div>
-              <div>
-                <span class="text-primary"
-                  >+ 3 Estrategias gratuitas</span
-                >
-              </div>
-            </div>
+          <div class="my-[38px]">
+            <card-license
+              [license]="purchaseService.selectedLicense"
+              (onClick)="null"
+              [selected]="true"
+            ></card-license>
           </div>
-          <div class="flex flex-col my-[38px]">
+          <div class="flex flex-col">
             <div class="flex flex-col">
               <h6 class="text-blueDark font-bold"
                 >({{ purchaseService.selectedStrategies.length }}) Estrategias seleccionadas</h6>
-              <span class="my-[10px] p3-ws"
+              <span class="mt-[10px] p3-ws"
                 >Estrategias seleccionadas de acuerdo a la
                 licencia</span
               >
             </div>
-            <div class="flex flex-wrap justify-between pt-[45px]">
-              <h5 class="text-blueDark font-bold"
-                >Subtotal de la compra:
-            </h5>
-              <h5> $1,200 usd</h5>
+            <div class="flex flex-wrap justify-between mt-7 sm:mt-12">
+              <h5 class="text-blueDark font-semibold">Subtotal de la compra:</h5>
+              <h5 class="text-blueDark "> $1,200 usd</h5>
             </div>
-            <hr
-              class="my-8 h-[1px] border-t-0 bg-[#DDDDDDDD] dark:bg-[#DDDDDDDD]"
-            />
           </div>
-          <div
-            class="flex flex-col w-full p-[15px] my-[38px] rounded-md border-2 bg-[#F3F8FF]"
-          >
-            <span
-              class="font-bold p5-ws text-blueDark pt-[10px]"
-              >Añade más potencia a tu Robot</span
-            >
-            <span class="pt-[10px] p5-ws"
+          <hr class="my-5 sm:my-9 h-[3.3px] bg-[#DDDDDDDD] dark:bg-[#DDDDDDDD]"/>
+
+          <div class="flex flex-col w-full py-[28px] px-[42px] mb-[38px] rounded-[15px]  bg-[#F3F8FF]">
+            <h6 class="font-bold pt-[10px] text-blueDark">Añade más potencia a tu Robot</h6>
+            <span class="pt-[10px] p3-ws"
               >Compra tantas estrategias quieras para la operación de tu
               Robot en el mercado</span
             >
