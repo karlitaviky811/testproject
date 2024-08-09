@@ -35,7 +35,7 @@
         <a
           [ngClass]="{'blue-button': route.name === 'CONTACTO', 'my_class2' :  route.name === 'ES' }"
           (click)="handleClick(route.path)"
-          class="block py-2 pl-3 pr-4 p6-ws text-center text-blueDark"
+          class="block py-2 pl-3 pr-4 p6-ws text-center text-blueDark cursor-pointer"
           aria-current="page"
           >   
           @if(route.name == 'ES'){
@@ -65,7 +65,7 @@
             [ngClass]="{ 'my_class2' :  route.name === 'ES' }"
             href="#"
             (click)="handleClick(route.path)"
-            class="block py-2 pl-3 pr-4 p6-ws text-center text-blueDark"
+            class="block py-2 pl-3 pr-4 p6-ws text-center text-blueDark cursor-pointer"
             aria-current="page"
             >   
             @if(route.name == 'ES'){
