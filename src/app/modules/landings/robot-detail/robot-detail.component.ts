@@ -22,10 +22,12 @@ export default class RobotDetailComponent implements OnInit {
 
   
   ngOnInit(): void {
+    console.log('res', this.id)
     if (this.id) {
       this.robotService.getRobotById(Number(this.id))
       .subscribe({
         next: (res) => {
+          console.log('res', res)
           this._robot.set(res);
         }
       })

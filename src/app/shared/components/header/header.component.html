@@ -34,8 +34,7 @@
       <li class="flex items-center justify-center">
         <a
           [ngClass]="{'blue-button': route.name === 'CONTACTO', 'my_class2' :  route.name === 'ES' }"
-          href="#"
-          [routerLink]="[route.path]"
+          (click)="handleClick(route.path)"
           class="block py-2 pl-3 pr-4 p6-ws text-center text-blueDark"
           aria-current="page"
           >   
@@ -65,7 +64,7 @@
           <a
             [ngClass]="{ 'my_class2' :  route.name === 'ES' }"
             href="#"
-            [routerLink]="[route.path]"
+            (click)="handleClick(route.path)"
             class="block py-2 pl-3 pr-4 p6-ws text-center text-blueDark"
             aria-current="page"
             >   

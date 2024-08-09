@@ -48,6 +48,7 @@ export class StepTwoStrategiesComponent {
   nextStep() {
     this.selectedStrategies().forEach(strategy => {
       this.purchaseService.addItemToCart({
+        id: 0,
         itemName: strategy.name,
         itemType: 'STRATEGY',
         itemElementId: strategy.id,

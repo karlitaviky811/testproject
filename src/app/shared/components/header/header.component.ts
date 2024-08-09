@@ -21,19 +21,19 @@ export class HeaderComponent {
     },
     {
       name: 'SERVICIOS Y PRODUCTOS',
-      path: 'products',
+      path: 'site/products',
     },
     {
       name: 'NOSOTROS',
-      path: 'about',
+      path: 'site/about',
     },
     {
       name: 'TIENDA',
-      path: 'robots',
+      path: 'site/robots',
     },
     {
       name: 'CONTACTO',
-      path: 'contact',
+      path: 'site/contact',
     },
     {
       name: 'ES',
@@ -48,12 +48,10 @@ export class HeaderComponent {
 
   handleClick(route: string) {
     //this.routerService.navigate(['site/contact']);
-    console.log('route')
     this.routerService.navigate([route]);
   }
 
   openMenu(){
-    console.log('heeeeyyy')
     this.show = !this.show
   }
 }

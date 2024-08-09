@@ -21,23 +21,23 @@
             <td>
                 <div class="flex flex-col">
                     <span class="p3-ws">{{ product.itemName }}</span>
-                    <span class="p6-ws text-[#0574F7]">+ {{ 2 }} estrategias añadidas</span>
+                    <!-- <span class="p6-ws text-[#0574F7]">+ {{ 2 }} estrategias añadidas</span> -->
                 </div>
             </td>
             <td>
-                <span class="p3-ws text-[#706666]">Bs.{{ product.itemPrice }}</span>
+                <span class="p3-ws text-[#706666]">$ {{ product.itemPrice }}</span>
             </td>
             <td>
                 <div class="relative flex justify-center items-center w-[92px] h-[72px] rounded-[14px] bg-blueDark">
                     <span class="p3-ws text-[#FFFFFF]">{{ product.quantity }}</span>
                     <div class="absolute right-3 top-0 flex flex-col justify-center gap-2 h-full">
-                        <i class="pi pi-sort-up-fill cursor-pointer" (click)="increaseCounter(product, 1)" style="font-size: 1.0rem"></i>
-                        <i class="pi pi-sort-down-fill cursor-pointer" (click)="increaseCounter(product, -1)" style="font-size: 1.0rem"></i>
+                        <i class="pi pi-sort-up-fill cursor-pointer" (click)="updateQuantity(product, 1)" style="font-size: 1.0rem"></i>
+                        <i class="pi pi-sort-down-fill cursor-pointer" (click)="updateQuantity(product, -1)" style="font-size: 1.0rem"></i>
                     </div>
                 </div>
             </td>
             <td class="p3-ws text-[#706666]">
-                Bs. {{ product.totalPrice }}
+                $ {{ product.totalPrice }}
             </td>
         </tr>
     </ng-template>
@@ -51,7 +51,7 @@
                         <button class="btn btn-primary">Aplicar cupón</button>
                     </div>
                     <div class="flex w-[40%]">
-                        <button class="btn btn-primary self-start" disabled="true">Actualizar carrito</button>
+                        <button (click)="updateShoppingCart()" class="btn btn-primary self-start">Actualizar carrito</button>
                     </div>
                 </div>
             </td>

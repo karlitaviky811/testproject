@@ -40,6 +40,7 @@ export default class PurchasingProcessComponent implements OnInit {
         next: (res) => {
           this._robot.set(res);
           this.purchaseService.addItemToCart({
+            id: 0,
             itemName: res.name,
             itemType: 'ROBOT',
             itemElementId: res.id,
@@ -51,8 +52,7 @@ export default class PurchasingProcessComponent implements OnInit {
         }
       })
     }
-    
-
+  
     this.licenseService.getLicenses().subscribe({
       next: (res) => {
         this.licenses.set(res);

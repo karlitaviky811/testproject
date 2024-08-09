@@ -32,7 +32,7 @@ export class AuthService {
   } 
 
 
-  public getToken() : string | null {
+  getToken() : string | null {
     return localStorage.getItem(this.tokenKey);
 
   }

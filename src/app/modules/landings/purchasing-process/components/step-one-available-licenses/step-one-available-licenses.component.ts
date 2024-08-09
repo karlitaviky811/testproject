@@ -32,6 +32,7 @@ export class StepOneAvailableLicensesComponent {
     this.selectedLicense = license;
     this.purchaseService.selectedLicense = license;
     this.purchaseService.addItemToCart({
+      id: 0,
       itemName: license.name,
       itemType: 'LICENSE',
       itemElementId: license.id,
