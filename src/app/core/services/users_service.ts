@@ -21,4 +21,13 @@ export class UsersService {
 
         return getData;
     }
+
+
+    public updatePassword(obj : any){
+        const url = `${environment.apiUrl}${ENDPOINT.users_password}`;
+
+        const putData = this.http.put<any>(url,obj);
+
+        return putData;
+    }
 }
