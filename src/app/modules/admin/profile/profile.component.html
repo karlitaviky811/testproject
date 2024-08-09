@@ -5,7 +5,7 @@
     <div class="w-full flex flex-col">
       <div class="w-[90%]">
         <div class="max-w-4xl mx-auto font-[sans-serif]">
-          <form>
+          <form [formGroup]="userInformationForm">
             <div class="grid md:grid-cols-2 sm:grid-cols-1 lg:grid-cols-2 mt-2">
               <div>
                 <div class="flex">
@@ -22,6 +22,7 @@
                 <label class="font-register p7-ps mb-2 block">Nombre</label>
                 <input
                   name="name"
+                  formControlName="name"
                   type="text"
                   class="bg-gray-100 w-full text-gray-800 p7-ps px-4 py-2.5 rounded-md focus:bg-transparent outline-blue-500 transition-all"
                   placeholder="Enter name"
@@ -30,7 +31,8 @@
               <div>
                 <label class="font-register p7-ps mb-2 block">Apellido</label>
                 <input
-                  name="name"
+                  name="lastname"
+                  formControlName="lastName"
                   type="text"
                   class="bg-gray-100 w-full text-gray-800 p7-ps px-4 py-2.5 rounded-md focus:bg-transparent outline-blue-500 transition-all"
                   placeholder="Enter last name"
@@ -46,6 +48,7 @@
 
                 <input
                   name="email"
+                  formControlName="email"
                   type="text"
                   class="bg-gray-100 w-full text-gray-800 p7-ps px-4 py-2.5 rounded-md focus:bg-transparent outline-blue-500 transition-all"
                   placeholder="Enter email"
@@ -54,8 +57,9 @@
               <div>
                 <label class="font-register p7-ps mb-2 block">Teléfono</label>
                 <input
-                  name="number"
-                  type="number"
+                  name="phone"
+                  formControlName="phone"
+                  type="text"
                   class="bg-gray-100 w-full text-gray-800 p7-ps px-4 py-2.5 rounded-md focus:bg-transparent outline-blue-500 transition-all"
                   placeholder="Enter mobile number"
                 />

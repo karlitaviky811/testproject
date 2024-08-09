@@ -16,6 +16,7 @@ import { provideNgxStripe } from 'ngx-stripe';
 import { CartService } from './core/services/cart_service';
 import { authInterceptor } from './core/interceptors/auth.interceptor';
 import { PurchaseService } from './core/services/purchase_service';
+import { UsersService } from './core/services/users_service';
 
 const I18N_CONFIG = {
   defaultLanguage: 'en', // this name need to be the same as the JSON file
@@ -37,6 +38,7 @@ export const appConfig: ApplicationConfig = {
     AuthService,
     CartService,
     PurchaseService,
+    UsersService,
     provideNgxStripe(),
     importProvidersFrom(TranslateModule.forRoot(I18N_CONFIG)),
     importProvidersFrom([BrowserAnimationsModule]),
