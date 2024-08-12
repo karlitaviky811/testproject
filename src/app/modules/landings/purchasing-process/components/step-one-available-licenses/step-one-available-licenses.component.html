@@ -9,7 +9,7 @@
           <hr class="mt-2 mb-8 md:mt-4 md:mb-16 lg:mt-10 lg:mb-[110px] h-[1px] border-t-0 bg-[#DDDDDDDD] dark:bg-[#DDDDDDDD]"/>
         </div>
         <div class="col-span-4 md:col-span-4 sm:col-span-4 lg:col-span-2">
-          <img class="w-full h-[180px] mx-auto sm:h-[350px]" src="img/step_1.png" alt="" />
+          <img class="w-full h-[180px] mx-auto sm:h-[350px]" src="{{ robot.imagePrincipal }}" alt="" />
         </div>
 
         <div class="col-span-4 md:col-span-4 sm:col-span-4 lg:col-span-2">
@@ -25,7 +25,7 @@
             <card-license
               [license]="license"
               (onClick)="handleSelectedItem($event)"
-              [selected]="purchaseService.selectedLicense != undefined && license.name == purchaseService.selectedLicense.name"
+              [selected]="purchaseService.selectedLicense != undefined && license.id == purchaseService.selectedLicense().id"
             ></card-license>
           }
         </div>
@@ -39,5 +39,5 @@
         >Volver atrás / todos los robots</a
       >
     </div>
-    <button class="btn btn-primary gap-2 lg:w-[308px]" (click)="nextCallback.emit()" [disabled]="!purchaseService.selectedLicense">Siguiente<i class="pi pi-arrow-right"></i></button>
+    <button class="btn btn-primary gap-2 lg:w-[308px]" (click)="nextCallback.emit()" [disabled]="isStepValid()">Siguiente<i class="pi pi-arrow-right"></i></button>
   </div>

@@ -18,7 +18,8 @@ export class AuthService {
     const loginRequest = this.http.post<any>(`${environment.apiUrl}${ENDPOINT.sign_in}`, credentials).pipe(
         tap(response=>{
             if(response.token){
-                this.setToken(response.token)
+                this.setToken(response)
+                this.setDataUser(response)
             }
         })
     );
@@ -27,13 +28,24 @@ export class AuthService {
   }
 
 
-  private setToken(token: string) : void{
-    localStorage.setItem(this.tokenKey, token);
+  private setToken(data: any) : void{
+    localStorage.setItem(this.tokenKey, data.token);
   } 
+
+  private setDataUser(data: any) : void{
+   console.log('data', data)
+    localStorage.setItem('user', data.user.name + ' ' + data.user.lastName);
+  } 
+
 
 
   getToken() : string | null {
     return localStorage.getItem(this.tokenKey);
+
+  }
+
+  getDataUser() : string | null {
+    return localStorage.getItem('user');
 
   }
 
@@ -53,19 +65,13 @@ export class AuthService {
 
 
   logout(): void{
+    localStorage.removeItem('user');
     localStorage.removeItem(this.tokenKey);
     this.router.navigate(['/sign-in']);
   }
 
   register(credentials: any){
-    const registerRequest = this.http.post<any>(`${environment.apiUrl}${ENDPOINT.register}`, credentials).pipe(
-        tap(response=>{
-            if(response.token){
-                this.setToken(response.token)
-            }
-        })
-    );
-
+    const registerRequest = this.http.post<any>(`${environment.apiUrl}${ENDPOINT.register}`, credentials)
     return registerRequest;
   }
 }

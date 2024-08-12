@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { AuthService } from '../../../core/services/auth_service';
 
 @Component({
   selector: 'fwa-sidebar',
@@ -9,5 +10,8 @@ import { RouterModule } from '@angular/router';
   styleUrl: './sidebar.component.scss'
 })
 export class SidebarComponent {
-
+  authSrv = inject(AuthService);
+  logout(){
+    this.authSrv.logout()
+  }
 }

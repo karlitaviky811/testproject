@@ -2,7 +2,7 @@ import { Injectable, WritableSignal, inject, signal } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { License } from "../interfaces/license";
 import { Strategy } from "../interfaces/strategy";
-import { CartItem } from "../interfaces/cart";
+import { CartItem } from "../interfaces/shopping_cart";
 import { environment } from "../../../enviorement";
 import { ENDPOINT } from "../constants/endpoints";
 import { Observable, map } from "rxjs";
@@ -14,10 +14,11 @@ export class PurchaseService {
     private _selectedLicense: WritableSignal<License> = signal({} as License);
     private _selectedStrategies: WritableSignal<Strategy[]> = signal([]);
     private _shoppingCart: WritableSignal<CartItem[]> = signal([]);
+    private _cartItem: WritableSignal<CartItem> = signal({} as CartItem);
     subtotal: WritableSignal<number> = signal(0);
 
-    get selectedLicense(): License {
-        return this._selectedLicense();
+    get selectedLicense(): WritableSignal<License> {
+        return this._selectedLicense;
     }
 
     set selectedLicense(license: License) {
@@ -34,6 +35,14 @@ export class PurchaseService {
 
     get shoppingCart(): WritableSignal<CartItem[]> {
         return this._shoppingCart;
+    }
+
+    get cartItem(): WritableSignal<CartItem> {
+        return this._cartItem;
+    }
+
+    updateCartItem(cartItem: CartItem) {
+        this._cartItem.set({...cartItem});
     }
 
     updateShoppingCart(cartItem: CartItem[]) {

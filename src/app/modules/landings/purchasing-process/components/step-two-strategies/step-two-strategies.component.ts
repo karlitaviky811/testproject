@@ -28,12 +28,12 @@ export class StepTwoStrategiesComponent {
   }
 
   handleSelectStrategy(strategy: Strategy): void {
-    const indexStrategy = this.selectedStrategies().findIndex(item => strategy.name == item.name);
+    const indexStrategy = this.selectedStrategies().findIndex(item => strategy.id == item.id);
     
     if (indexStrategy > -1) {
       this.selectedStrategies().splice(indexStrategy, 1)
     } else {
-      if (this.purchaseService.selectedLicense != undefined && (this.purchaseService.selectedLicense!.qtyStrategies > this.selectedStrategies().length)) {
+      if (this.purchaseService.selectedLicense != undefined && (this.purchaseService.selectedLicense().qtyStrategies > this.selectedStrategies().length)) {
         this.selectedStrategies().push(strategy)
       }
     }
@@ -42,20 +42,28 @@ export class StepTwoStrategiesComponent {
   }
 
   checkSelectedStrategy(strategy: Strategy): boolean {
-    return this.selectedStrategies().filter(item => strategy.name == item.name).length > 0;
+    return this.selectedStrategies().filter(item => strategy.id == item.id).length > 0;
   }
 
   nextStep() {
     this.selectedStrategies().forEach(strategy => {
-      this.purchaseService.addItemToCart({
-        id: 0,
+      // this.purchaseService.addItemToCart({
+      //   id: 0,
+      //   itemName: strategy.name,
+      //   itemType: 'STRATEGY',
+      //   itemElementId: strategy.id,
+      //   itemPrice: 200.0,
+      //   quantity: 1,
+      //   totalPrice: 200.0,
+      //   shoppingCartId: 1,
+      // });
+      this.purchaseService.cartItem().itemsExtra.push({
         itemName: strategy.name,
         itemType: 'STRATEGY',
         itemElementId: strategy.id,
         itemPrice: 200.0,
         quantity: 1,
         totalPrice: 200.0,
-        shoppingCartId: 1,
       });
     });
     

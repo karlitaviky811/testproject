@@ -2,6 +2,7 @@
   <h3 class="font-semibold text-center mb-4 sm:mb-10 md:mb-14 lg:mb-[70px]">Proceso guiado de compra</h3>
   <div class="bg-white border rounded-lg mt-[10px]">
     <p-stepper
+      [linear]="true"
       class="w-full"
       (activeIndexChange)="onActiveIndexChange($event)"
     >
@@ -10,6 +11,7 @@
           pTemplate="content"
           let-nextCallback="nextCallback"
           let-index="index"
+          let-active="false"
         >
           <app-step-one-available-licenses
             (nextCallback)="nextCallback.emit()"
@@ -23,6 +25,8 @@
           let-prevCallback="prevCallback"
           let-nextCallback="nextCallback"
           let-index="index"
+          let-active="false"
+
         >
           <app-step-two-strategies
           (prevCallback)="prevCallback.emit()"

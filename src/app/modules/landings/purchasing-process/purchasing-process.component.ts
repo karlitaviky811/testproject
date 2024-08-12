@@ -39,16 +39,30 @@ export default class PurchasingProcessComponent implements OnInit {
       .subscribe({
         next: (res) => {
           this._robot.set(res);
-          this.purchaseService.addItemToCart({
-            id: 0,
-            itemName: res.name,
-            itemType: 'ROBOT',
-            itemElementId: res.id,
-            itemPrice: 200.0,
-            quantity: 1,
-            totalPrice: 200.0,
-            shoppingCartId: 1,
-          });
+
+          this.purchaseService.updateCartItem({
+                id: 0,
+                itemName: res.name,
+                itemType: 'ROBOT',
+                itemElementId: res.id,
+                itemPrice: 200.0,
+                quantity: 1,
+                totalPrice: 200.0,
+                shoppingCartId: 1,
+                itemsExtra: []
+              }
+          );
+          // this.purchaseService.addItemToCart({
+          //   id: 0,
+          //   itemName: res.name,
+          //   itemType: 'ROBOT',
+          //   itemElementId: res.id,
+          //   itemPrice: 200.0,
+          //   quantity: 1,
+          //   totalPrice: 200.0,
+          //   shoppingCartId: 1,
+          //   extras: []
+          // });
         }
       })
     }

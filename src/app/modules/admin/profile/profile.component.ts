@@ -16,6 +16,7 @@ export default class ProfileComponent implements OnInit {
   formBuilder = inject(FormBuilder);
   userInformationForm: FormGroup;
   user = inject(UsersService)
+
   constructor() {
     this.userInformationForm = this.formBuilder.group({
       name: [''],
@@ -26,15 +27,16 @@ export default class ProfileComponent implements OnInit {
       password: ['']
     });
     this.user.getData().subscribe(res=>{
-      console.log('data baby', res);
       this.userInformationForm.patchValue(res)
+      this.user.updateLoginUser(res.name)
     })
   }
   
   ngOnInit(): void {
- 
+  }
 
-    console.log(this.userInformationForm)
+  updatePassword(){
+    this.user.updatePassword({id: this.userInformationForm.get('password')?.value})
   }
 
 }

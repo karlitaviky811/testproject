@@ -34,7 +34,7 @@
           </div>
           <div class="my-[38px]">
             <card-license
-              [license]="purchaseService.selectedLicense"
+              [license]="purchaseService.selectedLicense()"
               (onClick)="null"
               [selected]="true"
             ></card-license>
@@ -50,7 +50,7 @@
             </div>
             <div class="flex flex-wrap justify-between mt-7 sm:mt-12">
               <h5 class="text-blueDark font-semibold">Subtotal de la compra:</h5>
-              <h5 class="text-blueDark "> $1,200 usd</h5>
+              <h5 class="text-blueDark "> ${{ subtotal() }} usd</h5>
             </div>
           </div>
           <hr class="my-5 sm:my-9 h-[3.3px] bg-[#DDDDDDDD] dark:bg-[#DDDDDDDD]"/>

@@ -1,11 +1,14 @@
-import { inject, Injectable } from "@angular/core";
+import { Injectable } from "@angular/core";
 import { Product } from "../interfaces/product";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 
 @Injectable()
 export class CartService {
+
+    constructor(private http: HttpClient){}
+    
     private _products: Product[] = [];
-    private http = inject(HttpClient)
+
     get products() {
         return this._products;
     }
@@ -15,7 +18,6 @@ export class CartService {
     }
 
     intentPaymentToken(token : any, amount: any) {
-        console.log('heeeereee', token)
         
        var Token = token;
         let httpOptions = {
@@ -26,7 +28,7 @@ export class CartService {
     
         var obj = {
             "paymentMethod": "STRIPE",
-            'amount': 200.00 * 1000
+            'amount': amount
         }
     
         return this.http.post('https://api.fwa.qa.jacidi.com/billing/payment-intent',obj)

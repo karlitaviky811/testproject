@@ -2,7 +2,7 @@ import { Component, OnInit, Signal, inject, signal } from '@angular/core';
 import { Product } from '../../../../../core/interfaces/product';
 import { ProductService } from '../../../../../core/services/product_service';
 import { PurchaseService } from '../../../../../core/services/purchase_service';
-import { CartItem } from '../../../../../core/interfaces/cart';
+import { CartItem } from '../../../../../core/interfaces/shopping_cart';
 import { forkJoin } from 'rxjs';
 
 @Component({
@@ -36,12 +36,12 @@ export class CartComponent implements OnInit {
   }
 
   deleteCartItem(item: CartItem) {
-    this.purchaseService.deleteProduct(item.id)
-      .subscribe({
-        next: () => {
-          this.purchaseService.deleteCartItem(item);
-        }
-      });
+    // this.purchaseService.deleteProduct(item.id)
+    //   .subscribe({
+    //     next: () => {
+    //       this.purchaseService.deleteCartItem(item);
+    //     }
+    //   });
   }
 
   updateShoppingCart() {
