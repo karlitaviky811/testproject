@@ -26,7 +26,7 @@ export class UsersService {
     }
     public updatePassword(obj : any){
         const url = `${environment.apiUrl}${ENDPOINT.users_password}`;
-
+        console.log('hereee',obj)
         const putData = this.http.put<any>(url,obj);
 
         return putData;

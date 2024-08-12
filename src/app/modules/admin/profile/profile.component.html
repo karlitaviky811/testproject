@@ -85,6 +85,7 @@
                   </div>
 
                   <input
+                  formControlName="oldpassword"
                     name="password"
                     type="text"
                     class="bg-gray-100 w-full text-gray-800 p7-ps px-4 py-2.5 rounded-lg focus:bg-transparent outline-blue-500 transition-all"
@@ -101,6 +102,7 @@
                   </div>
 
                   <input
+                  formControlName="password"
                     name="password"
                     type="text"
                     class="bg-gray-100 w-full text-gray-800 p7-ps px-4 py-2.5 rounded-lg focus:bg-transparent outline-blue-500 transition-all"
@@ -117,6 +119,7 @@
                   </div>
 
                   <input
+                  formControlName="checkpassword"
                     name="password"
                     type="text"
                     class="bg-gray-100 w-full text-gray-800 p7-ps px-4 py-2.5 rounded-lg focus:bg-transparent outline-blue-500 transition-all"
@@ -149,7 +152,7 @@
                 </div>
               </div-->
               <div class="w-1/2  py-[15px]">
-                <button class="my-[15px] w-full py-[10px] px-[57px] btn btn btn-outlet-primary">Guardar cambios</button>
+                <button class="my-[15px] w-full py-[10px] px-[57px] btn btn btn-outlet-primary" (click)="updateUserPassword()">Guardar cambios</button>
               </div>
             </div>
           </form>
@@ -158,3 +161,12 @@
     </div>
   </div>
 </section>
+<p-toast />
+<p-confirmDialog>
+    <ng-template pTemplate="message" let-message>
+        <div class="flex flex-column align-items-center w-full gap-3 border-bottom-1 surface-border">
+            <i class="pi pi-exclamation-circle text-6xl text-primary-500"></i>
+            <p>{{ message.message }}</p>
+        </div>
+    </ng-template>
+</p-confirmDialog>
