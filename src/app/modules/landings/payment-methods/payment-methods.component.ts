@@ -60,7 +60,7 @@ export default class PaymentMethodsComponent {
   stripe = injectStripe('pk_test_51PHqym082Z2VYEr0O4ijmmnqb7YRBD5pCmbtDd4PSN9PJrrIQyKVhgE6gAAMYogrUun0pxhn7IWJJQ8yBxovANXv00XJ5pbew2');
   paying = signal(false);
   billing: any;
-  amount = 0;
+  amount = 100;
   @ViewChild(StripePaymentElementComponent)
   paymentElement!: StripePaymentElementComponent;
   // Replace with your own public key
