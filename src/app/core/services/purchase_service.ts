@@ -5,7 +5,8 @@ import { Strategy } from "../interfaces/strategy";
 import { CartItem } from "../interfaces/shopping_cart";
 import { environment } from "../../../enviorement";
 import { ENDPOINT } from "../constants/endpoints";
-import { Observable, map } from "rxjs";
+import { Observable, map, tap } from "rxjs";
+import { SpinnerService } from "./spinner_service";
 
 @Injectable()
 export class PurchaseService {
@@ -16,6 +17,8 @@ export class PurchaseService {
     private _shoppingCart: WritableSignal<CartItem[]> = signal([]);
     private _cartItem: WritableSignal<CartItem> = signal({} as CartItem);
     subtotal: WritableSignal<number> = signal(0);
+    
+    readonly spinnerService = inject(SpinnerService);
 
     get selectedLicense(): WritableSignal<License> {
         return this._selectedLicense;
@@ -66,7 +69,11 @@ export class PurchaseService {
     }
 
     public updateProduct(value: any) {
-        return this.http.put<any>(`${environment.apiUrl}${ENDPOINT.shopping_cart_update}`, value);
+        this.spinnerService.updateLoading(true);
+
+        return this.http.put<any>(`${environment.apiUrl}${ENDPOINT.shopping_cart_update}`, value).pipe(tap(() => {
+            this.spinnerService.updateLoading(false);
+        }));
     }
 
     public deleteProduct(id: number) {
@@ -74,6 +81,8 @@ export class PurchaseService {
     }
 
     public shoppingCartByUser(): Observable<CartItem[]> {
+        this.spinnerService.updateLoading(true);
+
         return this.http.get<any>(`${environment.apiUrl}${ENDPOINT.shopping_cart}`).pipe(map(res => 
             res.items.map((item: any) => ({
                 id: item.id,
@@ -83,7 +92,11 @@ export class PurchaseService {
                 itemPrice: item.itemPrice,
                 quantity: item.quantity,
                 totalPrice: item.totalPrice,
+                itemsExtra: item.itemsExtra
             })) as CartItem[]
-        ));
+        ),
+        tap(() => {
+            this.spinnerService.updateLoading(false);
+        }));
     }
 }

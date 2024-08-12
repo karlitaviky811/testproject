@@ -27,7 +27,7 @@ export class StepThreeDetailsComponent implements OnInit {
     this.purchaseService.addProduct(this.purchaseService.cartItem())
       .subscribe({
         next: (res) => {
-          console.log('created product: ', res);
+          this.router.navigate(['site/shopping-cart']);
         }
       });
     // const sources: any[] = [];

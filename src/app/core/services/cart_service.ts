@@ -6,7 +6,7 @@ import { HttpClient, HttpHeaders } from "@angular/common/http";
 export class CartService {
 
     constructor(private http: HttpClient){}
-    
+
     private _products: Product[] = [];
 
     get products() {
@@ -33,5 +33,16 @@ export class CartService {
     
         return this.http.post('https://api.fwa.qa.jacidi.com/billing/payment-intent',obj)
       }
+
+      registerPayment(obj: any){
+
+        return this.http.post('https://api.fwa.qa.jacidi.com/billing/register-payment',obj)
+
+      }
+
+      registerByShoppingCart(){
+        return this.http.post('https://api.fwa.qa.jacidi.com/billing/register-by-shopping-cart',{})
+      } 
+    
 
 }

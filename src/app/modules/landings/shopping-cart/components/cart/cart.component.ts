@@ -36,12 +36,12 @@ export class CartComponent implements OnInit {
   }
 
   deleteCartItem(item: CartItem) {
-    // this.purchaseService.deleteProduct(item.id)
-    //   .subscribe({
-    //     next: () => {
-    //       this.purchaseService.deleteCartItem(item);
-    //     }
-    //   });
+    this.purchaseService.deleteProduct(item.id!)
+      .subscribe({
+        next: () => {
+          this.purchaseService.deleteCartItem(item);
+        }
+      });
   }
 
   updateShoppingCart() {
@@ -54,7 +54,7 @@ export class CartComponent implements OnInit {
         totalPrice: Number(cartItem.totalPrice),
       }))
     });
-
+    
     forkJoin(sources).subscribe({
       next: (res) => {
         console.log('shopping cart update: ', res);

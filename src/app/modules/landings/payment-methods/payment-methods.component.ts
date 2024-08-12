@@ -30,6 +30,7 @@ import {
 } from '@stripe/stripe-js';
 import { CartService } from '../../../core/services/cart_service';
 import { AuthService } from '../../../core/services/auth_service';
+import { PurchaseService } from '../../../core/services/purchase_service';
 @Component({
   selector: 'app-payment-methods',
   standalone: true,
@@ -54,9 +55,12 @@ export default class PaymentMethodsComponent {
   }
 
   cart = inject(CartService);
+  amountPayment = inject(PurchaseService)
   authService = inject(AuthService);
   stripe = injectStripe('pk_test_51PHqym082Z2VYEr0O4ijmmnqb7YRBD5pCmbtDd4PSN9PJrrIQyKVhgE6gAAMYogrUun0pxhn7IWJJQ8yBxovANXv00XJ5pbew2');
   paying = signal(false);
+  billing: any;
+  amount = 0;
   @ViewChild(StripePaymentElementComponent)
   paymentElement!: StripePaymentElementComponent;
   // Replace with your own public key
@@ -96,15 +100,16 @@ export default class PaymentMethodsComponent {
 
 
   ngOnInit(): void {
-        console.log('here')
       var token = this.authService.getToken()
-      console.log('token', token)
-      console.log('here')
-     var amount = 3.000;
-      var token = this.authService.getToken()
-      this.cart.intentPaymentToken(token,amount).subscribe( (res : any)=>{
-          
+  
+      var token = this.authService.getToken();
+      this.amount = this.amountPayment.subtotal();
+      this.cart.intentPaymentToken(token,this.amount).subscribe( (res : any)=>{
         this.elementsOptions.clientSecret = res.client_secret
+
+        this.cart.registerByShoppingCart().subscribe(res=>{
+          this.billing = res;
+       })
      }) 
    
   }
@@ -121,8 +126,6 @@ export default class PaymentMethodsComponent {
       zipcode,
       city
     } = this.paymentElementForm.getRawValue();
-
-    console.log('this.paymentElement.element', this.paymentElement.element)
     this.stripe
       .confirmPayment({
         elements: this.paymentElement.elements,
@@ -142,7 +145,6 @@ export default class PaymentMethodsComponent {
         redirect: 'if_required'
       })
       .subscribe(result => {
-        console.log('result', result)
         this.paying.set(false);
         if (result.error) {
           
@@ -151,9 +153,19 @@ export default class PaymentMethodsComponent {
         } else {
           // The payment has been processed!
           if (result.paymentIntent.status === 'succeeded') {
+            let obj = {
+                 "externalId": result.paymentIntent.id,
+                "amount":  this.amount.toString(),
+                "paymentMethod": "STRIPE",
+                "approved": true,
+                "billingId": this.billing.id
+              
+            }
+            this.cart.registerPayment(obj).subscribe(res=>{
+              alert('Pago realizado exitosamente');
+            })
             // Show a success message to your customer
-            alert('Pago realizado exitosamente');
-            console.log('epaleeeeeee', true)
+         
           }
         }
       });
