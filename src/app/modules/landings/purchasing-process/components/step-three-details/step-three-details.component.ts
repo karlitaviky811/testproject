@@ -24,23 +24,16 @@ export class StepThreeDetailsComponent implements OnInit {
   }
 
   goCart() {
-    this.purchaseService.addProduct(this.purchaseService.cartItem())
+    const item = this.purchaseService.cartItem();
+
+    item.totalPrice = item.itemsExtra.reduce((acc, obj) => acc + (obj.itemPrice * obj.quantity), 0) + Number(item.itemPrice);
+
+    this.purchaseService.addProduct(item)
       .subscribe({
         next: (res) => {
           this.router.navigate(['site/shopping-cart']);
         }
       });
-    // const sources: any[] = [];
-    // this.purchaseService.shoppingCart().forEach(cartItem => {
-    //   sources.push(this.purchaseService.addProduct(cartItem));
-    // });
-
-    // forkJoin(sources).subscribe({
-    //   next: (res) => {
-    //     console.log(res);
-    //     this.router.navigate(['site/shopping-cart']);
-    //   }
-    // });
     
   }
 }

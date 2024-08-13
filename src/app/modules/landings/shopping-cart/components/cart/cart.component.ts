@@ -24,13 +24,13 @@ export class CartComponent implements OnInit {
   }
 
   private calSubTotal() {
-    const subtotal = this.purchaseService.shoppingCart().reduce(function(acc, obj) { return acc + (obj.itemPrice * obj.quantity);}, 0);
+    const subtotal = this.purchaseService.shoppingCart().reduce((acc, obj) => acc + Number(obj.totalPrice), 0);
     this.purchaseService.subtotal.set(subtotal);
   }
 
   updateQuantity(item: CartItem, value: number) {
     item.quantity += value;
-    item.totalPrice = item.itemPrice * item.quantity;
+    item.totalPrice = this.getPrice(item) * item.quantity;
 
     this.calSubTotal();
   }
@@ -60,5 +60,9 @@ export class CartComponent implements OnInit {
         console.log('shopping cart update: ', res);
       }
     });
+  }
+
+  getPrice(item: CartItem): number {
+    return item.itemsExtra.reduce((acc, obj) => acc + (obj.itemPrice * obj.quantity), 0) + Number(item.itemPrice);
   }
 }

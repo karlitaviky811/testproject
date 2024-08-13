@@ -3,11 +3,13 @@ import { ButtonComponent } from '../../../shared/components/button/button.compon
 import { ActivatedRoute, Router } from '@angular/router';
 import { RobotService } from '../../../core/services/robot_service';
 import { Robot } from '../../../core/interfaces/robot';
+import { DomSanitizer } from '@angular/platform-browser';
+import { SvgIconComponent } from '../../../shared/components/svgicon/svgicon.component';
 
 @Component({
   selector: 'app-robot-detail',
   standalone: true,
-  imports: [ButtonComponent],
+  imports: [ButtonComponent, SvgIconComponent],
   providers: [RobotService],
   templateUrl: './robot-detail.component.html',
   styleUrl: './robot-detail.component.scss'
@@ -20,14 +22,12 @@ export default class RobotDetailComponent implements OnInit {
 
   private readonly _robot: WritableSignal<Robot> = signal({} as Robot);
 
-  
   ngOnInit(): void {
-    console.log('res', this.id)
+
     if (this.id) {
       this.robotService.getRobotById(Number(this.id))
       .subscribe({
         next: (res) => {
-          console.log('res', res)
           this._robot.set(res);
         }
       })

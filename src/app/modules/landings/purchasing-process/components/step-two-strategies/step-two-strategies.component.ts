@@ -41,22 +41,20 @@ export class StepTwoStrategiesComponent {
     this.purchaseService.selectedStrategies = [...this.selectedStrategies()];
   }
 
+  getLabel(strategy: Strategy): String {
+    return this.selectedStrategies().findIndex(item => strategy.id == item.id) > -1 ? 'Añadido' : 'Añadir';
+  }
+
+  isSelected(strategy: Strategy): boolean {
+    return this.selectedStrategies().findIndex(item => strategy.id == item.id) > -1;
+  }
+
   checkSelectedStrategy(strategy: Strategy): boolean {
     return this.selectedStrategies().filter(item => strategy.id == item.id).length > 0;
   }
 
   nextStep() {
     this.selectedStrategies().forEach(strategy => {
-      // this.purchaseService.addItemToCart({
-      //   id: 0,
-      //   itemName: strategy.name,
-      //   itemType: 'STRATEGY',
-      //   itemElementId: strategy.id,
-      //   itemPrice: 200.0,
-      //   quantity: 1,
-      //   totalPrice: 200.0,
-      //   shoppingCartId: 1,
-      // });
       this.purchaseService.cartItem().itemsExtra.push({
         itemName: strategy.name,
         itemType: 'STRATEGY',

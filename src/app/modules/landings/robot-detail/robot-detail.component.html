@@ -25,7 +25,11 @@
                         }
                     </div>
                 </div>
-                <button class="btn btn-outlet-primary self-end w-full md:[w-200px] lg:w-[347px] gap-4" (click)="goPurchasingProcess()"><img class="w-[18px] h-[18px] sm:w-auto sm:h-auto" src="img/cart-blue.png" alt="">Adquirir Robot</button>
+                <button class="btn btn-outlet-primary self-end w-full md:[w-200px] lg:w-[347px] gap-4"
+                (click)="goPurchasingProcess()">
+                    <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M4.4048 6.05857L0.837891 2.49167L2.39352 0.936035L5.96043 4.50294H22.7263C23.3339 4.50294 23.8263 4.99543 23.8263 5.60294C23.8263 5.70999 23.8107 5.81649 23.78 5.91903L21.14 14.719C21.0004 15.1843 20.5721 15.503 20.0863 15.503H6.6048V17.703H18.7049V19.903H5.5048C4.89728 19.903 4.4048 19.4104 4.4048 18.803V6.05857ZM6.6048 6.70294V13.303H19.2679L21.2479 6.70294H6.6048ZM6.0548 24.303C5.14353 24.303 4.4048 23.5643 4.4048 22.653C4.4048 21.7417 5.14353 21.003 6.0548 21.003C6.96607 21.003 7.7048 21.7417 7.7048 22.653C7.7048 23.5643 6.96607 24.303 6.0548 24.303ZM19.2549 24.303C18.3435 24.303 17.6049 23.5643 17.6049 22.653C17.6049 21.7417 18.3435 21.003 19.2549 21.003C20.1661 21.003 20.9049 21.7417 20.9049 22.653C20.9049 23.5643 20.1661 24.303 19.2549 24.303Z" fill="#0574F7"/>
+                    </svg>Adquirir Robot</button>
             </div>
             <!-- start Robot detail -->
             <div>
@@ -33,7 +37,11 @@
                 <p class="p3-ws text-[#000000] font-light mb-4 sm:mb-6 md:gap-10 lg:mb-16">
                     {{ robot.description }}
                 </p>
-                <button class="btn btn-outlet-primary self-end w-full gap-4" (click)="goPurchasingProcess()"><img class="w-[18px] h-[18px] sm:w-auto sm:h-auto" src="img/cart-blue.png" alt="">Continuar al proceso de pago</button>
+                <button (click)="goPurchasingProcess()"  class="btn btn-outlet-primary self-end w-full gap-4">
+                    <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M4.4048 6.05857L0.837891 2.49167L2.39352 0.936035L5.96043 4.50294H22.7263C23.3339 4.50294 23.8263 4.99543 23.8263 5.60294C23.8263 5.70999 23.8107 5.81649 23.78 5.91903L21.14 14.719C21.0004 15.1843 20.5721 15.503 20.0863 15.503H6.6048V17.703H18.7049V19.903H5.5048C4.89728 19.903 4.4048 19.4104 4.4048 18.803V6.05857ZM6.6048 6.70294V13.303H19.2679L21.2479 6.70294H6.6048ZM6.0548 24.303C5.14353 24.303 4.4048 23.5643 4.4048 22.653C4.4048 21.7417 5.14353 21.003 6.0548 21.003C6.96607 21.003 7.7048 21.7417 7.7048 22.653C7.7048 23.5643 6.96607 24.303 6.0548 24.303ZM19.2549 24.303C18.3435 24.303 17.6049 23.5643 17.6049 22.653C17.6049 21.7417 18.3435 21.003 19.2549 21.003C20.1661 21.003 20.9049 21.7417 20.9049 22.653C20.9049 23.5643 20.1661 24.303 19.2549 24.303Z" fill="#0574F7"/>
+                    </svg>
+                    Continuar al proceso de pago</button>
 
             </div>
             <!-- end Robot detail -->
@@ -42,3 +50,5 @@
     <!-- end features section -->
 
 </main>
+
+

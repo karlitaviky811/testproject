@@ -31,17 +31,6 @@ export class StepOneAvailableLicensesComponent {
   handleSelectedItem(license: License) {
     this.selectedLicense = license;
     this.purchaseService.selectedLicense = license;
-    // this.purchaseService.addItemToCart({
-    //   id: 0,
-    //   itemName: license.name,
-    //   itemType: 'LICENSE',
-    //   itemElementId: license.id,
-    //   itemPrice: Number(license.price),
-    //   quantity: 1,
-    //   totalPrice: Number(license.price),
-    //   extras: []
-    // });
-
     this.purchaseService.cartItem().itemsExtra.push({
       itemName: license.name,
       itemType: 'LICENSE',

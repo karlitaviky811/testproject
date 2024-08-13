@@ -104,7 +104,7 @@ export default class PaymentMethodsComponent {
   
       var token = this.authService.getToken();
       this.amount = this.amountPayment.subtotal();
-      this.cart.intentPaymentToken(token,this.amount).subscribe( (res : any)=>{
+      this.cart.intentPaymentToken(token,Math.floor(this.amount)).subscribe( (res : any)=>{
         this.elementsOptions.clientSecret = res.client_secret
 
         this.cart.registerByShoppingCart().subscribe(res=>{
@@ -155,7 +155,7 @@ export default class PaymentMethodsComponent {
           if (result.paymentIntent.status === 'succeeded') {
             let obj = {
                  "externalId": result.paymentIntent.id,
-                "amount":  this.amount.toString(),
+                "amount":  Math.floor(this.amount).toString(),
                 "paymentMethod": "STRIPE",
                 "approved": true,
                 "billingId": this.billing.id

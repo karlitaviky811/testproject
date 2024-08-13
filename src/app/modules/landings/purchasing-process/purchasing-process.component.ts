@@ -52,17 +52,6 @@ export default class PurchasingProcessComponent implements OnInit {
                 itemsExtra: []
               }
           );
-          // this.purchaseService.addItemToCart({
-          //   id: 0,
-          //   itemName: res.name,
-          //   itemType: 'ROBOT',
-          //   itemElementId: res.id,
-          //   itemPrice: 200.0,
-          //   quantity: 1,
-          //   totalPrice: 200.0,
-          //   shoppingCartId: 1,
-          //   extras: []
-          // });
         }
       })
     }

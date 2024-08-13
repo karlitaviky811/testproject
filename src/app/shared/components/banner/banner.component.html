@@ -1,6 +1,6 @@
-<section [ngClass]="['relative w-full h-[300px] md:h-[500px]', height]">
+<section [ngClass]="['relative w-full h-[180px] md:h-[500px]', height]">
     <img class="absolute object-cover w-full h-full" [src]="'img/' + backgroundImage" alt="">
-    <div class="absolute bottom-0 w-full lg:w-[1006px] left-0 pb-8 lg:pb-20 pl-4 sm:pl-[30px] md:pl-[60px] lg:pl-[90px] xl:pl-[128px]">
+    <div class="absolute bottom-0 w-full lg:w-[1006px] left-0 pb-8 lg:pb-20 px-4 sm:pl-[30px] md:pl-[60px] lg:pl-[90px] xl:pl-[128px]">
         <h1 class="text-2xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-semibold text-white mb-6">{{ title }}</h1>
         @if (messageLink != '') {
             <a class="flex gap-2 text-white cursor-pointer hover:underline">{{ messageLink }} <img class="w-6 h-6" src="img/arrow_up.png" alt=""></a>

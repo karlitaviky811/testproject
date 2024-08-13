@@ -34,14 +34,14 @@ module.exports = {
       addComponents({
         '.btn': {
           width: '100%',
-          fontSize: theme('fontSize.sm'),
+          fontSize: theme('fontSize.xs'),
           fontWeight: theme('fontSize.normal'),
-          padding: '10px 10px',
+          padding: '10px 5px',
           height: 'auto !important',
           display: 'flex',
           justifyContent: 'center',
           alignItems: 'center',
-          border: '1px solid',
+          // border: '1px solid',
           borderRadius: '10px',
           cursor: 'pointer',
           '&:disabled': {
@@ -52,11 +52,13 @@ module.exports = {
             fontSize: theme('fontSize.sm'),
             padding: '10px 10px',
           },
-          '@screen md': {
-            width: theme('spacing.36')
-          },
+          // '@screen md': {
+          //   width: theme('spacing.36')
+          // },
           '@screen lg': {
-            width: theme('spacing.52')
+            width: '100%',
+            fontSize: '22px',
+            fontWeight: '500',
           },
           '@screen xl': {
             width: '100%',
@@ -71,7 +73,10 @@ module.exports = {
             transition: '0.3s',
             '&:hover': {
              filter: 'contrast(0.5)'
-            }
+            },
+            'svg path': {
+              fill: 'white',
+            },
         },
         '.btn-secondary': {
           background: '#EBEBEB',
@@ -79,8 +84,9 @@ module.exports = {
           borderColor: '#D0D0D0',
           transition: '0.3s',
           '&:hover': {
-           filter: 'contrast(0.5)'
-          }
+           filter: 'contrast(0.5)',
+
+          },
         },
         '.btn-outlet-primary': {
           border: '1px solid',
@@ -90,7 +96,11 @@ module.exports = {
           '&:hover': {
             backgroundColor: theme('colors.primary'),
             color: theme('colors.white'),
-        }},
+            'svg path': {
+              fill: 'white',
+            },
+          }
+        },
         '.btn-outlet-secondary': {
           border: '1px solid',
           borderColor: theme('colors.secondary'),
