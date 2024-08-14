@@ -18,14 +18,6 @@ export class CartService {
     }
 
     intentPaymentToken(token : any, amount: any) {
-        
-       var Token = token;
-        let httpOptions = {
-          headers: new HttpHeaders({
-            'X-Access-Token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtZSI6IkpvaG4iLCJsYXN0TmFtZSI6IkRvZSIsInBob25lIjoiKzEyMzQ1Njc4OTAiLCJhZGRyZXNzIjoiMTIzIE1haW4gU3QsIENpdHkiLCJlbWFpbCI6ImpvaG4uZG9lQGV4YW1wbGUuY29tIiwiaWF0IjoxNzIyOTY1MjA0LCJleHAiOjE3MjI5Nzk2MDR9.WRiH_sOPOsvXh8IEQD_CpkbpWmnA0Dd4Gb4t6HnFPZQ',
-          }),
-        };
-    
         var obj = {
             "paymentMethod": "STRIPE",
             'amount': amount

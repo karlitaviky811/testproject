@@ -154,7 +154,7 @@ export default class PaymentMethodsComponent {
           // The payment has been processed!
           if (result.paymentIntent.status === 'succeeded') {
             let obj = {
-                 "externalId": result.paymentIntent.id,
+                "externalId": result.paymentIntent.id,
                 "amount":  Math.floor(this.amount).toString(),
                 "paymentMethod": "STRIPE",
                 "approved": true,
