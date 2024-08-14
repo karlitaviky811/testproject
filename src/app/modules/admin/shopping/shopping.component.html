@@ -16,7 +16,7 @@
         <ng-template pTemplate="body" let-shopping>
             <tr>
                 <td class="p3-ws">{{ shopping.code }}</td>
-                <td class="p3-ws">{{ shopping.date }}</td>
+                <td class="p3-ws"> {{shopping.date  | date : "fullDate" }} </td>
                 <td class="p3-ws">{{ shopping.status }}</td>
                 <td class="p3-ws">{{ shopping.total }}</td>
                 <td>

@@ -1,42 +1,41 @@
-import { inject, Injectable, signal } from "@angular/core";
-import { Product } from "../interfaces/product";
-import { HttpClient } from "@angular/common/http";
-import { ENDPOINT } from "../constants/endpoints";
-import { environment } from "../../../enviorement";
-
+import { inject, Injectable, signal } from '@angular/core';
+import { Product } from '../interfaces/product';
+import { HttpClient } from '@angular/common/http';
+import { ENDPOINT } from '../constants/endpoints';
+import { environment } from '../../../enviorement';
 
 @Injectable()
 export class UsersService {
+  admin = signal<string>('LOGIN');
+  constructor(private http: HttpClient) {}
+  /**
+   * método para iniciar sesión
+   * @param credentials: credenciales para inicio de sesión
+   */
+  public getData() {
+    const url = `${environment.apiUrl}${ENDPOINT.users}`;
+    const getData = this.http.get<any>(url);
 
-    admin = signal<string>('LOGIN')
-    constructor(private http: HttpClient){
+    return getData;
+  }
+  public updatePassword(obj: any) {
+    const url = `${environment.apiUrl}${ENDPOINT.users_password}`;
+    console.log('hereee', obj);
+    const putData = this.http.put<any>(url, obj);
 
-    }
-    /**
-     * método para iniciar sesión
-     * @param credentials: credenciales para inicio de sesión
-     */
-    public getData() {
-    
-        const url = `${environment.apiUrl}${ENDPOINT.users}`;
-        const getData = this.http
-            .get<any>(url)
+    return putData;
+  }
 
-        return getData;
-    }
-    public updatePassword(obj : any){
-        const url = `${environment.apiUrl}${ENDPOINT.users_password}`;
-        console.log('hereee',obj)
-        const putData = this.http.put<any>(url,obj);
+  reset() {
+    this.admin.set('LOGIN');
+  }
 
-        return putData;
-    }
+  updateLoginUser(data: any) {
+    this.admin.set(data);
+  }
 
-    reset(){
-        this.admin.set('LOGIN')
-    }
-
-    updateLoginUser(data: any){
-        this.admin.set(data)
-    }
+  sendMessage(obj: any) {
+    const url = `${environment.apiUrl}${ENDPOINT.contact}`;
+    return this.http.post(url, obj);
+  }
 }

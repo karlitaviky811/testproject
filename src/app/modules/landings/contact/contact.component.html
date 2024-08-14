@@ -16,7 +16,9 @@
         <p class="p4-ws text-left mt-3 sm:mt-7">
           También puedes enviarnos un mensaje directo
         </p>
-        <form class="flex flex-col gap-8 w-full mt-8 sm:mt-16">
+        <form class="flex flex-col gap-8 w-full mt-8 sm:mt-16"  [formGroup]="userInformationForm"
+        (ngSubmit)="sendMessage(userInformationForm.value)"
+        >
           <div class="flex flex-col gap-2">
             <label
               for="email"
@@ -24,6 +26,7 @@
               >Name</label
             >
             <input
+            formControlName="name"
               type="text"
               id="email"                  
               class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
@@ -38,6 +41,7 @@
               >Your email</label
             >
             <input
+            formControlName="email"
               type="email"
               id="email"
               class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
@@ -52,6 +56,7 @@
               >Subject</label
             >
             <input
+            formControlName="subject"
               type="text"
               id="email"
               class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
@@ -66,6 +71,7 @@
               >Message</label
             >
             <textarea
+            formControlName="message"
               type="text"
               id="password"
               class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
@@ -86,3 +92,13 @@
     </div>
   </section>
 </main>
+
+<p-toast />
+<p-confirmDialog>
+    <ng-template pTemplate="message" let-message>
+        <div class="flex flex-column align-items-center w-full gap-3 border-bottom-1 surface-border">
+            <i class="pi pi-exclamation-circle text-6xl text-primary-500"></i>
+            <p>{{ message.message }}</p>
+        </div>
+    </ng-template>
+</p-confirmDialog>

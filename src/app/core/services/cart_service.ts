@@ -43,6 +43,10 @@ export class CartService {
       registerByShoppingCart(){
         return this.http.post('https://api.fwa.qa.jacidi.com/billing/register-by-shopping-cart',{})
       } 
+
+      getAllShopping(idUser: any){
+       return this.http.get(`https://api.fwa.qa.jacidi.com/billing/by-user/${idUser}?page=1&limit=10`)
+      }
     
 
 }

@@ -3,6 +3,7 @@ export const ENDPOINT = {
     users_password: 'users/update-password',
     sign_in: 'auth/login',
     register: 'auth/register',
+    contact: 'contact',
     licenses: 'license',
     robots: 'robot',
     strategy: 'strategy',

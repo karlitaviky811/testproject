@@ -17,9 +17,10 @@ export class PurchaseService {
     private _shoppingCart: WritableSignal<CartItem[]> = signal([]);
     private _cartItem: WritableSignal<CartItem> = signal({} as CartItem);
     subtotal: WritableSignal<number> = signal(0);
-    
+    shoppingUser : WritableSignal<any> = signal([]);
     readonly spinnerService = inject(SpinnerService);
 
+  
     get selectedLicense(): WritableSignal<License> {
         return this._selectedLicense;
     }
@@ -42,6 +43,14 @@ export class PurchaseService {
 
     get cartItem(): WritableSignal<CartItem> {
         return this._cartItem;
+    }
+
+    set shoppingUserChange(data: any){
+        this.shoppingUser.set([...data]);
+    }
+
+    get shoppingUserData() : WritableSignal<any>{
+        return this.shoppingUser;
     }
 
     updateCartItem(cartItem: CartItem) {
