@@ -3,7 +3,7 @@
 >
   <div class="col-span-1 h-screen">
     <div class="w-full flex flex-col">
-      <div class="w-[90%]">
+      <div class="w-full">
         <div class="max-w-4xl mx-auto font-[sans-serif]">
           <form [formGroup]="userInformationForm">
             <div class="grid md:grid-cols-2 sm:grid-cols-1 lg:grid-cols-2 mt-2">
@@ -151,8 +151,8 @@
                   />
                 </div>
               </div-->
-              <div class="w-1/2  py-[15px]">
-                <button class="my-[15px] w-full py-[10px] px-[57px] btn btn btn-outlet-primary" (click)="updateUserPassword()">Guardar cambios</button>
+              <div class="w-full sm:w-1/2 py-[15px]">
+                <button class="btn btn-outlet-primary" (click)="updateUserPassword()">Guardar cambios</button>
               </div>
             </div>
           </form>

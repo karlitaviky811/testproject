@@ -13,9 +13,10 @@
       </div>
 
       <div class="w-[70%] mt-4">
+        <p-messages [(value)]="messages" [enableService]="false" />
         <div class="mx-auto font-[sans-serif]">
 
-          
+         
           <form  
           [formGroup]="formgroup"
           (ngSubmit)="sigIn(formgroup.value)">
@@ -134,6 +135,7 @@
                   "
                   />
                   <p class="text-red-500 text-xs italic"  *ngIf="hasError('password', 'required')">Please enter password.</p>
+                  <p class="text-red-500 text-xs italic"  *ngIf="hasError('password', 'minlength')">Password must be 6 charapters</p>
                 </div>
                 <div>
                   <label class="font-register text-sm mb-2 block"
@@ -150,7 +152,7 @@
                     placeholder="Repeat password"
                   />
                   <p class="text-red-500 text-xs italic"  *ngIf="hasError('checkPassword', 'required')">Please repeat password</p>
-
+                  <p class="text-red-500 text-xs italic"  *ngIf="hasError('password', 'minlength')">Password must be 6 charapters</p>
                 </div>
               </div>
             </div>
@@ -167,12 +169,13 @@
               </div>
 
               
+               
               <div class="flex flex-col items-center">
                 <button
                 [disabled]="!formgroup.valid"
                 (click)="sigIn(formgroup.value)"
                   type="button"
-                  class=" py-4 mt-2 px-12 text-sm font-title-ligth tracking-wider rounded-lg text-white bg-blue-600 hover:bg-blue-700 focus:outline-none"
+                  class="btn btn-primary"
                 >
                   Crear cuenta
                 </button>
@@ -203,4 +206,5 @@
         </div>
     </ng-template>
 </p-confirmDialog>
+
 

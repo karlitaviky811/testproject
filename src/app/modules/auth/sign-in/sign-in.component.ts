@@ -3,6 +3,8 @@ import { Router, RouterModule } from "@angular/router";
 import { AuthService } from "../../../core/services/auth_service";
 import {  FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CommonModule } from "@angular/common";
+import { RouteEventsService } from "../../../core/services/route_event_service";
+import { Location } from '@angular/common';
 
 @Component({
   selector: "app-sign-in",
@@ -16,7 +18,8 @@ import { CommonModule } from "@angular/common";
 export default class SignInComponent {
   authSrv = inject(AuthService);
   router = inject(Router);
-
+  location = inject(Location)
+  private routeEventsService = inject(RouteEventsService)
   formgroup = new FormBuilder().group({
     email: new FormControl('', [Validators.minLength(2),Validators.required,Validators.email]),
     password: new FormControl('', [Validators.required])}
@@ -29,7 +32,7 @@ export default class SignInComponent {
       email: credentials.email,
     };
     this.authSrv.login(credential).subscribe({
-      next: () => this.router.navigate(['/admin']),
+      next: () => this.navBack(),
       error: (err)=> console.error('Login failed', err)
     });
   }
@@ -57,5 +60,12 @@ export default class SignInComponent {
       return this.formgroup.get(InputName)?.invalid &&
       (this.formgroup.get(InputName)?.dirty || this.formgroup.get(InputName)?.touched)?true:false
     }
+      }
+
+      navBack() {
+        let cur_path = this.location.path();
+        this.location.back();
+        if (cur_path === this.location.path())
+         this.router.navigate(['/default-route']);    
       }
 }

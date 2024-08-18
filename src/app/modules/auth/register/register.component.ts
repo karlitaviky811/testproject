@@ -11,8 +11,9 @@ import {
 } from "@angular/forms";
 import { CommonModule } from "@angular/common";
 import { ConfirmDialogModule } from "primeng/confirmdialog";
-import { ConfirmationService, MessageService } from "primeng/api";
+import { ConfirmationService, Message, MessageService } from "primeng/api";
 import { ToastModule } from "primeng/toast";
+import { MessagesModule } from 'primeng/messages';
 @Component({
   selector: "app-register",
   standalone: true,
@@ -23,6 +24,7 @@ import { ToastModule } from "primeng/toast";
     CommonModule,
     ConfirmDialogModule,
     ToastModule,
+    MessagesModule,
   ],
   templateUrl: "./register.component.html",
   styleUrl: "./register.component.scss",
@@ -30,7 +32,7 @@ import { ToastModule } from "primeng/toast";
 export default class RegisterComponent implements OnInit {
   authSrv = inject(AuthService);
   router = inject(Router);
-
+  messages: any | undefined;
   confirmationService: any;
   messageService: any;
 
@@ -50,14 +52,15 @@ export default class RegisterComponent implements OnInit {
         Validators.required,
         Validators.email,
       ]),
-      password: new FormControl("", [Validators.required]),
-      checkPassword: new FormControl("", [Validators.required]),
+      password: new FormControl("", [Validators.required, Validators.minLength(6)]),
+      checkPassword: new FormControl("", [Validators.required, Validators.minLength(6)]),
     },
     { validator: this.match("password", "checkPassword") }
   );
 
   ngOnInit(): void {
     console.log("hey", this.formgroup.get("name")?.touched);
+    //this.addMessages()
   }
 
   sigIn(credentials: any): void {
@@ -70,20 +73,28 @@ export default class RegisterComponent implements OnInit {
       email: credentials.email,
     };
 
+   
     this.confirmationService.confirm({
       header: "Esta seguro de los datos ingresados?",
       message: "Por favor acepte, para continuar",
       accept: () => {
         this.authSrv.register(credential).subscribe({
-          next: () => this.router.navigate(["/sign-in"]),
-          error: (err) => console.error("Login failed", err),
+          next: () => this.router.navigate(["/site"]),
+          error: (err) =>{
+            console.log('err', err)
+          this.messages= [
+              { severity: 'warn', summary: err.error.message[0] }
+          ];
+          
+           /* this.messageService.add({
+              severity: "error",
+              summary: "Exito",
+              detail: err.message,
+              life: 3000,
+            });*/
+          },
         });
-        this.messageService.add({
-          severity: "info",
-          summary: "Exito",
-          detail: "Se ha registrado exitosamente",
-          life: 3000,
-        });
+      
       },
       reject: () => {
         this.messageService.add({
@@ -160,4 +171,12 @@ export default class RegisterComponent implements OnInit {
       },
     });
   }
+
+  addMessages() {
+    this.messages = [
+        { severity: 'info', summary: 'Dynamic Info Message' },
+        { severity: 'success', summary: 'Dynamic Success Message' },
+        { severity: 'warn', summary: 'Dynamic Warning Message' }
+    ];
+}
 }

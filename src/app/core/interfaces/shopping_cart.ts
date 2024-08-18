@@ -3,9 +3,9 @@ export interface CartItem {
     itemName: String;
     itemType: 'ROBOT' | 'STRATEGY' | 'LICENSE';
     itemElementId: number;
-    itemPrice: number;
+    itemPrice: any;
     quantity: number;
-    totalPrice: number;
+    totalPrice: any;
     shoppingCartId?: number;
     itemsExtra: ItemExtra[]
 }

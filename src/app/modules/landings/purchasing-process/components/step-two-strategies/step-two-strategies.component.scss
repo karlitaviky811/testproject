@@ -1,0 +1,11 @@
+@media (max-width: 760px) {
+    ::ng-deep {
+        .p-message-wrapper {
+            @apply p-2;
+        }
+    
+        .p-message-detail {
+            @apply text-[12px]; 
+        }
+    }
+}

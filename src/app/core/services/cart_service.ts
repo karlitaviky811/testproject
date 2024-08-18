@@ -1,21 +1,10 @@
 import { Injectable } from "@angular/core";
-import { Product } from "../interfaces/product";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 
 @Injectable()
 export class CartService {
 
     constructor(private http: HttpClient){}
-
-    private _products: Product[] = [];
-
-    get products() {
-        return this._products;
-    }
-
-    updateCart(product: Product) {
-        this._products = [...this._products, product];
-    }
 
     intentPaymentToken(token : any, amount: any) {
         var obj = {

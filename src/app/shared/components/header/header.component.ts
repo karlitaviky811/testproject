@@ -42,6 +42,10 @@ export class HeaderComponent implements OnInit {
       path: '#',
     },
     {
+      name: '',
+      path: '/site/shopping-cart',
+    },
+    {
       name: 'LOGIN',
       path: '/sign-in',
     },
@@ -56,6 +60,7 @@ export class HeaderComponent implements OnInit {
 
   handleClick(route: string) {
     //this.routerService.navigate(['site/contact']);
+    console.log('route', route)
     this.routerService.navigate([route]);
   }
 
@@ -69,11 +74,11 @@ export class HeaderComponent implements OnInit {
      
     if (data !== null) {
       console.log('hey', this.user.admin());
-      this.routeOptions[6].name = data;
-      this.routeOptions[6].path = 'admin';
+      this.routeOptions[7].name = data;
+      this.routeOptions[7].path = 'admin';
     }else{
-      this.routeOptions[6].name = 'LOGIN';
-      this.routeOptions[6].path = 'sign-in';
+      this.routeOptions[7].name = 'LOGIN';
+      this.routeOptions[7].path = 'sign-in';
     }
   }
 }

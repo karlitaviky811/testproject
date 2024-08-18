@@ -3,4 +3,5 @@ export interface Strategy {
     name: String;
     description: String;
     shortDescription: String;
+    price: any;
 }

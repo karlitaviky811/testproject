@@ -71,7 +71,14 @@ export class AuthService {
   }
 
   register(credentials: any){
-    const registerRequest = this.http.post<any>(`${environment.apiUrl}${ENDPOINT.register}`, credentials)
+    const registerRequest = this.http.post<any>(`${environment.apiUrl}${ENDPOINT.register}`, credentials).pipe(
+      tap(response=>{
+          if(response.token){
+              this.setToken(response)
+              this.setDataUser(response)
+          }
+      })
+  );
     return registerRequest;
   }
 }

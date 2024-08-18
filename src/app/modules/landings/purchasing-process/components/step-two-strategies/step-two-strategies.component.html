@@ -2,8 +2,8 @@
     <div
       class="flex-auto flex justify-content-center align-items-center font-medium"
     >
-      <section class="grid grid-cols-1 md:grid-cols-8 lg:grid-cols-6 gap-3">
-        <div class="col-span-6 content-center">
+      <section class="grid grid-cols-1 w-full md:grid-cols-8 lg:grid-cols-12 gap-3">
+        <div class="col-span-1 sm:col-span-12 md:col-span-8 lg:col-span-12 content-center">
           <div class="flex flex-wrap w-full gap-2">
             <h4 class="font-semibold">Paso 2:</h4>
             <h4 class="font-light">
@@ -11,19 +11,28 @@
               licencia</h4>
           </div>
 
-          <hr class="mt-2 mb-8 md:mt-4 md:mb-16 lg:mt-10 lg:mb-[110px] h-[1px] border-t-0 bg-[#DDDDDDDD] dark:bg-[#DDDDDDDD]"/>
+          <hr class="mt-2 mb-8 md:mt-4 lg:mt-10 lg:mb-[34px] h-[1px] border-t-0 bg-[#DDDDDDDD] dark:bg-[#DDDDDDDD]"/>
 
-          <div class="flex justify-between flex-wrap mb-2 sm:mb-5 md:mb-10 lg:mb-[60px]">
+          <div class="w-full h-[100px] mb-2">
+            @if ( purchaseService.selectedStrategies.length > qtyStrategies ) {
+              <p-messages
+                [(value)]="messages"
+                [enableService]="false" 
+                [closable]="isCloseable" />
+            }
+          </div>
+    
+          <div class="flex justify-between flex-wrap w-full mb-2 sm:mb-5 md:mb-10 lg:mb-[60px]">
             <span class="p2-ws font-semibold">
-              {{ purchaseService.selectedLicense().name }}: {{purchaseService.selectedLicense().qtyStrategies }} estrategias
+              {{ purchaseService.selectedLicense().name }}: {{ qtyStrategies }} estrategias
             </span>
             <span class="font-semibold p2-ws text-[#0574F7]">
-              {{ selectedStrategies().length }}/{{ purchaseService.selectedLicense().qtyStrategies }} estrategias seleccionadas
+              {{ selectedStrategies().length }}/{{ qtyStrategies }} estrategias gratis
             </span>
           </div>
         </div>
         @for (strategy of strategies(); track strategy.id) {
-          <div [ngClass]="['col-span-6 sm:col-span-6 md:col-span-4 lg:col-span-2 rounded-[16px] border-2  p-[15px]', !checkSelectedStrategy(strategy) ? 'border-[#E2E5EA]': 'border-primary']">
+          <div [ngClass]="['col-span-1 sm:col-span-6 md:col-span-4 lg:col-span-4 rounded-[16px] border-2  p-[15px]', getBorderColor(strategy)]">
             <div class="flex items-center flex-wrap mb-[20px] gap-3">
               <img src="img/stadistics.png" alt="" />
               <span class="p5-ps">{{ strategy.name }} {{ strategy.id }}</span>

@@ -73,10 +73,10 @@
               <span class="text-sm"> Recordar contraseña </span>
             </label>
           </div>
-          <div class="flex flex-col items-center">
-            <div>
+          <div class="flex flex-col items-center w-full">
+            <div class="w-full">
               <button
-              class="bg-blue-500 hover:bg-blue-700 font-title-ligth w-full py-2 px-12 rounded rounded-lg focus:outline-none focus:shadow-outline"
+              class="btn btn-primary"
               type="button"
               [disabled]="!formgroup.valid"
               (click)="sigIn(formgroup.value)"
