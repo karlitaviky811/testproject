@@ -29,6 +29,9 @@ import {
 import { CartService } from "../../../core/services/cart_service";
 import { AuthService } from "../../../core/services/auth_service";
 import { PurchaseService } from "../../../core/services/purchase_service";
+import { ConfirmationService, MessageService } from "primeng/api";
+import { ConfirmDialogModule } from "primeng/confirmdialog";
+import { ToastModule } from "primeng/toast";
 @Component({
   selector: "app-payment-methods",
   standalone: true,
@@ -44,6 +47,8 @@ import { PurchaseService } from "../../../core/services/purchase_service";
     RadioButtonModule,
     TabViewModule,
     NgxStripeModule,
+    ConfirmDialogModule,
+    ToastModule
   ],
   templateUrl: "./payment-methods.component.html",
   styleUrl: "./payment-methods.component.scss",
@@ -66,15 +71,19 @@ export default class PaymentMethodsComponent {
   paying = signal(false);
   billing: any;
   amount = 100;
+  show = false;
   @ViewChild(StripePaymentElementComponent)
   paymentElement!: StripePaymentElementComponent;
   // Replace with your own public key
   checkoutForm: any;
   private readonly fb = inject(UntypedFormBuilder);
   userObject: any = localStorage.getItem("userObject");
-
+  confirmationService!: ConfirmationService;
+  messageService!: MessageService;
   constructor() {
     console.log("paymentelement", this.paymentElement);
+    this.confirmationService = inject(ConfirmationService);
+    this.messageService = inject(MessageService);
   }
   paymentElementForm = this.fb.group({
     name: ["Ricardo", [Validators.required]],
@@ -102,67 +111,107 @@ export default class PaymentMethodsComponent {
   };
 
   ngOnInit(): void {
-    var token = this.authService.getToken();
-
-    var token = this.authService.getToken();
+ 
     this.amount = this.amountPayment.subtotal();
     //this.checkoutForm.set
-    console.log("retrievedObject: ", JSON.parse(this.userObject));
+    let userObject: any = localStorage.getItem("userObject");
+    let user = JSON.parse(userObject)
+    this.paymentElementForm.patchValue(user.user)
+
+  }
+
+  pay() {
+    if (this.paying() || this.paymentElementForm.invalid) return;
+    this.paying.set(true);
+   
+    const { name, email, address, zipcode, city } =
+      this.paymentElementForm.getRawValue();
+
+      this.confirmationService.confirm({
+        header: "Esta seguro de los datos ingresados?",
+        message: "Por favor acepte, para continuar",
+        accept: () => {
+
+          this.stripe
+          .confirmPayment({
+            elements: this.paymentElement.elements,
+            confirmParams: {
+              payment_method_data: {
+                billing_details: {
+                  name: name as string,
+                  email: email as string,
+                  address: {
+                    line1: address as string,
+                    postal_code: zipcode as string,
+                    city: city as string,
+                  },
+                },
+              },
+            },
+            redirect: "if_required",
+          })
+          .subscribe((result) => {
+            this.paying.set(false);
+            if (result.error) {
+              // Show error to your customer (e.g., insufficient funds)
+              this.messages= [
+                { severity: 'warn', summary: result.error.message  }
+            ];
+            } else {
+              // The payment has been processed!
+              if (result.paymentIntent.status === "succeeded") {
+                let obj = {
+                  externalId: result.paymentIntent.id,
+                  amount: Math.floor(this.amount * 100).toString(),
+                  paymentMethod: "STRIPE",
+                  approved: true,
+                  billingId: this.billing.id,
+                };
+                this.cart.registerPayment(obj).subscribe((res) => {
+                  this.messages= [
+                    { severity: 'success', summary: 'Pago realizado exitosamente'  }
+                  ]
+                  this.router.navigate(["admin/shoppings"]);
+                });
+                // Show a success message to your customer
+              }else{
+                this.messages= [
+                  { severity: 'success', summary: 'Pago realizado exitosamente'  }
+                ]
+                this.router.navigate(["admin/shoppings"])
+              }
+            }
+          });
+        },
+        reject: () => {
+          this.messageService.add({
+            severity: "error",
+            summary: "Error",
+            detail: "Ha cancelado el pago",
+            life: 3000,
+          });
+        },
+        
+      
+      })
+
+
+   
+  }
+
+  continue(){
+    var token = this.authService.getToken();
+    this.show = true;
+    var token = this.authService.getToken();
     this.cart
       .intentPaymentToken(token, Math.floor(this.amount * 100).toString())
       .subscribe((res: any) => {
         this.elementsOptions.clientSecret = res.client_secret;
         this.cart.registerByShoppingCart().subscribe((res) => {
           this.billing = res;
+          this.show = false;
         });
       });
-  }
 
-  pay() {
-    if (this.paying() || this.paymentElementForm.invalid) return;
-    this.paying.set(true);
-
-    const { name, email, address, zipcode, city } =
-      this.paymentElementForm.getRawValue();
-    this.stripe
-      .confirmPayment({
-        elements: this.paymentElement.elements,
-        confirmParams: {
-          payment_method_data: {
-            billing_details: {
-              name: name as string,
-              email: email as string,
-              address: {
-                line1: address as string,
-                postal_code: zipcode as string,
-                city: city as string,
-              },
-            },
-          },
-        },
-        redirect: "if_required",
-      })
-      .subscribe((result) => {
-        this.paying.set(false);
-        if (result.error) {
-          // Show error to your customer (e.g., insufficient funds)
-          alert({ success: false, error: result.error.message });
-        } else {
-          // The payment has been processed!
-          if (result.paymentIntent.status === "succeeded") {
-            let obj = {
-              externalId: result.paymentIntent.id,
-              amount: Math.floor(this.amount * 100).toString(),
-              paymentMethod: "STRIPE",
-              approved: true,
-              billingId: this.billing.id,
-            };
-            this.cart.registerPayment(obj).subscribe((res) => {
-              alert("Pago realizado exitosamente");
-            });
-            // Show a success message to your customer
-          }
-        }
-      });
   }
 }
