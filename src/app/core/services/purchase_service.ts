@@ -77,6 +77,10 @@ export class PurchaseService {
         return this.http.post<any>(`${environment.apiUrl}${ENDPOINT.addProduct}`, cartItem);
     }
 
+    public getCartId() {
+        return this.http.get<any>(`${environment.apiUrl}${ENDPOINT.shopping_cart}`);
+    }
+
     public updateProduct(value: any) {
         this.spinnerService.updateLoading(true);
 

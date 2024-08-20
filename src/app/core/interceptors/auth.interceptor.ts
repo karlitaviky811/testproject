@@ -18,7 +18,7 @@ import {
   
       const authSrv = inject(AuthService)
       const token = authSrv.getToken()
-  
+    console.log('token', token)
       if(token){
          request = request.clone({
           setHeaders :{
