@@ -35,7 +35,7 @@ export default class RegisterComponent implements OnInit {
   messages: any | undefined;
   confirmationService: any;
   messageService: any;
-
+  show = false; 
   constructor() {
     this.confirmationService = inject(ConfirmationService);
     this.messageService = inject(MessageService);
@@ -73,17 +73,18 @@ export default class RegisterComponent implements OnInit {
       email: credentials.email,
     };
 
-   
+    this.show = true;
     this.confirmationService.confirm({
       header: "Esta seguro de los datos ingresados?",
       message: "Por favor acepte, para continuar",
       accept: () => {
         this.authSrv.register(credential).subscribe({
-          next: () => this.router.navigate(["/site"]),
+          next: () =>{ this.router.navigate(["/site"]) ;   this.show = false },
           error: (err) =>{
             console.log('err', err)
+            this.show = false
           this.messages= [
-              { severity: 'warn', summary: err.error.message[0] }
+              { severity: 'warn', summary: err.error.message[0]  }
           ];
           
            /* this.messageService.add({

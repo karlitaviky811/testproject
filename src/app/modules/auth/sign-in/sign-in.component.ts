@@ -5,12 +5,13 @@ import {  FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule,
 import { CommonModule } from "@angular/common";
 import { RouteEventsService } from "../../../core/services/route_event_service";
 import { Location } from '@angular/common';
+import { MessagesModule } from "primeng/messages";
 
 @Component({
   selector: "app-sign-in",
   standalone: true,
   imports: [RouterModule, FormsModule, ReactiveFormsModule,
-    CommonModule ],
+    CommonModule,  MessagesModule, ],
   providers: [AuthService],
   templateUrl: "./sign-in.component.html",
   styleUrl: "./sign-in.component.scss",
@@ -19,6 +20,8 @@ export default class SignInComponent {
   authSrv = inject(AuthService);
   router = inject(Router);
   location = inject(Location)
+  show = false;
+    messages: any | undefined;
   private routeEventsService = inject(RouteEventsService)
   formgroup = new FormBuilder().group({
     email: new FormControl('', [Validators.minLength(2),Validators.required,Validators.email]),
@@ -26,15 +29,22 @@ export default class SignInComponent {
   );
   
   sigIn(credentials: any): void {
+    this.show = true;
     console.log('e', this.formgroup)
     var credential = {
       password: credentials.password,
       email: credentials.email,
     };
     this.authSrv.login(credential).subscribe({
-      next: () => this.navBack(),
-      error: (err)=> console.error('Login failed', err)
-    });
+      next: () =>{ this.navBack(); this.show = false} ,
+      error: (err) =>{    console.log('err', err)
+        this.show = false
+      this.messages= [
+          { severity: 'warn', summary: err.error.message[0]  }
+      ];
+     }
+    
+  });
   }
 
   match(controlName: string, matchingControlName: string) {
