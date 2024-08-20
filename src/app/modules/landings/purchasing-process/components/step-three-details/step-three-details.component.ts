@@ -12,7 +12,7 @@ import { forkJoin } from 'rxjs';
 export class StepThreeDetailsComponent implements OnInit {
   @Input() robot = {} as Robot;
   @Output() prevCallback: EventEmitter<any> = new EventEmitter();
-
+  show = false;
   private readonly router = inject(Router);
   readonly purchaseService = inject(PurchaseService);
 
@@ -24,6 +24,7 @@ export class StepThreeDetailsComponent implements OnInit {
   }
 
   goCart() {
+    this.show = true;
     const item = this.purchaseService.cartItem();
 
     item.totalPrice = item.itemsExtra.reduce((acc, obj) => acc + (obj.itemPrice * obj.quantity), 0) + Number(item.itemPrice);
@@ -32,6 +33,7 @@ export class StepThreeDetailsComponent implements OnInit {
       .subscribe({
         next: (res) => {
           this.router.navigate(['site/shopping-cart']);
+          this.show = false;
         }
       });
     

@@ -84,7 +84,7 @@ export default class RegisterComponent implements OnInit {
             console.log('err', err)
             this.show = false
           this.messages= [
-              { severity: 'warn', summary: err.error.message[0]  }
+              { severity: 'warn', summary: err.error.message  }
           ];
           
            /* this.messageService.add({

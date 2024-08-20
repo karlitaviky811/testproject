@@ -37,9 +37,12 @@ export default class ProfileComponent implements OnInit {
     });
     this.confirmationService = inject(ConfirmationService);
     this.messageService = inject(MessageService);
+    let userObject: any = localStorage.getItem("userObject");
+    let user = JSON.parse(userObject)
+
     this.user.getData().subscribe(res=>{
-      this.userInformationForm.patchValue(res)
-      this.idUser = res.id
+      this.userInformationForm.patchValue(user.user)
+      this.idUser = user.user.id
       this.user.updateLoginUser(res.name)
     })
   }
