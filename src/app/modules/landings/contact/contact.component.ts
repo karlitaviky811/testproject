@@ -60,8 +60,9 @@ export default class ContactComponent {
         this.user.sendMessage(data).subscribe((res : any)=>{
           console.log('send message')
           this.userInformationForm.reset();
+          this.show = false;
         })
-        this.show = false;
+      
         this.messageService.add({ severity: 'info', summary: 'Exito', detail: 'Se ha enviado exitosamente', life: 3000 });
       },
       reject: () => {
