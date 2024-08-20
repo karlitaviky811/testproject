@@ -60,10 +60,10 @@ export default class ContactComponent {
           console.log('send message')
           this.userInformationForm.reset();
         })
-        this.messageService.add({ severity: 'info', summary: 'Exito', detail: 'Se ha registrado exitosamente', life: 3000 });
+        this.messageService.add({ severity: 'info', summary: 'Exito', detail: 'Se ha enviado exitosamente', life: 3000 });
       },
       reject: () => {
-          this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Ha cancelado el registro', life: 3000 });
+          this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Ha cancelado el envio', life: 3000 });
       }
   });
   }
