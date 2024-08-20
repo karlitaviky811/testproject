@@ -24,6 +24,7 @@ export default class ContactComponent {
   idUser = 0;
   confirmationService!: ConfirmationService;
   messageService!: MessageService;
+  show = false;
 
 
 
@@ -55,11 +56,12 @@ export default class ContactComponent {
       header: 'Esta seguro de enviar este mensaje?',
       message: 'Por favor acepte, para continuar',
       accept: () => {
-       
+        this.show = true;
         this.user.sendMessage(data).subscribe((res : any)=>{
           console.log('send message')
           this.userInformationForm.reset();
         })
+        this.show = false;
         this.messageService.add({ severity: 'info', summary: 'Exito', detail: 'Se ha enviado exitosamente', life: 3000 });
       },
       reject: () => {
