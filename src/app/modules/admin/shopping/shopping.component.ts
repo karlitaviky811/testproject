@@ -29,9 +29,11 @@ export default class ShoppingComponent {
   confirmationService!: ConfirmationService;
   messageService!: MessageService;
   constructor() {
+    let userObject: any = localStorage.getItem("userObject");
+    let user = JSON.parse(userObject)
     this.user.getData().subscribe(res=>{
-      this.idUser = res.id
-      this.user.updateLoginUser(res.name)
+      this.idUser = user.user.id
+      this.user.updateLoginUser(user.user.name)
       this.getDataShopping()
     })
   }

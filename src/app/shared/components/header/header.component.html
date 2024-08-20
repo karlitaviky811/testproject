@@ -67,10 +67,9 @@
         >
       </li-->
       @for(route of routeOptions; track route.name) {
-        <li class="flex items-center">
+        <li class="flex items-center justify-start">
           <a
-            [ngClass]="{ 'my_class2' :  route.name === 'ES' }"
-            href="#"
+            [ngClass]="{'blue-button': route.name === 'CONTACTO', 'my_class2' :  route.name === 'ES' }"
             (click)="handleClick(route.path)"
             class="block py-2 pl-3 pr-4 p6-ws text-center text-blueDark cursor-pointer"
             aria-current="page"
@@ -78,9 +77,16 @@
             @if(route.name == 'ES'){
               <img class="w-[24px] h-[24px]" src="img/language.png" alt=""> 
             }
+            @if(route.path == '/site/shopping-cart'){
+              <div class="w-[24px] h-[24px]"  >
+                <img class="w-[24px] h-[24px]" src="img/cart-header.png" alt=""> 
+              </div>
+             
+            }
             {{ route.name }}</a
           >
         </li>
+  
       }
     </ul>
     </div>

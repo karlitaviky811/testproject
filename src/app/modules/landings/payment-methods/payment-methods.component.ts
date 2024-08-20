@@ -170,29 +170,41 @@ export default class PaymentMethodsComponent {
                 this.cart.registerPayment(obj).subscribe({
                  
                   next: ()=>{
-                    this.messages= [
-                      { severity: 'success', summary: 'Pago realizado exitosamente'  }
-                    ]
-                    this.routerService.navigate(['/admin/shopping']);
+                    
+                    this.messageService.add({
+                      severity: "success",
+                      summary: "Success",
+                      detail: "Pago realizado exitosamente",
+                      life: 3000,
+                    });
+
+                    setTimeout(() => {
+                      this.routerService.navigate(['/admin/shopping']);
+                    }, 2000);
                   },
                   error: ()=>{
                     this.messages= [
                       { severity: 'success', summary: 'Pago realizado exitosamente'  }
                     ]
                     this.messageService.add({
-                      severity: "error",
-                      summary: "Error",
+                      severity: "success",
+                      summary: "Success",
                       detail: "Pago realizado exitosamente",
                       life: 3000,
                     });
-                    this.routerService.navigate(['/admin/shopping']);
+                    setTimeout(() => {
+                      this.routerService.navigate(['/admin/shopping']);
+                    }, 2000);
                   }
                 });
                 // Show a success message to your customer
               }else{
-                this.messages= [
-                  { severity: 'success', summary: 'Pago realizado exitosamente'  }
-                ]
+                this.messageService.add({
+                  severity: "error",
+                  summary: "Error",
+                  detail: "Pago realizado exitosamente",
+                  life: 3000,
+                });
                 this.router.navigate(["admin/shoppings"])
               }
             }
