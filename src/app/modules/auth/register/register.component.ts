@@ -14,6 +14,8 @@ import { ConfirmDialogModule } from "primeng/confirmdialog";
 import { ConfirmationService, Message, MessageService } from "primeng/api";
 import { ToastModule } from "primeng/toast";
 import { MessagesModule } from 'primeng/messages';
+import { RecaptchaModule, ReCaptchaV3Service,RecaptchaFormsModule, RecaptchaV3Module } from "ng-recaptcha-2";
+
 @Component({
   selector: "app-register",
   standalone: true,
@@ -25,6 +27,10 @@ import { MessagesModule } from 'primeng/messages';
     ConfirmDialogModule,
     ToastModule,
     MessagesModule,
+    RecaptchaModule,
+    RecaptchaFormsModule,
+    RecaptchaV3Module,
+    
   ],
   templateUrl: "./register.component.html",
   styleUrl: "./register.component.scss",
@@ -36,9 +42,11 @@ export default class RegisterComponent implements OnInit {
   confirmationService: any;
   messageService: any;
   show = false; 
-  constructor() {
+  selected = false;
+  constructor(  private recaptchaV3Service: ReCaptchaV3Service) {
     this.confirmationService = inject(ConfirmationService);
     this.messageService = inject(MessageService);
+    this.recaptchaV3Service = inject(ReCaptchaV3Service)
   }
 
   formgroup = new FormBuilder().group(
@@ -47,6 +55,7 @@ export default class RegisterComponent implements OnInit {
       lastname: new FormControl("", [Validators.required]),
       address: new FormControl("", [Validators.required]),
       phone: new FormControl("", [Validators.required]),
+      check: new FormControl('', [Validators.required]),
       email: new FormControl("", [
         Validators.minLength(2),
         Validators.required,
@@ -59,7 +68,10 @@ export default class RegisterComponent implements OnInit {
   );
 
   ngOnInit(): void {
+    console.log('heeeeyyyy')
+   
     console.log("hey", this.formgroup.get("name")?.touched);
+    
     //this.addMessages()
   }
 
@@ -179,5 +191,20 @@ export default class RegisterComponent implements OnInit {
         { severity: 'success', summary: 'Dynamic Success Message' },
         { severity: 'warn', summary: 'Dynamic Warning Message' }
     ];
+}
+
+executeRecaptchaVisible(token: any){
+
+}
+
+
+public executeImportantAction(): void {
+  console.log('important Action')
+  this.recaptchaV3Service.execute('importantAction')
+    .subscribe((token : any) => { console.log(token)});
+}
+
+selectedTerms(){
+  return !this.selected
 }
 }

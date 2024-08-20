@@ -11,13 +11,13 @@
           >¡Bienvenido, crea tu cuenta!</span
         >
       </div>
-
-      <div class="w-[70%] mt-4">
+     <div class="w-[70%] mt-4">
         <p-messages [(value)]="messages" [enableService]="false" />
         <div class="mx-auto font-[sans-serif]">
 
          
           <form  
+          id="demo-form"
           [formGroup]="formgroup"
           (ngSubmit)="sigIn(formgroup.value)">
             <div class="grid sm:grid-cols-2 gap-3 mb-2">
@@ -156,6 +156,10 @@
                 </div>
               </div>
             </div>
+           
+            <re-captcha (resolved)="executeRecaptchaVisible($event)" siteKey="6LeagysqAAAAAC10Q0PUF1SX8gByysAWFseU_1PD"></re-captcha>
+          
+            <!--re-captcha (resolved)="executeRecaptchaVisible($event)" siteKey="6LeagysqAAAAAC10Q0PUF1SX8gByysAWFseU_1PD"></re-captcha-->
             <!--div class="p-[15px] h-[100px]">
               
               <div id="recaptcha" class="g-recaptcha" data-sitekey="6LduxSEqAAAAAFvfCDLjT1es99gXhyU0119YnChb"></div>
@@ -163,7 +167,11 @@
             <div class="grid sm:grid-cols-1">
               <div class="md:w-full mt-4">
                 <label class="md:w-full block text-gray-500 font-regular">
-                  <input class="mr-2 leading-tight" type="checkbox" />
+                  <input 
+                  class="mr-2 leading-tight"
+                  value="selectedTerms()"
+                  type="checkbox"  
+                   formControlName="check" />
                   <span class="text-sm text-[12px]"> Acepto los términos y condiciones </span>
                 </label>
               </div>
@@ -197,7 +205,7 @@
               </div>
             </div>
           </form>
-
+         
         </div>
       </div>
     </div>

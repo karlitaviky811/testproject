@@ -20,6 +20,7 @@ import { ConfirmationService, MessageService } from 'primeng/api';
 import { SpinnerService } from './core/services/spinner_service';
 import { PurchaseService } from './core/services/purchase_service';
 import { RouteEventsService } from './core/services/route_event_service';
+import { RECAPTCHA_V3_SITE_KEY, RecaptchaModule, RecaptchaV3Module } from "ng-recaptcha-2";
 
 const I18N_CONFIG = {
   defaultLanguage: 'en', // this name need to be the same as the JSON file
@@ -47,8 +48,12 @@ export const appConfig: ApplicationConfig = {
     SpinnerService,
     PurchaseService,
     RouteEventsService,
+    importProvidersFrom(RecaptchaModule),
+    { provide: RECAPTCHA_V3_SITE_KEY, useValue: '6Lf2jSsqAAAAAKOFKF-UQRLh47GHu302TAwr9U0w' },
     provideNgxStripe(),
     importProvidersFrom(TranslateModule.forRoot(I18N_CONFIG)),
     importProvidersFrom([BrowserAnimationsModule]),
+ 
   ],
+  
 };
