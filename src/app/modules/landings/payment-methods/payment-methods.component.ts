@@ -57,7 +57,7 @@ export default class PaymentMethodsComponent {
   checked = "tdc";
   router = inject(Router);
   messages: any = "Pago realizado exitosamente...";
-
+  private readonly routerService = inject(Router);
   goCart() {
     this.router.navigate(["site/shopping-cart"]);
   }
@@ -167,11 +167,26 @@ export default class PaymentMethodsComponent {
                   approved: true,
                   billingId: this.billing.id,
                 };
-                this.cart.registerPayment(obj).subscribe((res) => {
-                  this.messages= [
-                    { severity: 'success', summary: 'Pago realizado exitosamente'  }
-                  ]
-                  this.router.navigate(["admin/shoppings"]);
+                this.cart.registerPayment(obj).subscribe({
+                 
+                  next: ()=>{
+                    this.messages= [
+                      { severity: 'success', summary: 'Pago realizado exitosamente'  }
+                    ]
+                    this.routerService.navigate(['/admin/shopping']);
+                  },
+                  error: ()=>{
+                    this.messages= [
+                      { severity: 'success', summary: 'Pago realizado exitosamente'  }
+                    ]
+                    this.messageService.add({
+                      severity: "error",
+                      summary: "Error",
+                      detail: "Pago realizado exitosamente",
+                      life: 3000,
+                    });
+                    this.routerService.navigate(['/admin/shopping']);
+                  }
                 });
                 // Show a success message to your customer
               }else{
@@ -209,7 +224,7 @@ export default class PaymentMethodsComponent {
         this.elementsOptions.clientSecret = res.client_secret;
         this.cart.registerByShoppingCart().subscribe((res) => {
           this.billing = res;
-          this.show = false;
+          this.show = false
         });
       });
 
