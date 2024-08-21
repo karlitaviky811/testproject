@@ -71,7 +71,7 @@ export default class RegisterComponent implements OnInit {
     console.log('heeeeyyyy')
    
     console.log("hey", this.formgroup.get("name")?.touched);
-    
+    this.executeImportantAction()
     //this.addMessages()
   }
 
@@ -194,14 +194,14 @@ export default class RegisterComponent implements OnInit {
 }
 
 executeRecaptchaVisible(token: any){
-
+console.log('el token', token)
 }
 
 
 public executeImportantAction(): void {
   console.log('important Action')
   this.recaptchaV3Service.execute('importantAction')
-    .subscribe((token : any) => { console.log(token)});
+    .subscribe((token : any) => { console.log('heeeeyyy',token)});
 }
 
 selectedTerms(){
