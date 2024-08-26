@@ -51,9 +51,9 @@ export default class PurchasingProcessComponent implements OnInit {
               itemName: res.name,
               itemType: "ROBOT",
               itemElementId: res.id,
-              itemPrice: 200.0,
+              itemPrice: 0,
               quantity: 1,
-              totalPrice: 200.0,
+              totalPrice: 0,
               shoppingCartId:  item.id,
               itemsExtra: [],
             });

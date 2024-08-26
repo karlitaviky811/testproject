@@ -105,7 +105,7 @@ export class StepTwoStrategiesComponent {
         itemName: strategy.name,
         itemType: 'STRATEGY',
         itemElementId: strategy.id,
-        itemPrice: 1,
+        itemPrice: parseInt(strategy.price),
         quantity: 1,
         totalPrice: parseInt(strategy.price),
       });

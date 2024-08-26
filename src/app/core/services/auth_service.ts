@@ -37,7 +37,11 @@ export class AuthService {
     localStorage.setItem('user', data.user.name + ' ' + data.user.lastName);
   } 
 
-
+  isTokenExpired(token: any) {
+    const expiry = (JSON.parse(atob(token.split('.')[1]))).exp;
+    console.log('valid', expiry * 1000 , Date.now() )
+    return expiry * 1000 > Date.now();
+  }
 
   getToken() : string | null {
     return localStorage.getItem(this.tokenKey);

@@ -1,6 +1,6 @@
 export const ENDPOINT = {
-    users: 'users/me',
-    users_password: 'users/update-password',
+    users: 'me',
+    users_password: 'me/update-password',
     sign_in: 'auth/login',
     register: 'auth/register',
     contact: 'contact',

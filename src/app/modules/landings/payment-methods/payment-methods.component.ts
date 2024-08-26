@@ -150,7 +150,7 @@ export default class PaymentMethodsComponent {
             },
             redirect: "if_required",
           })
-          .subscribe((result) => {
+          .subscribe((result : any) => {
             this.paying.set(false);
             if (result.error) {
               // Show error to your customer (e.g., insufficient funds)
@@ -159,10 +159,13 @@ export default class PaymentMethodsComponent {
             ];
             } else {
               // The payment has been processed!
-              if (result.paymentIntent.status === "succeeded") {
+              const { status } =result;
+              console.log('result payment', result.paymentIntent, status)
+            
+              if (result.paymentIntent.status == "succeeded") {
                 let obj = {
                   externalId: result.paymentIntent.id,
-                  amount: Math.floor(this.amount * 100).toString(),
+                  amount: this.amount.toString(),
                   paymentMethod: "STRIPE",
                   approved: true,
                   billingId: this.billing.id,
@@ -193,7 +196,7 @@ export default class PaymentMethodsComponent {
                       life: 3000,
                     });
                     setTimeout(() => {
-                      this.routerService.navigate(['/admin/shopping']);
+                      //this.routerService.navigate(['/admin/shopping']);
                     }, 2000);
                   }
                 });
@@ -205,7 +208,9 @@ export default class PaymentMethodsComponent {
                   detail: "Pago realizado exitosamente",
                   life: 3000,
                 });
-                this.router.navigate(["admin/shoppings"])
+                setTimeout(() => {
+                  //this.routerService.navigate(['/admin/shopping']);
+                }, 2000);
               }
             }
           });
@@ -231,11 +236,13 @@ export default class PaymentMethodsComponent {
     this.show = true;
     var token = this.authService.getToken();
     this.cart
-      .intentPaymentToken(token, Math.floor(this.amount * 100).toString())
+      .intentPaymentToken(token, this.amount.toString())
       .subscribe((res: any) => {
         this.elementsOptions.clientSecret = res.client_secret;
         this.cart.registerByShoppingCart().subscribe((res) => {
           this.billing = res;
+
+          console.log('res', res)
           this.show = false
         });
       });

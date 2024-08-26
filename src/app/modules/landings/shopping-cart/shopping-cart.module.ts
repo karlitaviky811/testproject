@@ -5,7 +5,8 @@ import { ShoppingDetailComponent } from './components/shopping-detail/shopping-d
 import { ButtonComponent } from '../../../shared/components/button/button.component';
 import { TableModule } from 'primeng/table';
 import { ProductService } from '../../../core/services/product_service';
-
+import { DialogModule } from 'primeng/dialog';
+import { ButtonModule } from 'primeng/button';
 
 
 @NgModule({
@@ -18,10 +19,12 @@ import { ProductService } from '../../../core/services/product_service';
     CommonModule,
     ButtonComponent,
     TableModule,
+    DialogModule,
+    ButtonModule,
   ],
    exports: [
     CartComponent,
-    ShoppingDetailComponent
+    ShoppingDetailComponent,
    ],
    providers: [
     ProductService,
