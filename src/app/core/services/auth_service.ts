@@ -85,4 +85,13 @@ export class AuthService {
   );
     return registerRequest;
   }
+
+  validRecaptcha(token: string){
+    const registerRequest = this.http.get<any>(`${environment.apiUrl}${ENDPOINT.validateRecaptcha}`,).pipe(
+      tap(response=>{
+         console.log('res', response)
+      })
+  );
+    return registerRequest;
+  }
 }

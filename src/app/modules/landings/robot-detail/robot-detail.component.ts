@@ -59,7 +59,7 @@ private readonly authSrv= inject(AuthService)
     if(this.authSrv.isAuthenticated()){
       this.routerService.navigate(['/site/purchasing-process', this.id]);
     }else{
-      this.routerService.navigate(['/sign-in']);
+      this.routerService.navigate(['/register'], { queryParams: { redirectTo:'robot-detail/' +this.id}});
     }
    
   }

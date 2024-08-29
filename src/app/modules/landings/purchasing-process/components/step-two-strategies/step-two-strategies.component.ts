@@ -61,7 +61,7 @@ export class StepTwoStrategiesComponent {
         } else {
           this.selectedStrategies().push({
             ...strategy,
-            price: 2000
+            price: strategy.price
           });
           if (this.messages.length <= 0) {
             this.messages = [{ severity: 'warn', detail: 'Las estrategías que superen el límite de la licencia selecionada, tendrán un costo adicional.' }];

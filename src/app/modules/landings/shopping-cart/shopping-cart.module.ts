@@ -7,6 +7,8 @@ import { TableModule } from 'primeng/table';
 import { ProductService } from '../../../core/services/product_service';
 import { DialogModule } from 'primeng/dialog';
 import { ButtonModule } from 'primeng/button';
+import { DropdownModule } from 'primeng/dropdown';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -21,10 +23,14 @@ import { ButtonModule } from 'primeng/button';
     TableModule,
     DialogModule,
     ButtonModule,
+    DropdownModule,
+    ReactiveFormsModule,
   ],
    exports: [
     CartComponent,
     ShoppingDetailComponent,
+    DropdownModule,
+    ReactiveFormsModule
    ],
    providers: [
     ProductService,

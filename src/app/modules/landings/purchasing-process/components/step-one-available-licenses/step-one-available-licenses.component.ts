@@ -31,14 +31,18 @@ export class StepOneAvailableLicensesComponent {
   handleSelectedItem(license: License) {
     this.selectedLicense = license;
     this.purchaseService.selectedLicense = license;
+
+    this.purchaseService.cartItem().itemPrice = Number(license.price);
+    this.purchaseService.cartItem().totalPrice =  Number(license.price);
     this.purchaseService.cartItem().itemsExtra.push({
       itemName: license.name,
       itemType: 'LICENSE',
       itemElementId: license.id,
-      itemPrice: Number(license.price),
+      itemPrice: Number(0),
       quantity: 1,
-      totalPrice: Number(license.price),
+      totalPrice: Number(0),
     });
+
 
     console.log('heeeeeyyyyyy',this.purchaseService.cartItem().itemsExtra )
   }

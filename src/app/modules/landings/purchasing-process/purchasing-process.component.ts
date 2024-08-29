@@ -65,7 +65,6 @@ export default class PurchasingProcessComponent implements OnInit {
     this.licenseService.getLicenses().subscribe({
       next: (res) => {
         this.licenses.set(res);
-        console.log(this.licenses());
       },
     });
   }

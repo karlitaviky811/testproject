@@ -30,29 +30,24 @@ export class StepThreeDetailsComponent implements OnInit {
       this.purchaseService.cartItem().itemsExtra.reduce(function (acc, obj) {
      console.log('calculate',acc,obj, obj.itemPrice,  obj.itemPrice * obj.quantity, )
         return acc + obj.itemPrice * obj.quantity;
-      }, 0) + this.purchaseService.cartItem().itemPrice
+      }, 0) + this.purchaseService.cartItem().totalPrice
       
   );
 
   ngOnInit(): void {
-    console.log(this.subtotal());
   }
 
   goCart() {
     this.show = true;
     const item = this.purchaseService.cartItem();
+    item.itemsExtra.map(i=>{
+      if(i.itemType == 'LICENSE'){
+        i.totalPrice = 0;
+        i.itemPrice = 0
+      }
+    })
 
-    item.totalPrice =
-      item.itemsExtra.reduce(
-        (acc, obj) => acc + obj.itemPrice * obj.quantity,
-        0
-      ) + Number(item.itemPrice);
     
-      item.itemPrice =
-      item.itemsExtra.reduce(
-        (acc, obj) => acc + obj.itemPrice * obj.quantity,
-        0
-      ) + Number(item.itemPrice);
     this.purchaseService.addProduct(item).subscribe({
       next: (res) => {
         this.router.navigate(["site/shopping-cart"]);

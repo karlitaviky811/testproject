@@ -6,6 +6,8 @@ import { CartItem } from "../../../../../core/interfaces/shopping_cart";
 import { forkJoin } from "rxjs";
 import { ButtonModule } from "primeng/button";
 import { DialogModule } from "primeng/dialog";
+import { DropdownModule } from 'primeng/dropdown';
+import { FormBuilder, FormControl, FormGroup, Validators } from "@angular/forms";
 
 @Component({
   selector: "fwa-cart",
@@ -15,6 +17,18 @@ import { DialogModule } from "primeng/dialog";
 export class CartComponent implements OnInit {
   readonly purchaseService = inject(PurchaseService);
   visible: boolean = false;
+  cities: any;
+  formbuilder = inject(FormBuilder)
+  userInformationForm: FormGroup;
+
+  constructor() {
+    this.userInformationForm = this.formbuilder.group({
+      code: [''],
+
+    });
+
+  
+  }
   ngOnInit(): void {
     this.purchaseService.shoppingCartByUser().subscribe({
       next: (res) => {
@@ -22,12 +36,16 @@ export class CartComponent implements OnInit {
         this.calSubTotal();
       },
     });
+
+    this.getDescountTicket()
   }
 
   private calSubTotal() {
-    const subtotal = this.purchaseService
-      .shoppingCart()
-      .reduce((acc, obj) => acc + Number(obj.totalPrice), 0);
+    const subtotal = this.purchaseService.cartItem().itemsExtra.reduce(function (acc, obj) {
+        console.log('calculate',acc,obj, obj.itemPrice,  obj.itemPrice * obj.quantity, )
+           return acc + obj.itemPrice * obj.quantity;
+         }, 0) + this.purchaseService.cartItem().totalPrice
+      
     this.purchaseService.subtotal.set(subtotal);
   }
 
@@ -78,5 +96,12 @@ export class CartComponent implements OnInit {
 
   showDialog() {
     this.visible = true;
+  }
+
+  getDescountTicket(){
+    this.purchaseService.getTicketDescount().subscribe(res=>{
+      console.log('res', res)
+      this.cities = res.data;
+    })
   }
 }

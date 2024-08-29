@@ -25,4 +25,9 @@ export class RobotService {
         return this.http
             .get<any>(`${environment.apiUrl}${ENDPOINT.robots}/${id}`);
     }
+
+    public getRobotEnsambledUser(){
+        return this.http
+        .get<any>(`${environment.apiUrl}${ENDPOINT.robotsEnsambledUser}?page=1&limit=100`).pipe(map(res => res.data));
+    }
 }

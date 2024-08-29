@@ -112,4 +112,12 @@ export class PurchaseService {
             this.spinnerService.updateLoading(false);
         }));
     }
+
+    getTicketDescount(){
+        return this.http.get<any>(`${environment.apiUrl}${ENDPOINT.promotionalCode}?page=1&limit=10`)
+    }
+
+    applicateTicketDescount(data :any){
+        return this.http.post<any>(`${environment.apiUrl}${ENDPOINT.promotionalCode}?page=1&limit=10`, data)
+    }
 }

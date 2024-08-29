@@ -1,5 +1,5 @@
 import { Component, inject } from "@angular/core";
-import { Router, RouterModule } from "@angular/router";
+import { ActivatedRoute, Router, RouterModule } from "@angular/router";
 import { AuthService } from "../../../core/services/auth_service";
 import {
   FormBuilder,
@@ -32,6 +32,7 @@ export default class SignInComponent {
   authSrv = inject(AuthService);
   router = inject(Router);
   location = inject(Location);
+  route =  inject(ActivatedRoute)
   show = false;
   messages: any | undefined;
   private routeEventsService = inject(RouteEventsService);
@@ -51,11 +52,12 @@ export default class SignInComponent {
       password: credentials.password,
       email: credentials.email,
     };
+
+ 
     this.authSrv.login(credential).subscribe({
       next: (res) => {
-        this.navBack();
+        this.router.navigate(["/site"]);
         localStorage.setItem("userObject", JSON.stringify(res));
-
         this.show = false;
       },
       error: (err) => {
@@ -108,7 +110,7 @@ export default class SignInComponent {
     }
   }
 
-  navBack() {
+  navBack() { 
     let cur_path = this.location.path();
     this.location.back();
     if (cur_path === this.location.path())

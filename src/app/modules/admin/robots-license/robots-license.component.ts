@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { AccordionModule } from 'primeng/accordion';
 import { CommonModule } from '@angular/common';
 import { ButtonComponent } from '../../../shared/components/button/button.component';
+import { RobotService } from '../../../core/services/robot_service';
 
 
 @Component({
@@ -11,7 +12,8 @@ import { ButtonComponent } from '../../../shared/components/button/button.compon
   templateUrl: './robots-license.component.html',
   styleUrl: './robots-license.component.scss',
 })
-export default class RobotsLicenseComponent {
+export default class RobotsLicenseComponent implements OnInit {
+  robot = inject(RobotService)
   tabs = [
     {
       title: 'Robot de Forex',
@@ -45,4 +47,29 @@ export default class RobotsLicenseComponent {
     },
 
   ];
+
+  ngOnInit(): void {
+      this.obtainRobotsEnsambledForUser()
+  }
+
+
+  obtainRobotsEnsambledForUser(){
+    this.robot.getRobotEnsambledUser().subscribe(res=>{
+      res.map(  (i: any)=>{
+        this.tabs = [
+          {
+            title: 'Robot de Forex',
+            content: '',
+            data: [
+              {
+                title: 'Licencia',
+                content: 'ORO',
+              }
+            ]
+            }]
+      })
+     
+      console.log('res',res)
+    })
+  }
 }
