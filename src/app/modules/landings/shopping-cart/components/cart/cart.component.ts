@@ -35,17 +35,16 @@ export class CartComponent implements OnInit {
     this.purchaseService.shoppingCartByUser().subscribe({
       next: async (res) => {
         await this.purchaseService.updateShoppingCart(res);
-        let subtotalRobots = 0
-        let subtotal = 0
+        let subtotalRobots = 0;
+        let subtotal = 0;
         res.map((data: any) => {
-          subtotal = data.itemsExtra.reduce(function (acc : any, obj  : any) {
-            console.log('itemsExtra', obj)
-            return acc + Number(obj.totalPrice
-            ) * obj.quantity;
-          }, 0) +   Number(data.totalPrice);
+          subtotal =
+            data.itemsExtra.reduce(function (acc: any, obj: any) {
+              console.log("itemsExtra", obj);
+              return acc + Number(obj.totalPrice) * obj.quantity;
+            }, 0) + Number(data.totalPrice);
           subtotalRobots = subtotal + subtotalRobots;
-
-        }) 
+        });
         this.purchaseService.subTotalShoppingAmount.set(subtotalRobots);
       },
     });
@@ -55,18 +54,15 @@ export class CartComponent implements OnInit {
   private calSubTotal(robots: any) {
     let subtotal = 0;
     robots.map((data: any) => {
-    
       var [itemsExtra] = this.purchaseService.shoppingCart();
       subtotal = itemsExtra.itemsExtra.reduce(function (acc, obj) {
         return acc + obj.totalPrice * obj.quantity;
       }, 0);
-    
-      subtotal = subtotal + Number(itemsExtra.totalPrice)
+
+      subtotal = subtotal + Number(itemsExtra.totalPrice);
     });
     this.purchaseService.subtotal.set(subtotal);
   }
-
-
 
   updateQuantity(item: CartItem, value: number) {
     item.quantity += value;
@@ -80,11 +76,10 @@ export class CartComponent implements OnInit {
       next: (res) => {
         console.log("resss", res);
         this.purchaseService.shoppingCartByUser().subscribe({
-            next: (robot) => {
-              this.purchaseService.deleteCartItem(item, robot);
-            }
-        })
-      
+          next: (robot) => {
+            this.purchaseService.deleteCartItem(item, robot);
+          },
+        });
       },
     });
   }

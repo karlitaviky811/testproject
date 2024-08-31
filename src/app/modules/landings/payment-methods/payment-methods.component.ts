@@ -65,6 +65,7 @@ export default class PaymentMethodsComponent {
   cart = inject(CartService);
   amountPayment = inject(PurchaseService);
   authService = inject(AuthService);
+  readonly purchaseService = inject(PurchaseService);
   stripe = injectStripe(
     "pk_test_51PHqym082Z2VYEr0O4ijmmnqb7YRBD5pCmbtDd4PSN9PJrrIQyKVhgE6gAAMYogrUun0pxhn7IWJJQ8yBxovANXv00XJ5pbew2"
   );
@@ -112,12 +113,30 @@ export default class PaymentMethodsComponent {
 
   ngOnInit(): void {
  
-    this.amount = this.amountPayment.subtotal();
+
+    console.log('this.amount', this.amount)
     //this.checkoutForm.set
     let userObject: any = localStorage.getItem("userObject");
     let user = JSON.parse(userObject)
     this.paymentElementForm.patchValue(user.user)
+    this.purchaseService.shoppingCartByUser().subscribe({
+      next: async (res) => {
+        await this.purchaseService.updateShoppingCart(res);
+        let subtotalRobots = 0;
+        let subtotal = 0;
+        res.map((data: any) => {
+          subtotal =
+            data.itemsExtra.reduce(function (acc: any, obj: any) {
+              console.log("itemsExtra", obj);
+              return acc + Number(obj.totalPrice) * obj.quantity;
+            }, 0) + Number(data.totalPrice);
+          subtotalRobots = subtotal + subtotalRobots;
+        });
+        this.purchaseService.subTotalShoppingAmount.set(subtotalRobots);
 
+        this.amount = this.amountPayment.subTotalShoppingAmount();
+      },
+    });
   }
 
   pay() {

@@ -56,17 +56,37 @@ export default class RobotsLicenseComponent implements OnInit {
   obtainRobotsEnsambledForUser(){
     this.robot.getRobotEnsambledUser().subscribe(res=>{
       res.map(  (i: any)=>{
-        this.tabs = [
-          {
-            title: 'Robot de Forex',
-            content: '',
-            data: [
-              {
-                title: 'Licencia',
-                content: 'ORO',
-              }
-            ]
-            }]
+        this.tabs.push( {
+          title: i.robot.name,
+          content: '',
+          data: [
+            {
+              title: 'Licencia',
+              content: i.license,
+            },
+            {
+              title: 'N de Licencia',
+              content: i.licenseNumber,
+            },
+            {
+              title: 'Estatus',
+              content: i.status,
+            },
+            {
+              title: 'Expiración',
+              content: 90,
+            },
+            {
+              title: 'Estrategias',
+              content: i.strategies.length,
+            },
+            {
+              title: 'Certificado',
+              content: i.strategies.length,
+            }
+          
+          ]
+      })
       })
      
       console.log('res',res)
