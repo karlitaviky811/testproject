@@ -14,4 +14,6 @@ export const ENDPOINT = {
     promotionalCode: 'promotional-code',
     shopping_cart_delete: 'shopping-cart/delete-item',
     shopping_cart_update: 'shopping-cart/update-item',
+    licenses_by_robot: 'license/find-by-robot',
+    strategy_by_robot: 'strategy/find-by-robot'
 };

@@ -1,8 +1,9 @@
-import { Component, EventEmitter, Output, WritableSignal, inject, signal } from '@angular/core';
+import { Component, EventEmitter, Output, WritableSignal, effect, inject, input, signal } from '@angular/core';
 import { StrategyService } from '../../../../../core/services/strategy_service';
 import { Strategy } from '../../../../../core/interfaces/strategy';
 import { PurchaseService } from '../../../../../core/services/purchase_service';
 import { Message } from 'primeng/api';
+import { Robot } from '../../../../../core/interfaces/robot';
 
 @Component({
   selector: 'app-step-two-strategies',
@@ -10,6 +11,7 @@ import { Message } from 'primeng/api';
   styleUrl: './step-two-strategies.component.scss'
 })
 export class StepTwoStrategiesComponent {
+  robot = input.required<WritableSignal<Robot>>();
   @Output() nextCallback: EventEmitter<any> = new EventEmitter();
   @Output() prevCallback: EventEmitter<any> = new EventEmitter();
   
@@ -22,14 +24,20 @@ export class StepTwoStrategiesComponent {
   isCloseable: boolean = false;
   strategies = signal<Strategy[]>([]);
 
-  ngOnInit(): void {
-    this.strategyService.getLicenses()
-      .subscribe({
-        next: (res) => {
-          this.strategies.set(res);
+  constructor() {
+    effect(() => {
+      if ( this.robot()().id ) {
+        this.strategyService.getStrategiesByRobotId(this.robot()().id)
+          .subscribe({
+            next: (res) => {
+              this.strategies.set(res);
+            }
+          });
         }
-      });
-
+    })
+  }
+  
+  ngOnInit(): void {
       this.messages = [{ severity: 'warn', detail: 'Las estrategías que superen el límite de la licencia selecionada, tendrán un costo adicional.' }];
 
       this.qtyStrategies = this.purchaseService.selectedLicense().qtyStrategies;

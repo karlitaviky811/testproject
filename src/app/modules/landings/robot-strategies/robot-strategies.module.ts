@@ -7,6 +7,7 @@ import { FloatLabelModule } from 'primeng/floatlabel';
 import { PanelModule } from 'primeng/panel';
 import { PaginatorModule } from 'primeng/paginator';
 
+
 @NgModule({
   declarations: [
     PanelFiltersComponent
@@ -18,7 +19,7 @@ import { PaginatorModule } from 'primeng/paginator';
     ReactiveFormsModule,
     FloatLabelModule,
     PanelModule,
-    PaginatorModule
+    PaginatorModule,
   ],
   exports: [
     PanelFiltersComponent,

@@ -61,16 +61,10 @@ export default class PurchasingProcessComponent implements OnInit {
         },
       });
     }
-
-    this.licenseService.getLicenses().subscribe({
-      next: (res) => {
-        this.licenses.set(res);
-      },
-    });
   }
 
-  get robot(): Robot {
-    return this._robot();
+  get robot(): WritableSignal<Robot> {
+    return this._robot;
   }
 
   onActiveIndexChange(e: any) {

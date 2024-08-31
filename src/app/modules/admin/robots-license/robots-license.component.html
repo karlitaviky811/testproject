@@ -24,7 +24,7 @@
                 } @if (detail.title == 'Estrategias') {
                 <div class="flex items-center">
                   <span class="mr-2">{{ detail.content }}</span>
-                  <button class="border border-primary p3-ws rounded p-2 text-primary">Mejorar</button>
+                  <button class="border border-primary p3-ws rounded p-2 text-primary" (click)="seeStrategy(tab)">Mejorar</button>
                 </div>
       
                 } @if (detail.title == 'Certificado') {

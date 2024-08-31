@@ -36,10 +36,25 @@ module.exports = {
     fontFamily: {
       workSans: ["Work Sans"],
       poppins: ["Poppins-Regular"],
-      aldrich: ["Aldrich-Regular"],
+       aldrich: ["Aldrich-Regular"],
     },
   },
   plugins: [
+    plugin(function ({ matchUtilities, theme }) {
+      matchUtilities(
+        {
+          'auto-fill': (value) => ({
+            gridTemplateColumns: `repeat(auto-fill, minmax(min(${value}, 100%), 1fr))`,
+          }),
+          'auto-fit': (value) => ({
+            gridTemplateColumns: `repeat(auto-fit, minmax(min(${value}, 100%), 1fr))`,
+          }),
+        },
+        {
+          values: theme('width', {}),
+        }
+      )
+    }),
     plugin(function({addComponents, theme}) {
       addComponents({
         '.btn': {
@@ -65,17 +80,17 @@ module.exports = {
           // '@screen md': {
           //   width: theme('spacing.36')
           // },
-          '@screen lg': {
-            width: '100%',
-            fontSize: '22px',
-            fontWeight: '500',
-          },
-          '@screen xl': {
-            width: '100%',
-            fontSize: '22px',
-            fontWeight: '500',
-            // padding: '40px 24px',
-          },
+          // '@screen lg': {
+          //   width: '100%',
+          //   fontSize: '22px',
+          //   fontWeight: '500',
+          // },
+          // '@screen xl': {
+          //   width: '100%',
+          //   fontSize: '22px',
+          //   fontWeight: '500',
+          //   // padding: '40px 24px',
+          // },
         },
         '.btn-primary': {
             background: theme('colors.primary'),

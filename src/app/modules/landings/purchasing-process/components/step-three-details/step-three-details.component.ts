@@ -4,8 +4,10 @@ import {
   Input,
   OnInit,
   Output,
+  WritableSignal,
   computed,
   inject,
+  input,
 } from "@angular/core";
 import { Router } from "@angular/router";
 import { Robot } from "../../../../../core/interfaces/robot";
@@ -18,7 +20,7 @@ import { forkJoin } from "rxjs";
   styleUrl: "./step-three-details.component.scss",
 })
 export class StepThreeDetailsComponent implements OnInit {
-  @Input() robot = {} as Robot;
+  robot = input.required<WritableSignal<Robot>>();
   @Output() prevCallback: EventEmitter<any> = new EventEmitter();
   show = false;
   extraEstrategies = 0
@@ -62,4 +64,9 @@ export class StepThreeDetailsComponent implements OnInit {
       },
     });
   }
+
+  seeStrategy() {
+    this.router.navigate(['site/robot-strategies']);
+  }
+
 }

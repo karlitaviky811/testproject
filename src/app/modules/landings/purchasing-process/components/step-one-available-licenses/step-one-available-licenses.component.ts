@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output, computed, inject, signal } from '@angular/core';
+import { Component, EventEmitter, Input, Output, computed, inject, input, signal, effect, WritableSignal } from '@angular/core';
 import { License } from '../../../../../core/interfaces/license';
 import { LicenseService } from '../../../../../core/services/licenses_service';
 import { PurchaseService } from '../../../../../core/services/purchase_service';
@@ -10,7 +10,7 @@ import { Robot } from '../../../../../core/interfaces/robot';
   styleUrl: './step-one-available-licenses.component.scss'
 })
 export class StepOneAvailableLicensesComponent {
-  @Input() robot = {} as Robot;
+  robot = input.required<WritableSignal<Robot>>();
   @Output() nextCallback: EventEmitter<any> = new EventEmitter();
 
   private readonly licenseService = inject(LicenseService);
@@ -20,12 +20,17 @@ export class StepOneAvailableLicensesComponent {
   isStepValid = computed(() => Object.keys(this.purchaseService.selectedLicense()).length <= 0);
   licenses = signal<License[]>([]);
 
-  ngOnInit(): void {
-    this.licenseService.getLicenses().subscribe({
-      next: (res) => {
-        this.licenses.set(res);
-      }
-    });
+  constructor() {
+    effect(() => {
+      if ( this.robot()().id ) {
+        this.licenseService.getLicensesByRobotId(this.robot()().id)
+          .subscribe({
+            next: (res) => {
+              this.licenses.set(res);
+            }
+          });
+        }
+    })
   }
 
   handleSelectedItem(license: License) {

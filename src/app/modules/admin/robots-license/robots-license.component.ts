@@ -3,6 +3,7 @@ import { AccordionModule } from 'primeng/accordion';
 import { CommonModule } from '@angular/common';
 import { ButtonComponent } from '../../../shared/components/button/button.component';
 import { RobotService } from '../../../core/services/robot_service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -14,10 +15,13 @@ import { RobotService } from '../../../core/services/robot_service';
 })
 export default class RobotsLicenseComponent implements OnInit {
   robot = inject(RobotService)
+  router = inject(Router)
   tabs = [
     {
       title: 'Robot de Forex',
       content: '',
+      id: '0',
+      robotId: '0',
       data: [
         {
           title: 'Licencia',
@@ -54,10 +58,14 @@ export default class RobotsLicenseComponent implements OnInit {
 
 
   obtainRobotsEnsambledForUser(){
-    this.robot.getRobotEnsambledUser().subscribe(res=>{
+    this.robot.getRobotEnsambledUser().subscribe((res: any)=>{
       res.map(  (i: any)=>{
+
+        console.log('i ensambled', i.id)
         this.tabs.push( {
           title: i.robot.name,
+          id: i.id,
+          robotId: i.robot.id,
           content: '',
           data: [
             {
@@ -91,5 +99,10 @@ export default class RobotsLicenseComponent implements OnInit {
      
       console.log('res',res)
     })
+  }
+
+  seeStrategy(data: any) {
+    console.log('data', data)
+    this.router.navigate(['site/robot-strategies'], { queryParams: { id: +data.robotId}});
   }
 }

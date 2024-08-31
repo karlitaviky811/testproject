@@ -17,9 +17,9 @@
 
         <div class="col-span-4 sm:col-span-4 md:col-span-4 lg:col-span-2">
           <div class="flex flex-col">
-            <h2 class="font-semibold text-blueDark">{{ robot.name }}</h2>
+            <h2 class="font-semibold text-blueDark">{{ robot()().name }}</h2>
             <div class="pt-[15px]">
-              <span class="p3-ws font-light text-blueDark">{{ robot.shortDescription }}</span>
+              <span class="p3-ws font-light text-blueDark">{{ robot()().shortDescription }}</span>
             </div>
             <hr
               class="my-5 sm:my-9 h-[3.3px] bg-[#DDDDDDDD] dark:bg-[#DDDDDDDD]"
@@ -64,7 +64,7 @@
             >
             <div class="flex gap-3 pt-[10px]">
               <img src="img/store-ligth.png" class="w-[24px] h-[24px]" alt="" />
-              <a class="p2-ws text-primary">Ver tienda de estrategias</a>
+              <a class="p2-ws text-primary" (click)="seeStrategy()">Ver tienda de estrategias</a>
             </div>
           </div>
         </div>

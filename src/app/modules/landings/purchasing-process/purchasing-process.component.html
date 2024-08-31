@@ -29,8 +29,9 @@
 
         >
           <app-step-two-strategies
-          (prevCallback)="prevCallback.emit()"
-          (nextCallback)="nextCallback.emit()">
+            [robot]="robot"
+            (prevCallback)="prevCallback.emit()"
+            (nextCallback)="nextCallback.emit()">
         </app-step-two-strategies>
         </ng-template>
       </p-stepperPanel>
