@@ -11,9 +11,18 @@ export class ShoppingDetailComponent implements OnInit {
   router = inject(Router);
   purchaseService = inject(PurchaseService);
   show = false;
-  // subtotal = computed(() => this.purchaseService.shoppingCart().reduce(function(acc, obj) { return acc + (obj.itemPrice * obj.quantity);}, 0));
-  ngOnInit(): void {
+  subtotal = computed(
+    () =>
+      this.purchaseService.cartItem().itemsExtra.reduce(function (acc, obj) {
+     console.log('calculate',acc,obj, obj.itemPrice,  obj.itemPrice * obj.quantity, )
+        return acc + obj.itemPrice * obj.quantity;
+      }, 0) + this.purchaseService.cartItem().totalPrice
       
+  );
+
+
+  ngOnInit(): void {
+      console.log('this.sun',this.purchaseService.subTotalShoppingAmount())
   
   }
   goCheckout() {

@@ -21,6 +21,7 @@ export class StepThreeDetailsComponent implements OnInit {
   @Input() robot = {} as Robot;
   @Output() prevCallback: EventEmitter<any> = new EventEmitter();
   show = false;
+  extraEstrategies = 0
   private readonly router = inject(Router);
   readonly purchaseService = inject(PurchaseService);
 
@@ -35,6 +36,12 @@ export class StepThreeDetailsComponent implements OnInit {
   );
 
   ngOnInit(): void {
+
+    this.purchaseService.cartItem().itemsExtra.map(i=>{
+      if(i.itemType == 'STRATEGY' && i.itemPrice !== 0){
+        this.extraEstrategies++
+      }
+    })
   }
 
   goCart() {
