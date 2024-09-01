@@ -12,6 +12,7 @@ export const ENDPOINT = {
     addProduct: 'shopping-cart/add-item',
     shopping_cart: 'shopping-cart',
     promotionalCode: 'promotional-code',
+    applyPromoCode: 'shopping-cart/apply-promotional-code',
     shopping_cart_delete: 'shopping-cart/delete-item',
     shopping_cart_update: 'shopping-cart/update-item',
     licenses_by_robot: 'license/find-by-robot',

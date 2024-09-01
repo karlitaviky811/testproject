@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'fwa-card-strategy',
@@ -7,6 +7,11 @@ import { Component } from '@angular/core';
   templateUrl: './card-strategy.component.html',
   styleUrl: './card-strategy.component.scss'
 })
-export class CardStrategyComponent {
+export class CardStrategyComponent implements OnInit {
+  @Input() data!: any;
 
+  ngOnInit(): void {
+    console.log('data', this.data) 
+  }
+  
 }

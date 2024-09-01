@@ -165,7 +165,7 @@ export class PurchaseService {
 
   applicateTicketDescount(data: any) {
     return this.http.post<any>(
-      `${environment.apiUrl}${ENDPOINT.promotionalCode}?page=1&limit=10`,
+      `${environment.apiUrl}${ENDPOINT.applyPromoCode}/${data}`,
       data
     );
   }

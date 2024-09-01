@@ -1,4 +1,4 @@
-import { Component, inject, OnInit } from "@angular/core";
+import { Component, inject, OnInit, signal } from "@angular/core";
 import { RobotStrategiesModule } from "./robot-strategies.module";
 import { CardStrategyComponent } from "../../../shared/components/card-strategy/card-strategy.component";
 import { PaginatorModule } from "primeng/paginator";
@@ -33,7 +33,8 @@ export default class RobotStrategiesComponent implements OnInit {
   route = inject(Router);
   strategySrv = inject(StrategyService);
   rows: number = 10;
-
+  dataStrategy= signal<any[]>([]);
+  ensambledRobotId = '';
   onPageChange(event: PageEvent) {
     this.first = event.first;
     this.rows = event.rows;
@@ -43,9 +44,16 @@ export default class RobotStrategiesComponent implements OnInit {
     const queryParams = this.activatedRoute.snapshot.queryParamMap;
     console.log("query", queryParams.get("id"));
     let id = Number(queryParams.get("id"));
-
-    this.strategySrv.getStrategiesByRobotId(id).subscribe((res) => {
-      console.log("res", res);
+    let ensambledId = queryParams.get("ensambledId")
+    this.ensambledRobotId = ensambledId? ensambledId : '' 
+    this.strategySrv.getStrategiesByRobotId(id).subscribe((res: any) => {
+      this.dataStrategy.set(res)
     });
+
+    
+  }
+
+  netPayment(){
+    this.route.navigate(['shopping-cart', , { queryParams: { robotEnsambled: this.ensambledRobotId}}])
   }
 }

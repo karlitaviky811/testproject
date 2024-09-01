@@ -25,7 +25,12 @@ export class CartComponent implements OnInit {
   cities: any;
   formbuilder = inject(FormBuilder);
   userInformationForm: FormGroup;
-
+  idCode = null
+  valueCupon = {
+    discount: 0,
+    percent: 0,
+    expirationDate: ''
+  }
   constructor() {
     this.userInformationForm = this.formbuilder.group({
       code: [""],
@@ -49,6 +54,17 @@ export class CartComponent implements OnInit {
       },
     });
     this.getDescountTicket();
+
+
+    this.userInformationForm.valueChanges.subscribe((data) => {
+      console.log("data changeeee", data['code'].code);//output 3,4 or 5
+      this.valueCupon.discount =  data['code'].discountValue
+      this.valueCupon.percent = data['code'].discountPercent
+      this.valueCupon.expirationDate = data['code'].discountPercent
+      this.idCode = data['code'].code
+
+    
+    })
   }
 
   private calSubTotal(robots: any) {
@@ -61,6 +77,7 @@ export class CartComponent implements OnInit {
 
       subtotal = subtotal + Number(itemsExtra.totalPrice);
     });
+
     this.purchaseService.subtotal.set(subtotal);
   }
 
@@ -122,5 +139,14 @@ export class CartComponent implements OnInit {
       console.log("res", res);
       this.cities = res.data;
     });
+  }
+
+  sendCuponDescount(){
+    this.visible = false;
+    let code = this.userInformationForm.controls["code"].value
+    console.log('log', code)
+    this.purchaseService.applicateTicketDescount(this.idCode).subscribe((res)=>{
+      console.log('res', res)
+    })
   }
 }

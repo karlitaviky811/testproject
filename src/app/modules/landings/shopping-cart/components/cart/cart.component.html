@@ -96,9 +96,7 @@
 >
   <div class="flex align-items-center gap-3 mb-3">
     <form [formGroup]="userInformationForm">
-      <div class="grid md:grid-cols-2 sm:grid-cols-1 lg:grid-cols-2 mt-2">
-       
-      </div>
+      <div class="grid md:grid-cols-2 sm:grid-cols-1 lg:grid-cols-2 mt-2"></div>
       <div
         class="grid md:grid-cols-2 sm:grid-cols-1 lg:grid-cols-2 gap-3 mb-2 mt-4"
       >
@@ -106,20 +104,24 @@
           <label class="font-register p7-ps mb-2 block">Cupon</label>
 
           <p-dropdown
-            [options]="cities"
             formControlName="code"
-            optionLabel="code"
-            placeholder="Seleccionar cupon"
+            [options]="cities"
+            optionLabel="name"
+            placeholder="Select a City"
           />
         </div>
 
-        <label for=""> Descuento : </label>
-        <label for=""> Pocentaje : </label>
+      
       </div>
     </form>
   </div>
+  <div class="flex flex-col w-full gap-2 p-2">
+
+    <label for="" > Descuento <p-badge value="{{ valueCupon.discount }}" severity="warning" /></label>
+    <label for=""> Pocentaje  <p-badge value="{{ valueCupon.percent  }}" severity="warning" /> %</label>
+  </div>
   <div class="flex justify-content-end gap-2">
     <p-button label="Cancel" severity="secondary" (onClick)="visible = false" />
-    <p-button label="Save" (onClick)="visible = false" />
+    <p-button label="Save" (onClick)="sendCuponDescount()" />
   </div>
 </p-dialog>

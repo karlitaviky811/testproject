@@ -9,6 +9,7 @@ import { DialogModule } from 'primeng/dialog';
 import { ButtonModule } from 'primeng/button';
 import { DropdownModule } from 'primeng/dropdown';
 import { ReactiveFormsModule } from '@angular/forms';
+import { BadgeModule } from 'primeng/badge';
 
 
 @NgModule({
@@ -25,6 +26,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     ButtonModule,
     DropdownModule,
     ReactiveFormsModule,
+    BadgeModule,
   ],
    exports: [
     CartComponent,

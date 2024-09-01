@@ -16,9 +16,9 @@
             <p class="paragraph-3 font-poppins text-grayLight-300 mb-7">Elige tantas estrategias quieras añadir a tu Robot</p>
             
             <div class="grid sm:grid-cols-12 gap-4 mb-8">
-                @for(item of [1,2,3,4,5,6]; track item) {
+                     @for(data of dataStrategy(); track data) {
                     <div class="sm:col-span-12 md:col-span-6 lg:col-span-4 mb-2">
-                        <fwa-card-strategy></fwa-card-strategy>
+                        <fwa-card-strategy  [data]="data"></fwa-card-strategy>
                     </div>
                 }
             </div>

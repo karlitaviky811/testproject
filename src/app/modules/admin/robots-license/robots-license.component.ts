@@ -103,6 +103,6 @@ export default class RobotsLicenseComponent implements OnInit {
 
   seeStrategy(data: any) {
     console.log('data', data)
-    this.router.navigate(['site/robot-strategies'], { queryParams: { id: +data.robotId}});
+    this.router.navigate(['site/robot-strategies'], { queryParams: { id: +data.robotId, robotEnsambled: data.id}});
   }
 }
