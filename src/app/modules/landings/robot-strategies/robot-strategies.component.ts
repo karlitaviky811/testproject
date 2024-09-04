@@ -95,9 +95,9 @@ export default class RobotStrategiesComponent implements OnInit {
       itemType: "ROBOT",
       itemElementId: this.robotEnsambledUser.robot.id,
       robotLicenseStrategyId: Number(this.robotEnsambledUser.id),
-      itemPrice: 1,
+      itemPrice: 0,
       quantity: 1,
-      totalPrice: 1,
+      totalPrice: 0,
       shoppingCartId: 1,
       itemsExtra: [],
     });
