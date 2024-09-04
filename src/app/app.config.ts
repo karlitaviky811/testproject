@@ -53,12 +53,12 @@ export const appConfig: ApplicationConfig = {
     RouteEventsService,
     StrategyService,
     importProvidersFrom(RecaptchaModule),
-    { provide: RECAPTCHA_V3_SITE_KEY, useValue: '6LcugysqAAAAAGC07gVXArdi1F_ElJdOSCn2isXR' },
+    { provide: RECAPTCHA_V3_SITE_KEY, useValue: '6LcKPjQqAAAAAL2kpt1WlZiXGv01bwvTnFmstpR1' },
     provideNgxStripe(),
     importProvidersFrom(TranslateModule.forRoot(I18N_CONFIG)),
     importProvidersFrom([BrowserAnimationsModule]),
  
   ],
-  
+
   
 };

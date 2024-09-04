@@ -14,11 +14,9 @@ import {
       request: HttpRequest<any>,
       next: HttpHandlerFn
   ) : Observable<HttpEvent<unknown>>=>{
-      console.log('request', request.url)
   
       const authSrv = inject(AuthService)
       const token = authSrv.getToken()
-    console.log('token', token)
       if(token){
          request = request.clone({
           setHeaders :{

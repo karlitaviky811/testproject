@@ -99,6 +99,6 @@ export default class ProductsDetailComponent {
     },
   ];
   handleClick() {
-    console.log('heree');
+  
   }
 }

@@ -27,7 +27,9 @@ export default class ShoppingCartComponent implements OnInit {
   visible: boolean = false;
   router = inject(Router);
   purchaseService = inject(PurchaseService);
-  activatedRoute = inject(ActivatedRoute)
+  activatedRoute = inject(ActivatedRoute);
+  strategiesNews: any;
+  
   seeStrategy() {
     this.router.navigate(["site/robot-strategies"]);
   }
@@ -38,6 +40,16 @@ export default class ShoppingCartComponent implements OnInit {
 
   ngOnInit(){
     const queryParams = this.activatedRoute.snapshot.queryParamMap;
-    console.log('querypARARMS', queryParams)
+   
+    
+    this.activatedRoute.queryParamMap.subscribe(params =>{
+      this.strategiesNews = params.getAll('strategies')
+      console.log('params', params) 
+      
+    });
+  
+    //this.purchaseService.addProduct().subscribe({})
   }
+
+  
 }

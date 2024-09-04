@@ -82,7 +82,6 @@ export default class PaymentMethodsComponent {
   confirmationService!: ConfirmationService;
   messageService!: MessageService;
   constructor() {
-    console.log("paymentelement", this.paymentElement);
     this.confirmationService = inject(ConfirmationService);
     this.messageService = inject(MessageService);
   }
@@ -113,8 +112,6 @@ export default class PaymentMethodsComponent {
 
   ngOnInit(): void {
  
-
-    console.log('this.amount', this.amount)
     //this.checkoutForm.set
     let userObject: any = localStorage.getItem("userObject");
     let user = JSON.parse(userObject)
@@ -127,7 +124,6 @@ export default class PaymentMethodsComponent {
         res.map((data: any) => {
           subtotal =
             data.itemsExtra.reduce(function (acc: any, obj: any) {
-              console.log("itemsExtra", obj);
               return acc + Number(obj.totalPrice) * obj.quantity;
             }, 0) + Number(data.totalPrice);
           subtotalRobots = subtotal + subtotalRobots;
@@ -179,7 +175,6 @@ export default class PaymentMethodsComponent {
             } else {
               // The payment has been processed!
               const { status } =result;
-              console.log('result payment', result.paymentIntent, status)
             
               if (result.paymentIntent.status == "succeeded") {
                 let obj = {

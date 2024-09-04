@@ -33,13 +33,11 @@ export class AuthService {
   } 
 
   private setDataUser(data: any) : void{
-   console.log('data', data)
     localStorage.setItem('user', data.user.name + ' ' + data.user.lastName);
   } 
 
   isTokenExpired(token: any) {
     const expiry = (JSON.parse(atob(token.split('.')[1]))).exp;
-    console.log('valid', expiry * 1000 , Date.now() )
     return expiry * 1000 > Date.now();
   }
 
@@ -87,9 +85,8 @@ export class AuthService {
   }
 
   validRecaptcha(token: string){
-    const registerRequest = this.http.get<any>(`${environment.apiUrl}${ENDPOINT.validateRecaptcha}`,).pipe(
+    const registerRequest = this.http.get<any>(`${environment.apiUrl}${ENDPOINT.validateRecaptcha}`).pipe(
       tap(response=>{
-         console.log('res', response)
       })
   );
     return registerRequest;

@@ -8,6 +8,7 @@ export const ENDPOINT = {
     licenses: 'license',
     robots: 'robot',
     robotsEnsambledUser: 'assembled-robot-by-user',
+    robotEnsambledId: 'assembled-robot',
     strategy: 'strategy',
     addProduct: 'shopping-cart/add-item',
     shopping_cart: 'shopping-cart',

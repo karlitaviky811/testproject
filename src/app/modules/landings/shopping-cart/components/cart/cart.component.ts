@@ -45,7 +45,6 @@ export class CartComponent implements OnInit {
         res.map((data: any) => {
           subtotal =
             data.itemsExtra.reduce(function (acc: any, obj: any) {
-              console.log("itemsExtra", obj);
               return acc + Number(obj.totalPrice) * obj.quantity;
             }, 0) + Number(data.totalPrice);
           subtotalRobots = subtotal + subtotalRobots;
@@ -57,7 +56,6 @@ export class CartComponent implements OnInit {
 
 
     this.userInformationForm.valueChanges.subscribe((data) => {
-      console.log("data changeeee", data['code'].code);//output 3,4 or 5
       this.valueCupon.discount =  data['code'].discountValue
       this.valueCupon.percent = data['code'].discountPercent
       this.valueCupon.expirationDate = data['code'].discountPercent
@@ -91,7 +89,6 @@ export class CartComponent implements OnInit {
   deleteCartItem(item: CartItem) {
     this.purchaseService.deleteProduct(item.id!).subscribe({
       next: (res) => {
-        console.log("resss", res);
         this.purchaseService.shoppingCartByUser().subscribe({
           next: (robot) => {
             this.purchaseService.deleteCartItem(item, robot);

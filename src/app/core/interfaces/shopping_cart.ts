@@ -3,6 +3,7 @@ export interface CartItem {
     itemName: String;
     itemType: 'ROBOT' | 'STRATEGY' | 'LICENSE';
     itemElementId: number;
+    robotLicenseStrategyId?: number;
     itemPrice: any;
     quantity: number;
     totalPrice: any;

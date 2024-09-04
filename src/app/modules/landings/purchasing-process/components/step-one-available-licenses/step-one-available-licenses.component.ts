@@ -48,7 +48,5 @@ export class StepOneAvailableLicensesComponent {
       totalPrice: Number(0),
     });
 
-
-    console.log('heeeeeyyyyyy',this.purchaseService.cartItem().itemsExtra )
   }
 }

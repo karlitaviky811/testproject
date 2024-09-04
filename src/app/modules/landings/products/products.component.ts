@@ -84,6 +84,6 @@ export default class ProductsComponent {
     },
   ];
   handleClick() {
-    console.log('inside action event');
+ 
   }
 }

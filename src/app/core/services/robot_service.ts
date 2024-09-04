@@ -30,4 +30,8 @@ export class RobotService {
         return this.http
         .get<any>(`${environment.apiUrl}${ENDPOINT.robotsEnsambledUser}?page=1&limit=100`).pipe(map(res => res.data));
     }
+
+    public getRobotEnsambledId(idRobot: string){
+        return this.http.get<any>(`${environment.apiUrl}${ENDPOINT.robotEnsambledId}/${idRobot}`)
+    }
 }

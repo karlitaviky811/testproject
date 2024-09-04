@@ -110,7 +110,6 @@ export default class RegisterComponent implements OnInit {
               this.show = false;
             },
             error: (err) => {
-              console.log("err", err);
               this.show = false;
               this.messages = [{ severity: "warn", summary: err.error.message }];
             },
@@ -203,7 +202,6 @@ export default class RegisterComponent implements OnInit {
   }
 
   executeRecaptchaVisible(token: any) {
-    console.log("el token", token);
     this.authSrv.validRecaptcha(token).subscribe({
       next: () => {
         this.validRecaptcha = true;
@@ -220,10 +218,11 @@ export default class RegisterComponent implements OnInit {
   public executeImportantAction(): void {
     console.log("important Action");
     this.recaptchaV3Service
-      .execute("importantAction")
-      .subscribe((token: any) => {
-        console.log("heeeeyyy", token);
+      .execute("") .subscribe((token: any) => {
+
       });
+  
+
   }
 
   selectedTerms() {

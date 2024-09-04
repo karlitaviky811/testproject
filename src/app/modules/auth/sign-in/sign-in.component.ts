@@ -61,7 +61,7 @@ export default class SignInComponent {
         this.show = false;
       },
       error: (err) => {
-        console.log("err", err);
+
         this.show = false;
         this.messages = [{ severity: "warn", summary: err.error.message }];
       },

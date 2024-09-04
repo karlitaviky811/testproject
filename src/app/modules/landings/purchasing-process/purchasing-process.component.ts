@@ -68,6 +68,6 @@ export default class PurchasingProcessComponent implements OnInit {
   }
 
   onActiveIndexChange(e: any) {
-    console.log("hey");
+
   }
 }

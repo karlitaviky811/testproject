@@ -31,7 +31,6 @@ export class StepThreeDetailsComponent implements OnInit {
   subtotal = computed(
     () =>
       this.purchaseService.cartItem().itemsExtra.reduce(function (acc, obj) {
-     console.log('calculate',acc,obj, obj.itemPrice,  obj.itemPrice * obj.quantity, )
         return acc + obj.itemPrice * obj.quantity;
       }, 0) + this.purchaseService.cartItem().totalPrice
       

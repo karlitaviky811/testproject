@@ -14,7 +14,6 @@ export class ShoppingDetailComponent implements OnInit {
   subtotal = computed(
     () =>
       this.purchaseService.cartItem().itemsExtra.reduce(function (acc, obj) {
-     console.log('calculate',acc,obj, obj.itemPrice,  obj.itemPrice * obj.quantity, )
         return acc + obj.itemPrice * obj.quantity;
       }, 0) + this.purchaseService.cartItem().totalPrice
       
@@ -22,7 +21,6 @@ export class ShoppingDetailComponent implements OnInit {
 
 
   ngOnInit(): void {
-      console.log('this.sun',this.purchaseService.subTotalShoppingAmount())
   
   }
   goCheckout() {

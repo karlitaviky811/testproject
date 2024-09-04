@@ -51,15 +51,13 @@ export default class ProfileComponent implements OnInit {
   }
 
   updateUserPassword(){
-    console.log('hereee')
-
     this.confirmationService.confirm({
       header: '¿ Está seguro ?',
       message: 'Por favor acepte, para continuar',
       accept: () => {
        
         this.user.updatePassword({id:this.idUser, password: this.userInformationForm.get('password')?.value}).subscribe(res=>{
-          console.log('res',res)
+        
         })
           this.messageService.add({ severity: 'info', summary: 'Exito', detail: 'Se ha realizado el cambio de contraseña exitosamente', life: 3000 });
       },

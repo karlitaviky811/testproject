@@ -83,18 +83,10 @@ export class PurchaseService {
     let subtotal = 0
     robots.map((data: any) => {
         subtotal = data.itemsExtra.reduce(function (acc : any, obj  : any) {
-          console.log('itemsExtra', obj)
           return acc + Number(obj.totalPrice
           ) * obj.quantity;
         }, 0) +   Number(data.totalPrice);
         subtotalRobots = subtotal + subtotalRobots;
-        console.log("amount----", subtotalRobots,  data.totalPrice );
-        /*subtotalRobots =
-          subtotalRobots +
-          Number(data.totalPrice)
-          subtotal =   subtotalRobots +
-          Number(data.totalPrice)
-          console.log("amount----", subtotalRobots,  data.totalPrice ,);*/
       }) 
       this.subTotalShoppingAmount.set(subtotalRobots);
 

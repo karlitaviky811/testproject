@@ -21,7 +21,6 @@ export class AppComponent implements OnInit {
 
 
   ngOnInit(){
-    console.log('heeeeyyy',this.authSrv.isTokenExpired(this.authSrv.getToken()))
     if (!this.authSrv.isTokenExpired(this.authSrv.getToken())){
         this.authSrv.logout()
     }

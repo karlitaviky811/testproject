@@ -81,7 +81,6 @@ export class StepTwoStrategiesComponent {
     }
 
     this.purchaseService.selectedStrategies = [...this.selectedStrategies()];
-    console.log('selected strategies: ', this.purchaseService.selectedStrategies);
   }
 
   getLabel(strategy: Strategy): String {

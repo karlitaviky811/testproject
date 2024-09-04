@@ -60,8 +60,6 @@ export default class RobotsLicenseComponent implements OnInit {
   obtainRobotsEnsambledForUser(){
     this.robot.getRobotEnsambledUser().subscribe((res: any)=>{
       res.map(  (i: any)=>{
-
-        console.log('i ensambled', i.id)
         this.tabs.push( {
           title: i.robot.name,
           id: i.id,
@@ -102,7 +100,6 @@ export default class RobotsLicenseComponent implements OnInit {
   }
 
   seeStrategy(data: any) {
-    console.log('data', data)
     this.router.navigate(['site/robot-strategies'], { queryParams: { id: +data.robotId, robotEnsambled: data.id}});
   }
 }
