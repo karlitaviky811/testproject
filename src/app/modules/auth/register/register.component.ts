@@ -228,4 +228,9 @@ export default class RegisterComponent implements OnInit {
   selectedTerms() {
     return !this.selected;
   }
+
+
+  goSignIn(){
+    this.router.navigate(['sign-in'], {queryParams: { redirectTo: this.nav}})
+  }
 }

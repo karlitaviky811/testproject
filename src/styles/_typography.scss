@@ -1,69 +1,68 @@
 
 @layer components {
 
-    .p1-ws {
-      @apply text-lg sm:text-xl md:text-2xl lg:text-[28px] font-workSans text-blueDark;
-    }
-  
-    .p2-ws {
-      @apply text-sm sm:text-lg md:text-xl lg:text-2xl font-workSans text-blueDark;
-    }
-  
-    .p3-ws {
-      @apply text-xs sm:text-base md:text-lg lg:text-[22px] font-workSans text-blueDark;
-    }
-  
-    .p4-ws {
-      @apply text-xs sm:text-sm md:text-base lg:text-xl font-workSans text-blueDark;
-    }
-  
-    .p5-ws {
-      @apply text-xs md:text-sm lg:text-lg font-workSans text-blueDark;
-    }
-  
-    .p6-ws {
-      @apply text-xs md:text-sm lg:text-base font-workSans text-blueDark;
-    }
-  
-    .p1-ps {
-      @apply text-lg sm:text-xl md:text-2xl lg:text-3xl font-poppins text-blueDark;
-    }
-  
-    .p2-ps {
-      @apply text-lg sm:text-xl md:text-2xl lg:text-[28px] font-poppins text-blueDark;
-    }
-  
-    .p3-ps {
-      @apply text-sm sm:text-lg md:text-xl lg:text-2xl font-poppins text-blueDark;
-    }
-  
-    .p4-ps {
-      @apply text-xs sm:text-base md:text-lg lg:text-[22px] font-poppins text-blueDark;
-    }
-  
-    .p5-ps {
-      @apply text-xs sm:text-sm md:text-base lg:text-[20px] font-poppins text-blueDark;
-    }
-  
-    .p6-ps {
-      @apply text-xs md:text-sm lg:text-lg font-poppins text-blueDark;
-    }
-  
-    .p7-ps {
-      @apply text-xs md:text-sm lg:text-base font-poppins text-blueDark;
-    }
-  
-    .footer-social-media {
-      @apply flex justify-center items-center sm:px-3 sm:py-4 border border-blueDark rounded-[10px] w-8 h-8 sm:w-11 sm:h-11 cursor-pointer;
-    }
-  
-    .font-medium-18 {
-      @apply text-sm sm:text-[18px] font-medium;
-    }
+  .p1-ws {
+    @apply text-lg sm:text-xl md:text-2xl font-workSans text-blueDark;
+  }
 
-    main {
-        @apply flex justify-center flex-col w-full px-4 sm:px-[30px] md:px-[60px] lg:px-[90px] xl:px-[128px];
-    }
-    
+  .p2-ws {
+    @apply text-sm sm:text-lg md:text-xl font-workSans text-blueDark;
+  }
+
+  .p3-ws {
+    @apply text-xs sm:text-base md:text-lg font-workSans text-blueDark;
+  }
+
+  .p4-ws {
+    @apply text-xs sm:text-sm md:text-base font-workSans text-blueDark;
+  }
+
+  .p5-ws {
+    @apply text-xs md:text-sm font-workSans text-blueDark;
+  }
+
+  .p6-ws {
+    @apply text-xs md:text-sm font-workSans text-blueDark;
+  }
+
+  .p1-ps {
+    @apply text-lg sm:text-xl md:text-2xl font-poppins text-blueDark;
+  }
+
+  .p2-ps {
+    @apply text-lg sm:text-xl md:text-2xl font-poppins text-blueDark;
+  }
+
+  .p3-ps {
+    @apply text-sm sm:text-lg md:text-xl font-poppins text-blueDark;
+  }
+
+  .p4-ps {
+    @apply text-xs sm:text-base md:text-lg font-poppins text-blueDark;
+  }
+
+  .p5-ps {
+    @apply text-xs sm:text-sm md:text-base font-poppins text-blueDark;
+  }
+
+  .p6-ps {
+    @apply text-xs md:text-sm font-poppins text-blueDark;
+  }
+
+  .p7-ps {
+    @apply text-xs md:text-sm font-poppins text-blueDark;
+  }
+
+  .footer-social-media {
+    @apply flex justify-center items-center sm:px-3 sm:py-4 border border-blueDark rounded-[10px] w-8 h-8 sm:w-11 sm:h-11 cursor-pointer;
+  }
+
+  .font-medium-18 {
+    @apply text-sm sm:text-[18px] font-medium;
+  }
+
+  main {
+      @apply flex justify-center flex-col w-full pt-4 sm:pt-12 md:pt-24 lg:pt-32 px-4 sm:px-[30px] md:px-9 lg:px-16 xl:px-20 pb-10 sm:pb-16 md:pb-24 lg:pb-40;
   }
   
+}

@@ -1,4 +1,4 @@
-import { Component, inject } from "@angular/core";
+import { Component, inject, OnInit } from "@angular/core";
 import { ActivatedRoute, Router, RouterModule } from "@angular/router";
 import { AuthService } from "../../../core/services/auth_service";
 import {
@@ -28,13 +28,14 @@ import { MessagesModule } from "primeng/messages";
   templateUrl: "./sign-in.component.html",
   styleUrl: "./sign-in.component.scss",
 })
-export default class SignInComponent {
+export default class SignInComponent implements OnInit {
   authSrv = inject(AuthService);
   router = inject(Router);
   location = inject(Location);
   route =  inject(ActivatedRoute)
   show = false;
   messages: any | undefined;
+  nav = null;
   private routeEventsService = inject(RouteEventsService);
   formgroup = new FormBuilder().group({
     email: new FormControl("", [
@@ -45,9 +46,18 @@ export default class SignInComponent {
     password: new FormControl("", [Validators.required]),
   });
 
+  ngOnInit(){
+    this.route.queryParams.subscribe((params) => {
+      this.nav = params["redirectTo"];
+    });
+
+    console.log('this.nav', this.nav)
+  }
+
   sigIn(credentials: any): void {
     this.show = true;
-    console.log("e", this.formgroup);
+    console.log("e",this.nav, this.formgroup);
+    let go = this.nav
     var credential = {
       password: credentials.password,
       email: credentials.email,
@@ -56,7 +66,7 @@ export default class SignInComponent {
  
     this.authSrv.login(credential).subscribe({
       next: (res) => {
-        this.router.navigate(["/site"]);
+        this.router.navigate([go ? 'site/'+go : "/site"]);
         localStorage.setItem("userObject", JSON.stringify(res));
         this.show = false;
       },
@@ -116,4 +126,7 @@ export default class SignInComponent {
     if (cur_path === this.location.path())
       this.router.navigate(["/default-route"]);
   }
+
+
+
 }

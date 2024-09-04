@@ -89,6 +89,7 @@ export class CartComponent implements OnInit {
   deleteCartItem(item: CartItem) {
     this.purchaseService.deleteProduct(item.id!).subscribe({
       next: (res) => {
+
         this.purchaseService.shoppingCartByUser().subscribe({
           next: (robot) => {
             this.purchaseService.deleteCartItem(item, robot);
