@@ -116,6 +116,7 @@ export default class RegisterComponent implements OnInit {
           });
         },
         reject: () => {
+          this.show = false;
           this.messageService.add({
             severity: "error",
             summary: "Error",
@@ -124,6 +125,8 @@ export default class RegisterComponent implements OnInit {
           });
         },
       });
+    }else{
+      this.show = false
     }
    
   }
@@ -203,11 +206,13 @@ export default class RegisterComponent implements OnInit {
 
   executeRecaptchaVisible(token: any) {
     this.authSrv.validRecaptcha(token).subscribe({
-      next: () => {
+      next: (res) => {
+        console.log('res', res)
         this.validRecaptcha = true;
         this.show = false;
       },
       error: (err) => {
+        console.log('err', err)
         this.validRecaptcha = false
         this.show = false;
         this.messages = [{ severity: "warn", summary: err.error.message }];
@@ -219,7 +224,9 @@ export default class RegisterComponent implements OnInit {
     console.log("important Action");
     this.recaptchaV3Service
       .execute("") .subscribe((token: any) => {
-
+        this.show = false
+        console.log('token', token)
+        this.executeRecaptchaVisible(token)
       });
   
 

@@ -91,4 +91,22 @@ export class AuthService {
   );
     return registerRequest;
   }
+
+
+  
+  validRecaptchaServer(token: string){
+    var secret = '6LcKPjQqAAAAAF3qIfR1FZafei7YUVnqp19cWN06'
+   var obj: any = {
+      // PENDIENTE: Reemplaza el token y las variables de acción de reCAPTCHA antes de ejecutar la muestra.
+      "projectID" : "fwa-project-1724197064076",
+      "recaptchaKey" : "6LcKPjQqAAAAAL2kpt1WlZiXGv01bwvTnFmstpR1",
+      "token" : "action-token",
+      "recaptchaAction" : "action-name"
+    }
+    const registerRequest = this.http.get<any>(`https://www.google.com/recaptcha/api/siteverify?secret=${secret}&response=${token}`, obj).pipe(
+      tap(response=>{
+      })
+  );
+    return registerRequest;
+  }
 }
