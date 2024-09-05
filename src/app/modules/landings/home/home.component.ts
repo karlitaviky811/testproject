@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { HomeModule } from './home.module';
 import { CommonModule } from '@angular/common';
 import { BannerComponent } from '../../../shared/components/banner/banner.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -12,6 +13,7 @@ import { BannerComponent } from '../../../shared/components/banner/banner.compon
 })
 export default class HomeComponent {
   title = 'EDÚCATE Y CONVIÉRTETE EN UN TRADER PROFESIONAL DESDE CERO';
+  router = inject(Router)
   benifits: any[] = [
     {
       title: 'Fácil de aprender',
@@ -29,5 +31,11 @@ export default class HomeComponent {
       description: 'Culmina cada uno de nuestros cursos y presenta nuestra prueba final tras cada curso para solicitar tu certificado.',
     }
   ];
-  
+  aboutUs(){
+    this.router.navigate(['site/about'])
+  }
+
+  goCart(){
+    this.router.navigate(['/site/robots'])
+  }
 }

@@ -68,7 +68,7 @@ export default class RobotsLicenseComponent implements OnInit {
           data: [
             {
               title: 'Licencia',
-              content: i.license,
+              content: i.license.name,
             },
             {
               title: 'N de Licencia',

@@ -1,9 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { ButtonComponent } from '../../../shared/components/button/button.component';
 import { AlertMessageComponent } from '../../../shared/components/alert-message/alert-message.component';
 import { CommonModule } from '@angular/common';
 import { TranslateModule } from '@ngx-translate/core';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { BannerComponent } from '../../../shared/components/banner/banner.component';
 @Component({
   selector: 'app-products',
@@ -21,7 +21,7 @@ import { BannerComponent } from '../../../shared/components/banner/banner.compon
 })
 export default class ProductsComponent {
   title = '¿NO TIENES TIEMPO PARA ANALIZAR TUS ACTIVOS?';
-
+  route = inject(Router)
   pDetail = [
     {
       title: 'Asesor Experto',
@@ -85,5 +85,9 @@ export default class ProductsComponent {
   ];
   handleClick() {
  
+  }
+
+  goCart(){
+    this.route.navigate(['/site/robots'])
   }
 }

@@ -9,7 +9,7 @@ import {
   inject,
   input,
 } from "@angular/core";
-import { Router } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 import { Robot } from "../../../../../core/interfaces/robot";
 import { PurchaseService } from "../../../../../core/services/purchase_service";
 import { forkJoin } from "rxjs";
@@ -25,6 +25,7 @@ export class StepThreeDetailsComponent implements OnInit {
   show = false;
   extraEstrategies = 0
   private readonly router = inject(Router);
+  private readonly route = inject(ActivatedRoute)
   readonly purchaseService = inject(PurchaseService);
 
   // subtotal = computed(() => this.purchaseService.shoppingCart().reduce(function(acc, obj) { return acc + (obj.itemPrice * obj.quantity) }, 0));
@@ -65,7 +66,14 @@ export class StepThreeDetailsComponent implements OnInit {
   }
 
   seeStrategy() {
-    this.router.navigate(['site/robot-strategies']);
+    this.route.paramMap.subscribe(params => {
+      let id = params.get('id');
+      console.log('params',params.get('id'))
+
+      this.router.navigate(['site/robot-strategies'], { queryParams: { id: params.get('id')}});
+  
+   })
+
   }
 
 }

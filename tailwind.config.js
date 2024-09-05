@@ -4,9 +4,10 @@ const plugin = require('tailwindcss/plugin')
 module.exports = {
   content: ["./src/**/*.{html,js}"],
   safelist: [
-    'lg:h-[600px]',
+    'lg:h-[500px]',
     'lg:h-[419px]',
-    'lg:h-[609px]',
+    'lg:h-[400px]',
+    'lg-h-[350px]',
     'border-primary',
     'border-red',
     'border-blueDark',

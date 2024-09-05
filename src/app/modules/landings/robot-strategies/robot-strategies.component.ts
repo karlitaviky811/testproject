@@ -52,15 +52,24 @@ export default class RobotStrategiesComponent implements OnInit {
     let id = Number(queryParams.get("id"));
     let ensambledId = queryParams.get("robotEnsambled");
     this.ensambledRobotId = ensambledId ? ensambledId : "";
-    this.strategySrv.getStrategiesByRobotId(id).subscribe((strategies: any) => {
-      this.robotgySrv
-        .getRobotEnsambledId(this.ensambledRobotId)
-        .subscribe((ensambled) => {
-          this.robotEnsambledUser = ensambled;
-          this.containsStrategies(strategies, ensambled.strategies);
+    console.log('id', queryParams)
+    if(id){
+      this.strategySrv.getStrategiesByRobotId(id).subscribe((strategies: any) => {
+        if( this.ensambledRobotId){
+          this.robotgySrv
+          .getRobotEnsambledId(this.ensambledRobotId)
+          .subscribe((ensambled) => {
+            this.robotEnsambledUser = ensambled;
+            this.containsStrategies(strategies, ensambled.strategies);
+            this.dataStrategy.set(strategies);
+          });
+        }else{
           this.dataStrategy.set(strategies);
-        });
-    });
+        }
+      
+      });
+    }
+   
   }
 
   netPayment() {
