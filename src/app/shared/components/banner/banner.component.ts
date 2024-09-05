@@ -20,6 +20,6 @@ export class BannerComponent {
     return this._bannerHeight;
   }
 
-  private _bannerHeight = 'lg:h-[600px]';
+  private _bannerHeight = 'lg:h-[500px]';
   onClick = output();
 }

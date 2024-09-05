@@ -62,7 +62,7 @@
   }
 
   main {
-      @apply flex justify-center flex-col w-full pt-4 sm:pt-12 md:pt-24 lg:pt-32 px-4 sm:px-[30px] md:px-9 lg:px-16 xl:px-20 pb-10 sm:pb-16 md:pb-24 lg:pb-40;
+      @apply flex justify-center flex-col w-full pt-4 sm:pt-[8%] px-4 sm:px-[6%] pb-10 sm:pb-16 md:pb-24 lg:pb-40;
   }
   
 }
