@@ -7,6 +7,7 @@ module.exports = {
     'lg:h-[500px]',
     'lg:h-[419px]',
     'lg:h-[400px]',
+    'lg-h-[350px]',
     'border-primary',
     'border-red',
     'border-blueDark',

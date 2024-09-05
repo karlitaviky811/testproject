@@ -1,11 +1,11 @@
 <fwa-banner
   [title]="title"
   backgroundImage="shopping_cart_banner.png"
-  height="609"
+  height="350"
 />
-<div class="flex flex-col px-4 sm:px-[30px] md:px-[60px] lg:px-[90px] xl:px-[128px] py-10 sm:pt-20 lg:pt-40 sm:pb-20 lg:pb-28">
+<main class="sm:pb-20 lg:pb-28">
     <h4 class="font-bold text-blueDark sm:mb-[71px]">Carrito de compra</h4>
-    <div class="w-full grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-20 mb-16 md:[180px] lg:mb-[240px]">
+    <div class="w-full grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-x-20 gap-y-4 mb-4 md:[80px] lg:mb-[140px]">
         <div class="col-span-1 sm:col-span-1 md:col-span-1 lg:col-span-8">
             <section>
                 <fwa-cart></fwa-cart>
@@ -16,16 +16,16 @@
         </div>
     </div>
 
-    <section class="w-full flex flex-col gap-4 sm:gap-0 sm:flex-row justify-between rounded-2xl bg-[#F3F8FF] p-6 sm:px-12 sm:py-[52px]">
+    <section class="w-full flex flex-col gap-4 sm:gap-4 sm:flex-row justify-between rounded-2xl bg-[#F3F8FF] p-6 sm:px-12">
         <div class="flex flex-col max-w-[608px] gap-3">
             <h6 class="font-bold">Añade más potencia a tu Robot</h6>
             <p class="p2-ws">Compra tantas estrategias quieras para la operación de tu Robot en el mercado</p>
         </div>
 
         <div class="flex justify-center items-center">
-            <button class="btn btn-outlet-primary w-full py-3 gap-4" (click)="seeStrategy()"><i class="pi pi-shop"></i>Ver tienda de estrategias</button>
+            <button class="btn btn-outlet-primary w-full sm:w-[300px] lg:w-[300px] py-3 gap-4" (click)="seeStrategy()"><i class="pi pi-shop"></i>Ver tienda de estrategias</button>
         </div>
     </section>
-</div>
+</main>
 
 
