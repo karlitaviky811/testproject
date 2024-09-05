@@ -5,7 +5,7 @@
 />
 
 <div class="w-full flex flex-col">
-  <section class="grid grid-cols-1 sm:grid-cols-12 md:grid-cols-12 lg:grid-cols-12 mb-8 sm:mb-20 lg:h-auto">
+  <section class="grid grid-cols-1 sm:grid-cols-12 md:grid-cols-12 lg:grid-cols-12 lg:h-auto">
     <div class="col-span-2 sm:col-span-4 md:col-span-4 lg:col-span-4 content-end bg-[#072443]">
       <div class="flex flex-col m-[20px] sm:mx-4 lg:ml-[25%] lg:mr-16 lg:mb-20">
           <span [routerLink]="['/site/products-detail']" class="flex justify-center items-center cursor-pointer font-bold p6-ws text-white bg-primary rounded-[50px] py-2 px-5 w-[94px]">
@@ -32,69 +32,62 @@
     </div>
   </section>
 
-  <div class="w-full py-4 md:px-4 sm:px-0">
-    <h4 class="font-bold text-blueDark text-center">{{ "PRODUCTS.title" | translate }}</h4>
-  </div>
+  <main>
+    <div class="w-full mb-2 sm:mb-6 md:mb-14">
+      <h4 class="font-bold text-blueDark text-center">{{ "PRODUCTS.title" | translate }}</h4>
+    </div>
 
-  <section class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-10 sm:gap-20 sm:py-0 sm:px-0 md:pb-14 md:pt-10 md:px-[4%]">
-    <div class="col-span-1 content-evenly mx-4">
-      @for( item of pDetail; track item.title) {
-        <div class="mb-2 sm:mb-6">
+    <section class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 sm:gap-4 md:gap-10">
+      <div class="col-span-1 content-evenly flex flex-col gap-2 sm:gap-6">
+        @for( item of characteristic1; track item.title) {
           <app-alert-message
             [customTitle]="item.title"
             [customIcon]="item.icon"
             [customColor]="item.color"
           ></app-alert-message>
-        </div>
-      }
-    </div>
-
-    <div class="col-span-1 content-center mx-4">
-      <p class="p4-ws text-[#080808]">
-        Si estas dos primeras estrategias fallan, amplia su rango agregando una
-        tercera estrategia de swing en coberturas. Su Gestión de riesgo se basa
-        en un Martin Gala al 1.618 el cual garantiza que siempre que tengamos
-        margen disponible en la cuenta este cerrará operaciones en beneficio.
-      </p>
-      <br />
-      <p class="p4-ws text-[#080808]">
-        No importa cual sea la dirección del mercado el sistema analizará,
-        ejecutará y gestionará la operativa por usted. Su único trabajo será
-        mantener la cuenta con suficiente margen para que el robot pueda operar
-        comodamente. Se debe instalar en un servidor VPS para que este
-        trabajando continuamente 24 hrs sin interrupciones.
-      </p>
-    </div>
-  </section>
-  <section class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-10 sm:gap-20 pt-10 md:pt-14 md:px-10 lg:px-20 xl:px-40 sm:px-0 pb-10 sm:pb-16 md:pb-24 lg:pb-40">
-    <div class="col-span-1 content-center">
-      <div class="flex flex-col items-end justify-around">
-        <div class="m-4">
+        }
+      </div>
+  
+      <div class="col-span-1 content-center md:px-6">
+        <p class="p4-ws text-[#080808]">
+          Si estas dos primeras estrategias fallan, amplia su rango agregando una
+          tercera estrategia de swing en coberturas. Su Gestión de riesgo se basa
+          en un Martin Gala al 1.618 el cual garantiza que siempre que tengamos
+          margen disponible en la cuenta este cerrará operaciones en beneficio.
+        </p>
+        <br />
+        <p class="p4-ws text-[#080808]">
+          No importa cual sea la dirección del mercado el sistema analizará,
+          ejecutará y gestionará la operativa por usted. Su único trabajo será
+          mantener la cuenta con suficiente margen para que el robot pueda operar
+          comodamente. Se debe instalar en un servidor VPS para que este
+          trabajando continuamente 24 hrs sin interrupciones.
+        </p>
+      </div>
+    </section>
+    <section class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4 md:gap-8 lg:gap-14 pt-4 md:pt-28 lg:px-[6%]">
+      <div class="col-span-1 content-center">
+        <div class="flex flex-col items-end justify-around">
           <p class="text-right m-4 p4-ws text-[#080808]">
             Las señales de trading son muy atractivas para aquellas personas que
             están iniciando en el trading y requieren de práctica para análisis
             técnico. Nuestras señales de trading son realizadas de manera swing
             trading y también operamos en scalping en la sesión de New York.
           </p>
-        </div>
-        <div class="m-4">
-          <button class="btn btn-primary gap-4" (click)="handleClick()"><img src="img/message-fly.png"/>Nuestras señales gratuitas</button>
+          <button class="btn btn-primary gap-4 sm:w-full md:max-w-[405px]" (click)="handleClick()"><img class="w-4 sm:w-5" src="img/message-fly.png"/>Nuestras señales gratuitas</button>
         </div>
       </div>
-    </div>
-    <div class="col-span-1 content-evenly mx-4">
-      @for( item of pDetail; track item.title) {
-        <div class="mb-2 sm:mb-6">
+      <div class="col-span-1 content-evenly flex flex-col gap-2 sm:gap-6">
+        @for( item of characteristic2; track item.title) {
           <app-alert-message
             [customTitle]="item.title"
             [customIcon]="item.icon"
             [customColor]="item.color"
           ></app-alert-message>
-        </div>
-      }
-    </div>
-</section>
-
+        }
+      </div>
+    </section>
+  </main>
 </div>
    
 

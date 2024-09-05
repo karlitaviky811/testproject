@@ -1,22 +1,22 @@
 <section
-  class="grid grid-cols-1 h-screen px-[5%] py-[10%] sm:h-auto sm:grid-cols-1 px-0 py-0 md:grid-cols-1 lg:grid-cols-1 md:gap-0 sm:gap-0 lg:gap-0"
+  class="grid grid-cols-1 h-screen sm:h-auto sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-1"
 >
   <div class="col-span-1 h-screen">
     <div class="w-full flex flex-col">
       <div class="w-full">
-        <div class="max-w-4xl mx-auto font-[sans-serif]">
+        <div class="max-w-4xl font-[sans-serif]">
           <form [formGroup]="userInformationForm">
-            <div class="grid md:grid-cols-2 sm:grid-cols-1 lg:grid-cols-2 mt-2">
+            <div class="grid md:grid-cols-2 sm:grid-cols-1 lg:grid-cols-2 mb-8">
               <div>
                 <div class="flex">
-                  <label class="p2-ws font-semibold text-blueDark mb-[5%] mt-[5%]"
+                  <label class="p2-ws font-semibold text-blueDark"
                     >Información personal</label
                   >
                 </div>
               </div>
             </div>
             <div
-              class="grid md:grid-cols-2 sm:grid-cols-1 lg:grid-cols-2 gap-3 mb-2 mt-4"
+              class="grid md:grid-cols-2 sm:grid-cols-1 lg:grid-cols-2 gap-4 md:gap-8"
             >
               <div>
                 <label class="font-register p7-ps mb-2 block">Nombre</label>
@@ -66,11 +66,11 @@
               </div>
             </div>
 
-            <div class="grid sm:grid-cols-1 mt-2">
-              <div class="grid sm:grid-cols-1 grid-cols-1 mt-2">
+            <div class="grid sm:grid-cols-1 gap-4 md:gap-8 mt-10">
+              <div class="grid sm:grid-cols-1 grid-cols-1">
                 <div>
                   <div class="flex">
-                    <label class="p2-ws font-semibold text-blueDark mb-[5%] mt-[5%]"
+                    <label class="p2-ws font-semibold text-blueDark"
                       >Cambio de contraseña</label
                     >
                   </div>
@@ -83,14 +83,18 @@
                       >Contraseña actual</label
                     >
                   </div>
-
-                  <input
-                  formControlName="oldpassword"
+                  <div class="flex w-full relative">
+                    <input
+                    formControlName="oldpassword"
                     name="password"
-                    type="text"
+                    type="password"
                     class="bg-gray-100 w-full text-gray-800 p7-ps px-4 py-2.5 rounded-lg focus:bg-transparent outline-blue-500 transition-all"
                     placeholder="Enter password"
-                  />
+                    />
+                    <svg class="absolute right-4 bottom-3 w-4 sm:w-5" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M0 5C0.60854 2.15542 3.51111 0 7.00002 0C10.4889 0 13.3915 2.15542 14 5C13.3915 7.84456 10.4889 10 7.00002 10C3.51111 10 0.60854 7.84456 0 5ZM7.00002 7.77778C8.78673 7.77778 10.2352 6.53411 10.2352 5C10.2352 3.46588 8.78673 2.22222 7.00002 2.22222C5.21327 2.22222 3.76483 3.46588 3.76483 5C3.76483 6.53411 5.21327 7.77778 7.00002 7.77778ZM7.00002 6.66667C5.92795 6.66667 5.0589 5.9205 5.0589 5C5.0589 4.0795 5.92795 3.33333 7.00002 3.33333C8.07202 3.33333 8.94112 4.0795 8.94112 5C8.94112 5.9205 8.07202 6.66667 7.00002 6.66667Z" fill="#585B62"/>
+                    </svg>
+                  </div>
                 </div>
               </div>
               <div class="grid sm:grid-cols-1 grid-cols-1 mt-2">
@@ -100,14 +104,19 @@
                       >Nueva contraseña (Ingresa tu nueva contraseña)</label
                     >
                   </div>
-
-                  <input
-                  formControlName="password"
-                    name="password"
-                    type="text"
-                    class="bg-gray-100 w-full text-gray-800 p7-ps px-4 py-2.5 rounded-lg focus:bg-transparent outline-blue-500 transition-all"
-                    placeholder="Enter password"
-                  />
+                  <div class="flex w-full relative">
+                    <input
+                    formControlName="password"
+                      name="password"
+                      type="password"
+                      class="bg-gray-100 w-full text-gray-800 p7-ps px-4 py-2.5 rounded-lg focus:bg-transparent outline-blue-500 transition-all"
+                      placeholder="Enter password"
+                      
+                    />
+                    <svg class="absolute right-4 bottom-3 w-4 sm:w-5" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M0 5C0.60854 2.15542 3.51111 0 7.00002 0C10.4889 0 13.3915 2.15542 14 5C13.3915 7.84456 10.4889 10 7.00002 10C3.51111 10 0.60854 7.84456 0 5ZM7.00002 7.77778C8.78673 7.77778 10.2352 6.53411 10.2352 5C10.2352 3.46588 8.78673 2.22222 7.00002 2.22222C5.21327 2.22222 3.76483 3.46588 3.76483 5C3.76483 6.53411 5.21327 7.77778 7.00002 7.77778ZM7.00002 6.66667C5.92795 6.66667 5.0589 5.9205 5.0589 5C5.0589 4.0795 5.92795 3.33333 7.00002 3.33333C8.07202 3.33333 8.94112 4.0795 8.94112 5C8.94112 5.9205 8.07202 6.66667 7.00002 6.66667Z" fill="#585B62"/>
+                    </svg>
+                  </div>
                 </div>
               </div>
               <div class="grid sm:grid-cols-1 grid-cols-1 mt-2">
@@ -117,14 +126,19 @@
                       >Confirmar nueva contraseña</label
                     >
                   </div>
-
-                  <input
-                  formControlName="checkpassword"
-                    name="password"
-                    type="text"
-                    class="bg-gray-100 w-full text-gray-800 p7-ps px-4 py-2.5 rounded-lg focus:bg-transparent outline-blue-500 transition-all"
-                    placeholder="Enter password"
-                  />
+                  <div class="flex w-full relative">
+                    <input
+                    formControlName="checkpassword"
+                      name="password"
+                      type="password"
+                      class="bg-gray-100 w-full text-gray-800 p7-ps px-4 py-2.5 rounded-lg focus:bg-transparent outline-blue-500 transition-all"
+                      placeholder="Enter password"
+                    />
+                    <svg class="absolute right-4 bottom-3 w-4 sm:w-5" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M0 5C0.60854 2.15542 3.51111 0 7.00002 0C10.4889 0 13.3915 2.15542 14 5C13.3915 7.84456 10.4889 10 7.00002 10C3.51111 10 0.60854 7.84456 0 5ZM7.00002 7.77778C8.78673 7.77778 10.2352 6.53411 10.2352 5C10.2352 3.46588 8.78673 2.22222 7.00002 2.22222C5.21327 2.22222 3.76483 3.46588 3.76483 5C3.76483 6.53411 5.21327 7.77778 7.00002 7.77778ZM7.00002 6.66667C5.92795 6.66667 5.0589 5.9205 5.0589 5C5.0589 4.0795 5.92795 3.33333 7.00002 3.33333C8.07202 3.33333 8.94112 4.0795 8.94112 5C8.94112 5.9205 8.07202 6.66667 7.00002 6.66667Z" fill="#585B62"/>
+                    </svg>
+                  </div>
+                  
                 </div>
               </div>
               <!--div class="grid sm:grid-cols-2 grid-cols-1 gap-3 mt-4">

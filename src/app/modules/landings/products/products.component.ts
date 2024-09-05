@@ -22,7 +22,7 @@ import { BannerComponent } from '../../../shared/components/banner/banner.compon
 export default class ProductsComponent {
   title = '¿NO TIENES TIEMPO PARA ANALIZAR TUS ACTIVOS?';
   route = inject(Router)
-  pDetail = [
+  characteristic1 = [
     {
       title: 'Asesor Experto',
       icon: 'check.png',
@@ -34,8 +34,7 @@ export default class ProductsComponent {
       color: '#E9F2FD',
     },
     {
-      title:
-        'Paquete de estrategias para diferentes pares pre diseñadas de acuerdo a su capital',
+      title: 'Paquete de estrategias para diferentes pares pre diseñadas de acuerdo a su capital',
       icon: 'check.png',
       color: '#C9DCF2',
     },
@@ -51,7 +50,7 @@ export default class ProductsComponent {
     },
   ];
 
-  pDetail2 = [
+  characteristic2 = [
     {
       title: 'Tendrás operativas con un 75% de asertividad',
       icon: 'check.png',

@@ -1,7 +1,5 @@
-<div class="flex flex-col gap-5 sm:gap-5 md:w-[300px] lg:w-[410px] h-full bg-[#F2F8FF] pt-8 px-4 py-8 sm:py-16 sm:pl-[30px] md:pl-[50px] 2xl:pt-36 2xl:pl-[76px]">
-    <a class="p3-ws font-semibold" [routerLink]="['/admin/profile']">Perfil</a>
-    <a class="p3-ws font-semibold" [routerLink]="['/admin/shopping']">Mis compras</a>
-    <a class="p3-ws font-semibold"  [routerLink]="['/admin/robots-license']">Robots y licencias</a>
-    <!--a class="navbar-link">Descargas</a-->
-    <a class="p3-ws font-semibold cursor-pointer" (click)="logout()">Cerrar sesión</a>
+<div class="flex flex-col gap-5 sm:gap-5 md:w-[200px] lg:w-[300px] h-full bg-[#F2F8FF] pt-8 px-4 py-8 sm:py-16 sm:pl-[30px] lg:pl-[50px] 2xl:pt-36">
+    @for (item of menu; track item.id) {
+        <a class="p3-ws font-semibold cursor-pointer" (click)="item?.callback ? item.callback!(): navigateTo(item)">{{ item.name }}</a>
+    }
 </div>
