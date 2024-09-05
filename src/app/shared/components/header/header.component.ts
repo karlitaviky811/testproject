@@ -33,13 +33,11 @@ export class HeaderComponent implements OnInit {
       name: 'TIENDA',
       path: 'site/robots',
     },
+  ];
+  routeOptionsClient = [
     {
       name: 'CONTACTO',
       path: 'site/contact',
-    },
-    {
-      name: 'ES',
-      path: '#',
     },
     {
       name: '',
@@ -49,7 +47,38 @@ export class HeaderComponent implements OnInit {
       name: 'LOGIN',
       path: '/sign-in',
     },
-  ];
+  ]
+
+  routesMobile =  [
+    {
+      name: 'HOME',
+      path: '',
+    },
+    {
+      name: 'SERVICIOS Y PRODUCTOS',
+      path: 'site/products',
+    },
+    {
+      name: 'NOSOTROS',
+      path: 'site/about',
+    },
+    {
+      name: 'TIENDA',
+      path: 'site/robots',
+    },
+    {
+      name: 'CONTACTO',
+      path: 'site/contact',
+    },
+    {
+      name: '',
+      path: '/site/shopping-cart',
+    },
+    {
+      name: 'LOGIN',
+      path: '/sign-in',
+    },
+  ]
   constructor(private authSrv: AuthService) {
  
   }
@@ -74,11 +103,15 @@ export class HeaderComponent implements OnInit {
      
     if (data !== null) {
       console.log('hey', this.user.admin());
-      this.routeOptions[7].name = data;
-      this.routeOptions[7].path = 'admin';
+      this.routeOptionsClient[2].name = data;
+      this.routeOptionsClient[2].path = 'admin';
+      this.routesMobile[6].name = data;
+      this.routesMobile[6].path ='admin';
     }else{
-      this.routeOptions[7].name = 'LOGIN';
-      this.routeOptions[7].path = 'sign-in';
+      this.routeOptionsClient[2].name = 'LOGIN';
+      this.routeOptionsClient[2].path = 'sign-in';
+      this.routesMobile[6].name ='LOGIN';
+      this.routesMobile[6].path ='sign-in';
     }
   }
 }

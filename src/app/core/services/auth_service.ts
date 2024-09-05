@@ -85,7 +85,7 @@ export class AuthService {
   }
 
   validRecaptcha(token: string){
-    const registerRequest = this.http.get<any>(`${environment.apiUrl}${ENDPOINT.validateRecaptcha}`).pipe(
+    const registerRequest = this.http.get<any>(`${environment.apiUrl}${ENDPOINT.validateRecaptcha}?token=${token}`,).pipe(
       tap(response=>{
       })
   );

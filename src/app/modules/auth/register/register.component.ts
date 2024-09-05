@@ -215,7 +215,7 @@ export default class RegisterComponent implements OnInit {
         console.log('err', err)
         this.validRecaptcha = false
         this.show = false;
-        this.messages = [{ severity: "warn", summary: err.error.message }];
+;
       },
     });
   }

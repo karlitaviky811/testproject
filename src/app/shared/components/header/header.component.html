@@ -1,5 +1,5 @@
-<nav class="flex flex-wrap sm:flex-wrap justify-between items-center md:justify-center lg:justify-between w-full bg-secondary border-gray-200 px-4 lg:px-20 xl:px-[128px] py-4">
-  <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse w-auto">
+<nav class="flex flex-wrap sm:flex-wrap justify-between items-center md:justify-center border-solid border-b-2 border-primary lg:justify-between w-full bg-[#F6F6F6] border-gray-200 px-4 lg:px-20 xl:px-[128px] py-4">
+  <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse w-auto md:w-[30%]">
     <img  (click)="handleClick('')" src="img/logo.png" alt="" class="cursor-pointer">
   </a>
   <button
@@ -26,9 +26,9 @@
     </svg>
   </button>
   <!--button (click)="openMenu()">Hi</button-->
-  <div class="hidden w-full md:block md:w-auto"   id="navbar-dropdown">
+  <div class="hidden sm:hidden w-full md:block md:w-auto"   id="navbar-dropdown">
     <ul
-      class="flex flex-col font-medium p-4 md:p-0 mt-4 rounded-lg rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-secondary dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700"
+      class="flex flex-col font-medium p-4 md:p-0 mt-4 rounded-lg rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-[#F6F6F6] dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700"
     >
       @for(route of routeOptions; track route.name) {
       <li class="flex items-center justify-center">
@@ -54,10 +54,34 @@
 
     </ul>
   </div>
+  <div class="hidden w-full md:block md:w-auto"   id="navbar-dropdown">
+    <ul
+      class="flex flex-col font-medium p-4 md:p-0 mt-4  gap-6 rounded-lg rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-[#F6F6F6] dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700"
+    >
+    @for(route of routeOptionsClient; track route.name) {
+      <li class="flex items-center justify-around">
+        <a
+          [ngClass]="{'blue-button': route.name === 'CONTACTO', 'my_class2' :  route.name === 'ES' , 'my_classContact' :  route.path === 'admin' }"
+          (click)="handleClick(route.path)"
+          class="block p6-ws text-center text-blueDark cursor-pointer"
+          aria-current="page"
+          >   
+          @if(route.path == '/site/shopping-cart'){
+            <div class="w-[24px] h-[24px]"  >
+              <img class="w-[24px] h-[24px]" src="img/cart-header.png" alt=""> 
+            </div>
+           
+          }
+          {{ route.name.toUpperCase() }}</a
+        >
+      </li>
+      }
+    </ul>
+  </div>
   @if(show){
     <div class="w-full md:w-auto md:hidden">
       <ul
-      class="flex flex-col font-medium p-4 md:p-0 mt-4 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-secondary dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700"
+      class="flex flex-col font-medium p-4 md:p-0 mt-4 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-[#F6F6F6] dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700"
     >
       <!--li>
         <a
@@ -66,10 +90,10 @@
           > <img class="w-[24px] h-[24px] cursor-pointer" src="img/home.png" [routerLink]="['']" alt=""></a
         >
       </li-->
-      @for(route of routeOptions; track route.name) {
+      @for(route of routesMobile; track route.name) {
         <li class="flex items-center justify-start">
           <a
-            [ngClass]="{'blue-button': route.name === 'CONTACTO', 'my_class2' :  route.name === 'ES' }"
+            [ngClass]="{'blue-button': route.name === 'CONTACTO', 'my_class2' :  route.name === 'ES', 'my_classContact' :  route.path === 'admin' }"
             (click)="handleClick(route.path)"
             class="block py-2 pl-3 pr-4 p6-ws text-center text-blueDark cursor-pointer"
             aria-current="page"
@@ -89,6 +113,8 @@
   
       }
     </ul>
+
+    
     </div>
   }
 </nav>
